@@ -1,0 +1,941 @@
+/*
+ * A light, warm "field guide" palette. Deliberately low-saturation everywhere
+ * except the chart itself, so the ICS period colours and the creature bars are
+ * the only strong colour on the page.
+ */
+
+:root,
+:root[data-theme="light"] {
+  --paper: #f7f5f1;
+  --surface: #ffffff;
+  --ink: #1f1d1a;
+  --ink-soft: #6a635a;
+  --ink-faint: #9b948a;
+  --rule: #e7e2d9;
+  --rule-strong: #d2ccc0;
+  --rule-faint: #f0ece5;
+  --accent: #7a4b2a;
+  --focus-ring: rgb(122 75 42 / 0.14);
+  --extinction: rgb(158 62 46 / 0.42);
+  --extinction-text: rgb(158 62 46 / 0.72);
+  --axis-divider: rgb(255 255 255 / 0.55);
+
+  --group-theropod: #bf5540;
+  --group-sauropodomorph: #4d876a;
+  --group-ornithischian: #bd8a30;
+  --group-marine-reptile: #376f8d;
+  --group-pterosaur: #7867a3;
+  --group-other-reptile: #6d8747;
+  --group-synapsid: #9b6044;
+  --group-mammal: #a55670;
+  --group-hominin: #6b4d38;
+  --group-fish: #3e7d7d;
+
+  color-scheme: light;
+}
+
+/*
+ * Dark theme.
+ *
+ * Neutrals stay warm rather than going neutral-grey, so the chart keeps the
+ * same "field guide" character in both modes instead of turning into a
+ * different product after sunset.
+ *
+ * The group hues are not the light values dimmed — they are lifted and slightly
+ * desaturated. A colour with enough contrast against white is usually too dark
+ * to read against a dark surface, so each pair is chosen for its own background.
+ */
+:root[data-theme="dark"] {
+  --paper: #171614;
+  --surface: #1e1d1a;
+  --ink: #f0ece4;
+  --ink-soft: #a9a296;
+  --ink-faint: #7b7469;
+  --rule: #34312b;
+  --rule-strong: #47443c;
+  --rule-faint: #262420;
+  --accent: #cf9d70;
+  --focus-ring: rgb(207 157 112 / 0.22);
+  --extinction: rgb(214 118 98 / 0.45);
+  --extinction-text: rgb(219 133 114 / 0.85);
+  --axis-divider: rgb(0 0 0 / 0.28);
+
+  --group-theropod: #e08871;
+  --group-sauropodomorph: #74bb98;
+  --group-ornithischian: #ddb662;
+  --group-marine-reptile: #74a9c9;
+  --group-pterosaur: #a99ad4;
+  --group-other-reptile: #9fba78;
+  --group-synapsid: #cb9276;
+  --group-mammal: #d68ca3;
+  --group-hominin: #b7906f;
+  --group-fish: #72b3b3;
+
+  color-scheme: dark;
+}
+
+/* Shared across both themes. */
+:root {
+  --font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* One spacing scale, so every edge in the UI lines up with another. */
+  --gutter: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* ── Page frame ─────────────────────────────────────────────────────────── */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+}
+
+/*
+ * Chrome is held to two slim rows so the chart gets the screen. An earlier
+ * version spent ~290px on header and controls before the data began.
+ */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px var(--gutter);
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brand p {
+  margin: 0;
+  overflow: hidden;
+  color: var(--ink-faint);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stage {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  gap: 0;
+}
+
+.colophon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 9px var(--gutter);
+  border-top: 1px solid var(--rule);
+  color: var(--ink-faint);
+  font-size: 11.5px;
+}
+
+.colophon p {
+  margin: 0;
+}
+
+/* ── Toolbar ────────────────────────────────────────────────────────────── */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.search input {
+  width: 190px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: 13px;
+  transition: border-color 0.12s;
+}
+
+.search input::placeholder {
+  color: var(--ink-faint);
+}
+
+.search input:hover {
+  border-color: var(--ink-faint);
+}
+
+.search input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* Segmented control: one outline, hairlines between the buttons. */
+.zoom {
+  display: flex;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.zoom button {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 9px;
+  border: none;
+  border-left: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1;
+  transition: background 0.12s, color 0.12s;
+}
+
+.zoom button:first-child {
+  border-left: none;
+}
+
+.zoom button:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.zoom-fit {
+  font-size: 12px !important;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  transition: background 0.12s, color 0.12s;
+}
+
+.theme-toggle:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ── Filter bar (doubles as the colour legend) ──────────────────────────── */
+
+.filterbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 7px var(--gutter);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.group-filters {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 12px;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, opacity 0.12s;
+}
+
+.chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--chip-color);
+  flex: none;
+}
+
+.chip:hover {
+  background: var(--surface);
+  border-color: var(--rule);
+  color: var(--ink);
+}
+
+.chip.is-active {
+  border-color: var(--chip-color);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+/* Filtering is on and this group is not in it. */
+.chip.is-dimmed {
+  opacity: 0.42;
+}
+
+.result-count {
+  margin-left: auto;
+  color: var(--ink-faint);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Timeline viewport ──────────────────────────────────────────────────── */
+
+.viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+  background: var(--surface);
+}
+
+.canvas {
+  position: relative;
+  min-height: 100%;
+}
+
+/* ── Axis ───────────────────────────────────────────────────────────────── */
+
+.axis {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.axis-row {
+  position: relative;
+}
+
+.axis-span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /*
+   * `clip`, not `hidden`: `hidden` would make each span its own scroll
+   * container, which silently breaks the sticky label below — the name of a
+   * span you are scrolled into the middle of would scroll away off-screen.
+   * `clip` trims the overflow without creating a scrollport.
+   */
+  overflow: clip;
+  border: none;
+  border-right: 1px solid var(--axis-divider);
+  padding: 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.axis-span:hover {
+  filter: brightness(1.08);
+}
+
+/*
+ * Sticky label: keeps a period's name visible while you are scrolled into the
+ * middle of it, instead of letting the name slide off to the left.
+ */
+.axis-span-label {
+  position: sticky;
+  left: 0;
+  padding: 0 7px;
+}
+
+/* Eras are the coarsest rank; muting them keeps the axis from stacking three
+   equally loud colour bars on top of each other. */
+.axis-row:first-child .axis-span {
+  opacity: 0.75;
+}
+
+/*
+ * The ICS colours are deliberately NOT adjusted for dark mode. They are a
+ * published standard that readers will meet again in textbooks and museums, so
+ * they stay accurate in both themes; the axis is kept slim instead, which
+ * controls the glare without falsifying the chart. Dimming them via a filter
+ * would also dim the label text sitting on top and undo the contrast work in
+ * lib/color.ts.
+ */
+
+.axis-ticks {
+  border-top: 1px solid var(--rule);
+}
+
+.axis-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--rule-strong);
+}
+
+.axis-tick-label {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Bands and bars ─────────────────────────────────────────────────────── */
+
+/*
+ * One shared set of rows for every species, regardless of group. Rows exist
+ * only to stop bars colliding, so a vertical slice through the chart is a
+ * genuine "who was alive at this moment" reading.
+ */
+/*
+ * Family blocks are in normal flow, so this box sizes itself and the padding
+ * genuinely moves them — reserving the strip the sticky extinction captions
+ * need above the first block.
+ */
+.lanes {
+  position: relative;
+  padding-top: 28px;
+}
+
+.family {
+  position: relative;
+}
+
+/*
+ * Sticky to the left edge so a family stays identified however far the reader
+ * has panned. Kept quiet: it names a region, it is not data.
+ */
+.family-title {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: 0;
+  padding: 0 14px 0 var(--gutter);
+  color: var(--ink-faint);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.family-rows {
+  position: relative;
+}
+
+.lane-guide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--rule-faint);
+  pointer-events: none;
+}
+
+.band-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: none;
+}
+
+/*
+ * A bar is a transparent, comfortably sized button that paints only a hairline
+ * rule near its base, with the species name annotated above. The button keeps
+ * its full height purely as a pointer target — see BAR_HEIGHT in dimensions.ts.
+ */
+.bar {
+  --rule-thickness: 4px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 3px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  /* Labels deliberately overhang the button into the empty time after it. */
+  overflow: visible;
+  transition: opacity 0.15s;
+}
+
+.bar-rule {
+  position: relative;
+  width: 100%;
+  height: var(--rule-thickness);
+  border-radius: calc(var(--rule-thickness) / 2);
+  background: var(--bar-color);
+  transition: height 0.12s;
+}
+
+/*
+ * End caps. A hairline alone makes it hard to see exactly where a span begins
+ * and ends; these ticks mark the boundaries, which is the entire point of a
+ * range chart. On a minimum-width bar they merge into a single dot, which
+ * usefully makes single-horizon genera read as "a moment, not a span".
+ */
+.bar-rule::before,
+.bar-rule::after {
+  content: "";
+  position: absolute;
+  /* Centred on the rule, so each end reads as an I-beam range marker rather
+     than a one-sided bracket. */
+  top: -2px;
+  height: calc(var(--rule-thickness) + 4px);
+  width: 2px;
+  border-radius: 1px;
+  background: var(--bar-color);
+}
+
+.bar-rule::before {
+  left: 0;
+}
+
+.bar-rule::after {
+  right: 0;
+}
+
+/* Name and thumbnail travel together, staying visible along a long span. */
+.bar-annotation {
+  position: sticky;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  pointer-events: none;
+}
+
+.bar:hover {
+  z-index: 2;
+  color: var(--ink);
+}
+
+.bar:hover .bar-rule {
+  --rule-thickness: 6px;
+}
+
+.bar:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+/* Selection thickens the rule rather than boxing it, keeping the line idiom. */
+.bar--selected {
+  --rule-thickness: 8px;
+  z-index: 3;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.bar--contemporary {
+  --rule-thickness: 6px;
+  color: var(--ink);
+}
+
+/* Alive at a different time than the selection, or filtered out. */
+.bar--faded {
+  opacity: 0.3;
+}
+
+.bar--faded .bar-annotation {
+  opacity: 0;
+}
+
+.bar--excluded {
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.bar--excluded .bar-annotation {
+  opacity: 0;
+}
+
+/* ── Silhouettes ────────────────────────────────────────────────────────── */
+
+/*
+ * The artwork is painted as a CSS mask rather than drawn as an image, so a
+ * single flat black source file can take on whatever colour its context needs.
+ */
+.silhouette {
+  display: block;
+  flex: none;
+  background-color: var(--silhouette-color, currentColor);
+  -webkit-mask-image: var(--silhouette);
+  mask-image: var(--silhouette);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/*
+ * Thumbnails now sit on the page background rather than on a filled bar, so
+ * they take the group colour instead of the white that used to read against it.
+ */
+.silhouette--bar {
+  width: 24px;
+  height: 14px;
+  --silhouette-color: var(--bar-color);
+}
+
+.silhouette--list {
+  width: 22px;
+  height: 14px;
+}
+
+.silhouette--hero {
+  width: 100%;
+  height: 92px;
+}
+
+/* ── Extinction markers ─────────────────────────────────────────────────── */
+
+/*
+ * Extinction markers are context, not data. They were competing with the bars
+ * in heavy red caps; now they are a quiet hairline with a small caption.
+ */
+.extinction-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px dashed var(--extinction);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.extinction-label {
+  position: sticky;
+  top: 0;
+  display: block;
+  margin-left: 5px;
+  color: var(--extinction-text);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ── Detail panel ───────────────────────────────────────────────────────── */
+
+.detail {
+  width: 330px;
+  flex: none;
+  overflow-y: auto;
+  padding: 16px 18px 24px;
+  border-left: 1px solid var(--rule-strong);
+  background: var(--paper);
+}
+
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid;
+}
+
+.detail-header h2 {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 22px;
+  font-style: italic;
+}
+
+.detail-common {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.detail-close {
+  border: none;
+  background: none;
+  color: var(--ink-faint);
+  font-size: 22px;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.detail-close:hover {
+  color: var(--ink);
+}
+
+.detail-figure {
+  margin: 14px 0 0;
+  padding: 12px 10px 10px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+.detail-figure figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 9px;
+  color: var(--ink-faint);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.detail-standin {
+  color: var(--ink-soft);
+}
+
+.detail-artist a {
+  color: inherit;
+}
+
+.detail-facts {
+  margin: 14px 0;
+  display: grid;
+  gap: 9px;
+}
+
+.detail-facts > div {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 13px;
+}
+
+.detail-facts dt {
+  color: var(--ink-faint);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.detail-facts dd {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-blurb {
+  margin: 0 0 18px;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.detail-contemporaries h3 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.detail-contemporaries .count {
+  display: inline-block;
+  min-width: 18px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--rule);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.detail-contemporaries ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-contemporaries li button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  text-align: left;
+  font-size: 13px;
+}
+
+.detail-contemporaries li button:hover {
+  background: var(--rule);
+}
+
+.contemporary-name {
+  font-style: italic;
+}
+
+.contemporary-range {
+  margin-left: auto;
+  color: var(--ink-faint);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.detail-empty {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.detail-empty code {
+  font-size: 12px;
+}
+
+/* ── Credits ────────────────────────────────────────────────────────────── */
+
+.credits {
+  margin-top: 5px;
+}
+
+.credits summary {
+  cursor: pointer;
+  color: var(--ink-faint);
+}
+
+.credits summary:hover {
+  color: var(--ink-soft);
+}
+
+.credits-intro {
+  margin: 7px 0 5px;
+}
+
+.credits ul {
+  max-height: 190px;
+  overflow-y: auto;
+  margin: 0;
+  padding-left: 18px;
+  columns: 2;
+  column-gap: 28px;
+}
+
+.credits li {
+  margin-bottom: 2px;
+  break-inside: avoid;
+}
+
+.credits a {
+  color: inherit;
+}
+
+.credits-standin {
+  font-style: italic;
+}
+
+/* ── Narrow screens ─────────────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .stage {
+    flex-direction: column;
+  }
+
+  .detail {
+    width: auto;
+    max-height: 45%;
+    border-left: none;
+    border-top: 1px solid var(--rule-strong);
+  }
+}
+
+/* The tagline is the first thing to go when the toolbar needs the room. */
+@media (max-width: 720px) {
+  .brand p {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .toolbar {
+    width: 100%;
+  }
+
+  .search {
+    flex: 1;
+  }
+
+  .search input {
+    width: 100%;
+  }
+}
