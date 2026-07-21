@@ -1,0 +1,14 @@
+{
+  // Static-only Worker: Chronofauna compiles to files, so there is no `main`
+  // entrypoint and no Worker script. Everything under ./dist is served by the
+  // CDN directly.
+  "name": "chronofauna",
+  "compatibility_date": "2026-07-21",
+  "assets": {
+    "directory": "./dist"
+    // Deliberately no `not_found_handling`. The single-page-application setting
+    // is the usual advice for Vite, but this app has no client-side router, so
+    // rewriting unknown paths to index.html would turn real 404s into a
+    // silently-rendered timeline.
+  }
+}

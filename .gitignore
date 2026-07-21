@@ -2,6 +2,11 @@ node_modules/
 dist/
 *.local
 .DS_Store
+tsconfig.tsbuildinfo
+
+# Wrangler's local state (build cache, dev server data); the deploy config
+# itself, wrangler.jsonc, is committed.
+.wrangler/
 
 # Per-machine Claude Code permission state; launch.json is shared, this is not.
 .claude/settings.local.json
