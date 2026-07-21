@@ -3,7 +3,7 @@
 Snapshot at the end of the first build session. Everything below was verified in
 a browser against the running app, not inferred — figures are measured.
 
-**State: working and green.** `npm run typecheck`, `npm test` (20 tests) and
+**State: working and green.** `npm run typecheck`, `npm test` (30 tests) and
 `npm run build` all pass; no console errors on a clean load in either theme.
 
 ## Where things got to
@@ -36,20 +36,17 @@ as it was — GPlates coastlines plus real Paleobiology Database occurrences, al
 
 ## Open issues, highest value first
 
-### 1. `estimateLabelWidth` is unsound — fix first
+### ~~1. `estimateLabelWidth` is unsound~~ — fixed
 
-`src/lib/text.ts` claims to overestimate label widths "so we err toward hiding
-rather than colliding". It does not. Measured against rendered text, **10 of 27
-labels are wider than estimated** — "Humans" by 15.8%, "Repenomamus" by 9.7px.
+Replaced with `measureLabelWidth`: real canvas measurement, cached per string,
+font read from a hidden probe so CSS stays authoritative. Worst error against
+rendered text went from 28.6% to 0.01%, and underestimated labels from 10 to 0.
+Labels shown actually *rose* (30 to 36 at 1280px) because the old estimate was
+over-wide for many strings and hid names that fit. Also removed the
+`font-weight` change on `.bar--selected`, which would have made a selected label
+wider than the space measured for it.
 
-Collision-freedom currently holds only because `LABEL_SAFETY_GAP` (8px) absorbs
-the error, and one label already exceeds it. A different font, font size, or a
-browser minimum-font-size setting will produce overlapping labels.
-
-Fix: measure once with a canvas 2D context `measureText`, cache per string.
-Then correct the comment, which is actively misleading.
-
-### 2. Selecting a contemporary does not scroll it into view
+### 1. Selecting a contemporary does not scroll it into view
 
 Select Mosasaurus, then click "Pteranodon" in the *Lived alongside* list: it is
 selected but stays off-screen (bar at y≈678, viewport ends at y≈582), so the
@@ -57,14 +54,14 @@ click looks like it did nothing. `revealInterval` in `useTimelineViewport` only
 scrolls horizontally. A regression from family blocks — when the chart was six
 rows it always fitted vertically, so this never surfaced.
 
-### 3. Tick labels repeat at high zoom
+### 2. Tick labels repeat at high zoom
 
 Zoomed fully into the Permian, three consecutive ticks all read "299 Ma".
 `formatMya` chooses precision from the age's magnitude, not from the tick step,
 so sub-million-year steps at old ages collapse to the same string. Derive the
 decimal places from the step passed to `ticksInRange`.
 
-### 4. Accessibility gaps
+### 3. Accessibility gaps
 
 - **43 tab stops before the chart**, 28 of them axis period bands. Consider
   making the axis a single focus group, or adding a skip link.
@@ -73,13 +70,13 @@ decimal places from the step passed to `ticksInRange`.
 - No arrow-key movement between bars.
 - Focus is not moved into the detail panel when it opens, nor restored on close.
 
-### 5. "Fit" leaves 120px of horizontal scroll
+### 4. "Fit" leaves 120px of horizontal scroll
 
 Labels overhang the right-hand edge of the timeline and widen the canvas, so the
 one button whose job is to fit the chart does not quite. Either measure the
 overhang into the fit calculation or clamp the last label.
 
-### 6. Mobile is weak
+### 5. Mobile is weak
 
 At 375px the filter chips wrap to five rows and consume ~250px — roughly 30% of
 the viewport before any data appears. Worse, **there is no touch pinch-zoom**:
@@ -87,16 +84,16 @@ the wheel handler catches trackpad pinch (ctrl+wheel) but no touch gestures are
 bound, so on a phone only the +/− buttons zoom. Consider a collapsible filter
 row and a `touchstart`/`touchmove` pinch handler.
 
-### 7. No tests around the viewport hook
+### 6. No tests around the viewport hook
 
 `useTimelineViewport` has produced two real bugs (a `pxPerMy` dependency that
 reset zoom on every change, and absolute positioning ignoring container
-padding). It is still untested — all 20 tests cover pure functions. It is the
-riskiest untested code in the project.
+padding). It is still untested — every test covers pure functions or generated
+data. It is the riskiest untested code in the project.
 
 ### Lower priority
 
-- 18 of 48 species are unlabelled at default zoom. The staggered-label idea
+- 12 of 48 species are unlabelled at default zoom. The staggered-label idea
   (alternating above/below the rule) roughly doubles the horizontal budget and
   was never built.
 - No error boundary.

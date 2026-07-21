@@ -129,9 +129,23 @@ at full zoom-out, where the old inside-the-bar scheme could only label the
 long-lived ones.
 
 Labels that still don't fit are dropped entirely rather than clipped; the
-tooltip and detail panel carry the name. Widths come from `estimateLabelWidth`
-in `src/lib/text.ts`, which deliberately overestimates so we err toward hiding
-rather than colliding. If you change label typography, change that estimate too.
+tooltip and detail panel carry the name.
+
+Widths come from `measureLabelWidth` in `src/lib/text.ts`, which measures real
+text with a canvas and caches per string. **Don't replace it with arithmetic on
+`text.length`** — that is what it used to be, and it was wrong by up to 28.6%
+in both directions, so labels only avoided colliding by luck. Measuring costs
+one call per distinct name for the life of the page.
+
+The font is read from a hidden probe element carrying the real class, so the CSS
+stays the single source of truth and typography changes need no follow-up here.
+Two variants exist because bar labels render at weight 500 and axis labels at
+600 — the same string is genuinely two widths, and one shared constant cannot
+serve both.
+
+Related: `.bar--selected` must not change `font-weight`. Labels are measured at
+their normal weight, so bolding on selection would make one label wider than the
+room reserved for it. Selection is shown with rule thickness and ink instead.
 
 ### CSS gotcha: `overflow: clip`, not `hidden`
 

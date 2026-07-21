@@ -594,11 +594,16 @@ button {
 }
 
 /* Selection thickens the rule rather than boxing it, keeping the line idiom. */
+/*
+ * Emphasis here is thickness and ink, deliberately not weight. Labels are
+ * measured at their normal weight to decide whether they fit; bolding on
+ * selection would make one label wider than the space reserved for it and let
+ * it run into its neighbour. The thicker rule already carries the emphasis.
+ */
 .bar--selected {
   --rule-thickness: 8px;
   z-index: 3;
   color: var(--ink);
-  font-weight: 700;
 }
 
 .bar--contemporary {

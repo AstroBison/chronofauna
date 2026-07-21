@@ -53,10 +53,14 @@ export const BAR_THUMBNAIL_EXTRA = BAR_THUMBNAIL_WIDTH + 5;
 export const MIN_RULE_WIDTH = 5;
 
 /**
- * Clear space a label must keep before the next bar's label starts.
+ * Clear space between one label and the next bar's label.
  *
- * `estimateLabelWidth` is an approximation, so a label allowed to fill its
- * budget exactly can overrun by a pixel or two and touch its neighbour. This
- * margin absorbs that error and keeps adjacent labels visually separated.
+ * This used to be doing two jobs, one of them badly: absorbing the error in a
+ * guessed text width, and keeping labels from sitting flush. Widths are now
+ * measured rather than guessed (`lib/text.ts`), so only the second job is left
+ * — this is breathing room, not a correctness margin.
  */
 export const LABEL_SAFETY_GAP = 8;
+
+/** Horizontal padding on `.axis-span-label`; a name needs its width plus this. */
+export const AXIS_LABEL_PADDING = 14;

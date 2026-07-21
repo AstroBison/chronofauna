@@ -1,12 +1,13 @@
 import { ERAS, PERIODS, EPOCHS } from "../data/geoSpans";
 import {
+  AXIS_LABEL_PADDING,
   ERA_ROW_HEIGHT,
   PERIOD_ROW_HEIGHT,
   EPOCH_ROW_HEIGHT,
   TICK_ROW_HEIGHT,
 } from "../lib/dimensions";
 import { formatMya, intervalToRect, myaToX, niceTickStep, ticksInRange } from "../lib/scale";
-import { estimateLabelWidth } from "../lib/text";
+import { measureLabelWidth } from "../lib/text";
 import { readableInk } from "../lib/color";
 import type { GeoSpan } from "../types";
 import type { VisibleRange } from "../hooks/useTimelineViewport";
@@ -32,7 +33,7 @@ function SpanRow({ spans, height, pxPerMy, onSelect }: SpanRowProps) {
             title={`${span.name} — ${formatMya(span.start)} to ${formatMya(span.end)}. Click to zoom.`}
           >
             {/* Drop the name rather than let it clip mid-word ("Late Jurass…"). */}
-            {width >= estimateLabelWidth(span.name, 16) && (
+            {width >= measureLabelWidth(span.name, "axis") + AXIS_LABEL_PADDING && (
               <span className="axis-span-label">{span.name}</span>
             )}
           </button>

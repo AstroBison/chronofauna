@@ -6,7 +6,7 @@ import {
   MIN_RULE_WIDTH,
 } from "../lib/dimensions";
 import { formatDuration, formatMya, durationMy, intervalToRect } from "../lib/scale";
-import { estimateLabelWidth } from "../lib/text";
+import { measureLabelWidth } from "../lib/text";
 import { Silhouette } from "./Silhouette";
 import type { PackedCreature } from "../types";
 
@@ -45,9 +45,9 @@ export function CreatureBar({ packed, pxPerMy, color, state, onSelect }: Creatur
   const ruleWidth = Math.max(width, MIN_RULE_WIDTH);
 
   // A label may use its own rule plus the empty run before the next bar in this
-  // lane, less a safety margin; beyond that it would touch the next label.
+  // lane, less a small gap so neighbouring labels never sit flush together.
   const roomForLabel = ruleWidth + gapAfterMy * pxPerMy - LABEL_SAFETY_GAP;
-  const labelWidth = estimateLabelWidth(label, 0);
+  const labelWidth = measureLabelWidth(label, "bar");
   const showLabel = labelWidth <= roomForLabel;
   const showThumbnail = showLabel && labelWidth + BAR_THUMBNAIL_EXTRA <= roomForLabel;
 
