@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { TIMELINE_END, TIMELINE_START } from "../data/geoSpans";
+import { AXIS_HEIGHT } from "../lib/dimensions";
 import { TOTAL_MY, clampZoom, myaToX, xToMya } from "../lib/scale";
 import type { Interval } from "../types";
 
@@ -83,24 +84,53 @@ export function useTimelineViewport() {
     });
   }, []);
 
-  /** Nudge the viewport just enough to bring an interval into view. */
-  const revealInterval = useCallback(
-    (interval: Interval) => {
+  /** Nudge the viewport just enough to bring a creature's bar into view. */
+  const revealCreature = useCallback(
+    (creatureId: string) => {
       const el = viewportRef.current;
       if (!el) return;
-      const left = myaToX(interval.start, pxPerMy);
-      const right = myaToX(interval.end, pxPerMy);
-      const margin = 48;
 
-      if (left < el.scrollLeft + margin) {
-        el.scrollTo({ left: left - margin, behavior: "smooth" });
-      } else if (right > el.scrollLeft + el.clientWidth - margin) {
+      const bar = el.querySelector<HTMLElement>(
+        `[data-creature-id="${CSS.escape(creatureId)}"]`,
+      );
+      if (!bar) return;
+
+      // Measure the rendered bar rather than deriving its position. Horizontal
+      // placement is knowable from the age, but vertical placement depends on
+      // family headers, gaps and row heights resolved by CSS flow — re-deriving
+      // that here would duplicate the layout and drift out of step with it.
+      const viewport = el.getBoundingClientRect();
+      const rect = bar.getBoundingClientRect();
+      const barLeft = rect.left - viewport.left + el.scrollLeft;
+      const barRight = rect.right - viewport.left + el.scrollLeft;
+      const barTop = rect.top - viewport.top + el.scrollTop;
+      const barBottom = rect.bottom - viewport.top + el.scrollTop;
+
+      const margin = 48;
+      let left = el.scrollLeft;
+      if (barLeft < el.scrollLeft + margin) {
+        left = barLeft - margin;
+      } else if (barRight > el.scrollLeft + el.clientWidth - margin) {
         // Prefer showing the start of the bar if the whole thing cannot fit.
-        const target = Math.min(left - margin, right - el.clientWidth + margin);
-        el.scrollTo({ left: target, behavior: "smooth" });
+        left = Math.min(barLeft - margin, barRight - el.clientWidth + margin);
+      }
+
+      // The axis is sticky over the top of the chart, so a bar scrolled to
+      // y = 0 would sit underneath it rather than in view.
+      const topMargin = AXIS_HEIGHT + 16;
+      const bottomMargin = 24;
+      let top = el.scrollTop;
+      if (barTop < el.scrollTop + topMargin) {
+        top = barTop - topMargin;
+      } else if (barBottom > el.scrollTop + el.clientHeight - bottomMargin) {
+        top = barBottom - el.clientHeight + bottomMargin;
+      }
+
+      if (left !== el.scrollLeft || top !== el.scrollTop) {
+        el.scrollTo({ left, top, behavior: "smooth" });
       }
     },
-    [pxPerMy],
+    [],
   );
 
   const hasInteracted = useRef(false);
@@ -168,7 +198,7 @@ export function useTimelineViewport() {
     zoomBy,
     fitAll,
     focusInterval,
-    revealInterval,
+    revealCreature,
     markInteracted,
   };
 }

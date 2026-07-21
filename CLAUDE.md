@@ -71,6 +71,19 @@ Both of these have already caused visible bugs, so they have comments in place:
   a `useLayoutEffect` after React resizes the canvas. Setting it any earlier
   clamps against a stale scroll width.
 
+### `revealCreature` measures the DOM on purpose
+
+It finds the bar by `data-creature-id` and reads its rect rather than computing
+where it should be. Horizontal position is derivable from the age, but vertical
+position falls out of CSS flow — family headers, gaps, row heights — and
+re-deriving it here would duplicate the layout and drift when the layout
+changes. An earlier version only scrolled horizontally, so picking a
+contemporary from the detail panel selected a bar in another family block
+off-screen and looked like a no-op.
+
+Scrolling clears `AXIS_HEIGHT` at the top, because the axis is sticky and would
+otherwise cover a bar scrolled flush to the top of the viewport.
+
 ### Blocked by family; rows within a block are collision avoidance
 
 Species are grouped into **five coarse families** (`FAMILY_OF` in `layout.ts`),

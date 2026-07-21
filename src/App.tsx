@@ -27,7 +27,7 @@ export default function App() {
     zoomBy,
     fitAll,
     focusInterval,
-    revealInterval,
+    revealCreature,
     markInteracted,
   } = useTimelineViewport();
 
@@ -70,8 +70,8 @@ export default function App() {
   // Bring a newly selected creature into view — important when the selection
   // came from the contemporaries list rather than from clicking the chart.
   useEffect(() => {
-    if (selected) revealInterval(selected);
-  }, [selected, revealInterval]);
+    if (selected) revealCreature(selected.id);
+  }, [selected, revealCreature]);
 
   const handleZoom = useCallback(
     (factor: number) => {

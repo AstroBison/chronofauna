@@ -36,7 +36,7 @@ as it was — GPlates coastlines plus real Paleobiology Database occurrences, al
 
 ## Open issues, highest value first
 
-### ~~1. `estimateLabelWidth` is unsound~~ — fixed
+### ~~`estimateLabelWidth` is unsound~~ — fixed
 
 Replaced with `measureLabelWidth`: real canvas measurement, cached per string,
 font read from a hidden probe so CSS stays authoritative. Worst error against
@@ -46,22 +46,23 @@ over-wide for many strings and hid names that fit. Also removed the
 `font-weight` change on `.bar--selected`, which would have made a selected label
 wider than the space measured for it.
 
-### 1. Selecting a contemporary does not scroll it into view
+### ~~Selecting a contemporary does not scroll it into view~~ — fixed
 
-Select Mosasaurus, then click "Pteranodon" in the *Lived alongside* list: it is
-selected but stays off-screen (bar at y≈678, viewport ends at y≈582), so the
-click looks like it did nothing. `revealInterval` in `useTimelineViewport` only
-scrolls horizontally. A regression from family blocks — when the chart was six
-rows it always fitted vertically, so this never surfaced.
+`revealInterval` only scrolled horizontally, so picking a contemporary in
+another family block selected a bar off-screen and looked like a no-op.
+Replaced with `revealCreature`, which finds the bar by `data-creature-id` and
+measures it, scrolling minimally on both axes and clearing the sticky axis.
+Verified downward, upward and horizontally, including at deep zoom (canvas
+8756px, scroll moved 0 to 6019).
 
-### 2. Tick labels repeat at high zoom
+### 1. Tick labels repeat at high zoom
 
 Zoomed fully into the Permian, three consecutive ticks all read "299 Ma".
 `formatMya` chooses precision from the age's magnitude, not from the tick step,
 so sub-million-year steps at old ages collapse to the same string. Derive the
 decimal places from the step passed to `ticksInRange`.
 
-### 3. Accessibility gaps
+### 2. Accessibility gaps
 
 - **43 tab stops before the chart**, 28 of them axis period bands. Consider
   making the axis a single focus group, or adding a skip link.
@@ -70,13 +71,13 @@ decimal places from the step passed to `ticksInRange`.
 - No arrow-key movement between bars.
 - Focus is not moved into the detail panel when it opens, nor restored on close.
 
-### 4. "Fit" leaves 120px of horizontal scroll
+### 3. "Fit" leaves 120px of horizontal scroll
 
 Labels overhang the right-hand edge of the timeline and widen the canvas, so the
 one button whose job is to fit the chart does not quite. Either measure the
 overhang into the fit calculation or clamp the last label.
 
-### 5. Mobile is weak
+### 4. Mobile is weak
 
 At 375px the filter chips wrap to five rows and consume ~250px — roughly 30% of
 the viewport before any data appears. Worse, **there is no touch pinch-zoom**:
@@ -84,11 +85,11 @@ the wheel handler catches trackpad pinch (ctrl+wheel) but no touch gestures are
 bound, so on a phone only the +/− buttons zoom. Consider a collapsible filter
 row and a `touchstart`/`touchmove` pinch handler.
 
-### 6. No tests around the viewport hook
+### 5. No tests around the viewport hook
 
-`useTimelineViewport` has produced two real bugs (a `pxPerMy` dependency that
-reset zoom on every change, and absolute positioning ignoring container
-padding). It is still untested — every test covers pure functions or generated
+`useTimelineViewport` has produced three real bugs (a `pxPerMy` dependency that
+reset zoom on every change, absolute positioning ignoring container padding, and
+reveal scrolling only one axis). It is still untested — every test covers pure functions or generated
 data. It is the riskiest untested code in the project.
 
 ### Lower priority

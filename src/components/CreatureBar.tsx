@@ -54,6 +54,9 @@ export function CreatureBar({ packed, pxPerMy, color, state, onSelect }: Creatur
   return (
     <button
       className={`bar bar--${state}`}
+      /* Lets the viewport find this bar to scroll it into view; see
+         `revealCreature` in useTimelineViewport. */
+      data-creature-id={creature.id}
       style={{
         left,
         width: ruleWidth,
