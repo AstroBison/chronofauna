@@ -19,6 +19,9 @@
   --extinction: rgb(158 62 46 / 0.42);
   --extinction-text: rgb(158 62 46 / 0.72);
   --axis-divider: rgb(255 255 255 / 0.55);
+  --paleo-ocean: #e3ebf0;
+  --paleo-land: #cdc2a8;
+  --paleo-coast: #a2977e;
 
   --group-theropod: #bf5540;
   --group-sauropodomorph: #4d876a;
@@ -59,6 +62,9 @@
   --extinction: rgb(214 118 98 / 0.45);
   --extinction-text: rgb(219 133 114 / 0.85);
   --axis-divider: rgb(0 0 0 / 0.28);
+  --paleo-ocean: #12171b;
+  --paleo-land: #3d382f;
+  --paleo-coast: #5d564a;
 
   --group-theropod: #e08871;
   --group-sauropodomorph: #74bb98;
@@ -792,6 +798,87 @@ button {
   font-family: var(--font);
   font-size: 15px;
   line-height: 1.55;
+}
+
+/* ── Palaeogeography map ────────────────────────────────────────────────── */
+
+.paleomap {
+  margin: 0 0 18px;
+}
+
+.paleomap-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  padding: 6px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  /* Reads as ocean without committing to a saturated blue in either theme. */
+  background: var(--paleo-ocean);
+}
+
+.paleomap-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+ * The stroke matches the fill deliberately. GPlates ships each tectonic block
+ * as its own polygon, so a contrasting outline draws every internal plate
+ * boundary and the continents come out looking veined with rivers. Painting the
+ * stroke in the fill colour instead closes the hairline seams between abutting
+ * blocks while leaving only the true land/ocean edge visible — which the fill
+ * contrast alone already describes.
+ */
+.paleomap-land {
+  fill: var(--paleo-land);
+  stroke: var(--paleo-land);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+}
+
+/*
+ * Sites carry a ring in the ocean colour so a cluster stays countable where
+ * dots overlap, and so a marker on a pale landmass still reads as a marker.
+ */
+.paleomap-sites circle {
+  fill: var(--site-color);
+  stroke: var(--paleo-ocean);
+  stroke-width: 1.4;
+}
+
+.paleomap-status {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 12px;
+}
+
+.paleomap figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 7px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.paleomap-age {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.paleomap-meta {
+  color: var(--ink-faint);
+  text-align: right;
+}
+
+.paleomap-meta span {
+  border-bottom: 1px dotted var(--rule-strong);
+  cursor: help;
 }
 
 .detail-contemporaries h3 {

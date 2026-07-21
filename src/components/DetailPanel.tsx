@@ -3,6 +3,7 @@ import { SILHOUETTES } from "../data/silhouettes";
 import { GROUP_META } from "../lib/layout";
 import { durationMy, formatDuration, formatMya, overlaps } from "../lib/scale";
 import { Silhouette } from "./Silhouette";
+import { PaleoMap } from "./PaleoMap";
 import type { Creature } from "../types";
 
 interface DetailPanelProps {
@@ -106,6 +107,12 @@ export function DetailPanel({
       </dl>
 
       <p className="detail-blurb">{creature.blurb}</p>
+
+      <PaleoMap
+        creatureId={creature.id}
+        creatureName={creature.name}
+        color={meta.color}
+      />
 
       <section className="detail-contemporaries">
         <h3>

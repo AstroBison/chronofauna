@@ -10,7 +10,10 @@ npm run build       # tsc -b then vite build
 npm run typecheck   # tsc --noEmit
 npm test            # vitest run (one shot)
 npm run test:watch  # vitest watch
-npm run silhouettes # re-fetch artwork from PhyloPic (network; only when data changes)
+npm run silhouettes    # re-fetch artwork from PhyloPic (network; only when data changes)
+npm run paleogeography # re-fetch maps + fossil sites (network; ~33MB of downloads)
+
+node scripts/fetch-paleogeography.mjs --occurrences-only  # skip the coastlines
 
 npx vitest run -t "reuses a freed lane"   # single test by name
 npx vitest run src/lib/layout.test.ts     # single file
@@ -234,14 +237,63 @@ Rendering uses **CSS `mask-image`, not `<img>`** (see `Silhouette.tsx`), so one
 flat black source file can be painted any colour: white on a coloured bar, the
 group colour in the panel.
 
+## The palaeogeography map
+
+Clicking an animal shows where it lived — **on a reconstruction of the world as
+it was**, not on today's map. This is the same principle as the linear time
+axis: a Jurassic animal plotted on modern continents is plotted on a world that
+did not exist yet, and the reader learns something false. Stegosaurus sites in
+Colorado and Portugal look far apart today and were nearly adjacent at 145 Ma.
+**Don't swap this for a modern basemap.**
+
+Two sources, both fetched by `scripts/fetch-paleogeography.mjs`:
+
+- **GPlates Web Service** for reconstructed coastlines, model `MERDITH2021`
+  (chosen because it reaches past the Permian, which Dimetrodon at ~295 Ma
+  needs). One file per age in `public/paleomaps/`.
+- **Paleobiology Database** for fossil occurrences. It returns **palaeo**-
+  coordinates (`pln`/`pla`) alongside modern ones, having already applied the
+  same plate rotations — so sites land correctly on the reconstruction without
+  us rotating anything. Generated into `src/data/occurrences.ts`.
+
+Unlike the dates in `creatures.ts`, **every dot on this map is a catalogued
+fossil**, not an estimate.
+
+Four things that will bite:
+
+- **Query PBDB with the full binomial where a creature has one.** `base_name`
+  is inclusive of everything below it, so `Mammuthus` returns every mammoth
+  including African species, and `Homo` returns two million years of hominins.
+  Both put dots on the map for animals that are not the one on screen.
+- **The land stroke must match the land fill.** GPlates ships each tectonic
+  block as a separate polygon; a contrasting outline draws every internal plate
+  boundary and the continents come out veined like river maps. Same-colour
+  stroke closes the seams between abutting blocks and draws nothing else.
+- **Coordinates are rounded to whole degrees.** The map is ~300px for 360° of
+  longitude, so that is already sub-pixel, and it is what takes a 2.2MB
+  reconstruction down to ~130KB. Don't "improve" the precision.
+- **Polygons crossing the antimeridian are dropped** rather than split; each age
+  loses about one, and the alternative is a streak across the whole map.
+
+Maps are lazy-loaded per age and cached in a module-level `Map`, so the 1.8MB
+never touches initial page load. Ages come from a fixed list in the script and
+each creature snaps to the nearest; a test asserts the snap is within 20 My and
+that the file it points at actually exists.
+
 ## Adding species
 
 Append to `CREATURES` in `src/data/creatures.ts`; the packer picks it up with no
-other changes. A new `CreatureGroup` also needs an entry in `GROUP_META`
-and `GROUP_ORDER` in `src/lib/layout.ts`. Then run `npm run silhouettes` to fetch
-its artwork — if PhyloPic has nothing for the genus, add a fallback chain to
-`QUERY_CHAINS` in the script pointing at a group it genuinely belongs to. The UI
-degrades cleanly if no silhouette exists.
+other changes. A new `CreatureGroup` also needs an entry in `GROUP_META`,
+`GROUP_ORDER` and `FAMILY_OF` in `src/lib/layout.ts`.
+
+Then run both fetch scripts:
+
+- `npm run silhouettes` for artwork. If PhyloPic has nothing for the genus, add
+  a fallback chain to `QUERY_CHAINS` pointing at a group it genuinely belongs
+  to. The UI degrades cleanly if no silhouette exists.
+- `node scripts/fetch-paleogeography.mjs --occurrences-only` for fossil sites.
+  The map simply does not render for a creature with no occurrences, and
+  `occurrences.test.ts` will fail until it has some.
 
 Dates are rounded consensus estimates for teaching, not citable stratigraphy, and
 the site says so in its footer. Keep that caveat if you touch the footer. Genera

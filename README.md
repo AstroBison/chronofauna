@@ -48,6 +48,27 @@ Every animal has a silhouette — in the detail panel, beside each entry in the
 "lived alongside" list, and next to the name on the timeline wherever there's
 room for one.
 
+## Where each animal lived
+
+Click an animal and the panel shows a map of its fossil sites — drawn on **the
+world as it was when the animal was alive**, not on today's. Stegosaurus appears
+on a Jurassic Earth where the Atlantic has barely opened and its Colorado and
+Portugal sites sit almost side by side; Dimetrodon appears on Pangaea.
+
+Coastlines are real plate reconstructions from the
+[GPlates Web Service](https://gws.gplates.org) (MERDITH2021 model). Fossil sites
+are real catalogued occurrences from the
+[Paleobiology Database](https://paleobiodb.org), plotted at their
+palaeo-coordinates. Unlike the dates, nothing on this map is an estimate —
+every dot is a specimen someone dug up and recorded.
+
+```bash
+npm run paleogeography    # re-fetch maps and fossil sites (~33MB of downloads)
+```
+
+The 15 reconstructions total ~1.8MB and are loaded only when you open an animal,
+so they cost nothing on first page load.
+
 ## Artwork
 
 Silhouettes come from [PhyloPic](https://www.phylopic.org), a library of free,

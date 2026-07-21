@@ -19,6 +19,21 @@ See [CLAUDE.md](CLAUDE.md) for architecture and the constraints worth not
 breaking — particularly the reversed-time convention, the layout trade-offs that
 were measured rather than guessed, and the ICS colour rules.
 
+## Added since: palaeogeography map
+
+Clicking an animal now shows its fossil sites on a reconstruction of the world
+as it was — GPlates coastlines plus real Paleobiology Database occurrences, all
+48 species covered. See CLAUDE.md for the constraints. Follow-ups not done:
+
+- The map has no zoom or hover detail; a dot cluster is one blob with no way to
+  ask what it is.
+- Sites are deduplicated to whole degrees, so "31 fossil sites" means 31
+  distinct 1° cells, not 31 digs. The raw count is kept in `siteCount` but is
+  not surfaced anywhere.
+- Country codes are collected but only shown as a count with a tooltip, because
+  raw ISO codes read as noise. A code→name table would let the panel say where
+  the fossils actually are.
+
 ## Open issues, highest value first
 
 ### 1. `estimateLabelWidth` is unsound — fix first
