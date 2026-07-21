@@ -3783,7 +3783,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         -5
       ]
     ],
-    "mapAge": 100,
+    "mapAge": 120,
     "countries": [
       "BR"
     ],
@@ -3796,7 +3796,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         -5
       ]
     ],
-    "mapAge": 100,
+    "mapAge": 120,
     "countries": [
       "BR"
     ],
@@ -6185,7 +6185,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         21
       ]
     ],
-    "mapAge": 35,
+    "mapAge": 50,
     "countries": [
       "CN"
     ],

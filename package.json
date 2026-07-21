@@ -11,7 +11,8 @@
     "silhouettes": "node scripts/fetch-silhouettes.mjs",
     "paleogeography": "node scripts/fetch-paleogeography.mjs",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "check-dates": "node scripts/check-dates.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

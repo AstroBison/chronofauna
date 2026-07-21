@@ -128,6 +128,15 @@ Seventeen silhouettes are stand-ins showing a close relative rather than the
 named genus (Quetzalcoatlus → *Azhdarcho*, and sixteen others). Those are
 taxonomically sound and disclosed per-animal in the detail panel.
 
-The 51 Mesozoic species added later carry the same caveat as the rest, and
-multiply it: that is 51 more ranges resting on the assistant's own knowledge,
-none of them checked.
+The 51 Mesozoic species added later carry the same caveat, and multiply it.
+
+Partly mitigated since: `npm run check-dates` cross-checks every range against
+the Paleobiology Database. It found 18 ranges outside the fossil record's
+envelope, of which eight had clear enough evidence to correct — Microraptor,
+Amargasaurus, Utahraptor, Kronosaurus, Patagotitan, Andrewsarchus, Tapejara and
+Tropeognathus, the worst 5.5 My out. Five remain flagged and are recorded there
+with reasons; the rest were rounding noise under 1 My.
+
+This checks ranges against occurrence records. It does not check that a blurb is
+true, that a length is right, or that a genus is validly named. Expert review is
+still the only thing that covers those.

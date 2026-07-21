@@ -15,6 +15,8 @@ npm run paleogeography # re-fetch maps + fossil sites (network; ~33MB of downloa
 
 node scripts/fetch-paleogeography.mjs --occurrences-only  # skip the coastlines
 
+npm run check-dates    # cross-check every range against PBDB (network)
+
 npx vitest run -t "reuses a freed lane"   # single test by name
 npx vitest run src/lib/layout.test.ts     # single file
 ```
@@ -349,6 +351,20 @@ Then run both fetch scripts:
 - `node scripts/fetch-paleogeography.mjs --occurrences-only` for fossil sites.
   The map simply does not render for a creature with no occurrences, and
   `occurrences.test.ts` will fail until it has some.
+
+### Checking the dates
+
+`npm run check-dates` compares every range against the Paleobiology Database's
+recorded first and last appearance, and reports any that claim an animal
+appeared before, or survived after, anything ever found. Run it after adding
+species — it caught eight ranges that were 1.7 to 5.5 My outside the record,
+including a Microraptor that predated its own formation.
+
+Read the output as a prompt to check the literature, not a verdict. PBDB's
+bounds are stage-level: Protoceratops reports a 50-My envelope that plainly
+includes misassigned material, and Russian Permian stages map awkwardly enough
+that Inostrancevia flags against a bound most literature disagrees with. High
+occurrence count plus large discrepancy is the signal worth acting on.
 
 Dates are rounded consensus estimates for teaching, not citable stratigraphy, and
 the site says so in its footer. Keep that caveat if you touch the footer. Genera
