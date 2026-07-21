@@ -119,6 +119,18 @@ consensus estimates suitable for teaching, based on the ICS chronostratigraphic
 chart — not citable stratigraphy. Where a genus is known from essentially one
 site, its bar is genuinely near-instantaneous at this scale.
 
+## Licence
+
+The code is [MIT](LICENSE).
+
+The artwork is not covered by that licence and keeps its own. Silhouettes in
+`public/silhouettes/` come from PhyloPic under a mix of terms — 64 are public
+domain (CC0 or Public Domain Mark), 34 are CC-BY and 6 are CC-BY-SA. The artist
+and licence for each one are recorded in `src/data/silhouettes.ts` and shown in
+the app. If you reuse a silhouette, follow its own terms: CC-BY requires
+crediting the artist, and CC-BY-SA additionally requires that derivatives of
+that image be shared alike.
+
 ## Development
 
 ```bash
