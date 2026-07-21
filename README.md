@@ -22,7 +22,7 @@ npm run dev      # http://localhost:5173
 | --- | --- |
 | Pan | Scroll, drag, or swipe |
 | Zoom | ⌘/Ctrl + scroll, pinch, or the +/− buttons |
-| Jump to a period | Click a period chip, or click a band in the axis |
+| Jump to a period | Click any band in the time axis |
 | See contemporaries | Click any animal bar |
 | Filter | Search box, or the group chips |
 | Clear selection | `Esc` |
@@ -32,12 +32,12 @@ Dark mode follows your operating system until you press the toggle; after that
 your choice is remembered.
 
 Because the scale is linear, the whole Quaternary — mammoths, sabre-toothed
-cats, us — is a sliver at the right-hand edge when zoomed out. Use "Jump to →
-Quaternary" to get down there.
+cats, us — is a sliver at the right-hand edge when zoomed out. Click the
+Quaternary band in the axis to zoom down to it.
 
 ## What's included
 
-48 species from the Permian through today, arranged into five families — mammal
+53 species from the Permian through today, arranged into five families — mammal
 line, other reptiles, dinosaurs, pterosaurs and sea creatures — with colour
 marking the finer grouping within each (theropods, sauropodomorphs,
 ornithischians, and so on). The geologic time scale uses official ICS chart
@@ -82,16 +82,15 @@ which downloads to `public/silhouettes/` and regenerates `src/data/silhouettes.t
 with each artist's credit and licence. Both are committed, so you only need to
 run it after adding species.
 
-All 48 are public domain, CC-BY or CC-BY-SA — **no NonCommercial licences**, so
+All 53 are public domain, CC-BY or CC-BY-SA — **no NonCommercial licences**, so
 the site stays free to use in any context. Artists are credited in the detail
 panel and in the "Artwork credits" list in the footer; both are required by the
 CC-BY terms, so please keep them.
 
-Six genera (Eudimorphodon, Argentinosaurus, Quetzalcoatlus, Mosasaurus,
-*Otodus megalodon* and Megatherium) have no silhouette of their own, so they use
-one of a close relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid
-pterosaur. The site says so on each affected animal rather than passing the
-artwork off as the real thing.
+Eight genera have no silhouette of their own, so they use one of a close
+relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid pterosaur;
+Lycaenops and Rubidgea borrow *Dinogorgon*, a fellow gorgonopsian. The site says
+so on each affected animal rather than passing the artwork off as the real thing.
 
 ## Adding animals
 

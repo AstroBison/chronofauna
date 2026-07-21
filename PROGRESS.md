@@ -8,7 +8,7 @@ a browser against the running app, not inferred — figures are measured.
 
 ## Where things got to
 
-An interactive deep-time chart, Permian → today, 48 species. Each animal is a
+An interactive deep-time chart, Permian → today, 53 species. Each animal is a
 hairline rule spanning its lifespan, with its name above it. Species are blocked
 into five families (mammal line, other reptiles, dinosaurs, pterosaurs, sea
 creatures); colour carries the finer ten-group distinction. Clicking an animal
@@ -23,7 +23,7 @@ were measured rather than guessed, and the ICS colour rules.
 
 Clicking an animal now shows its fossil sites on a reconstruction of the world
 as it was — GPlates coastlines plus real Paleobiology Database occurrences, all
-48 species covered. See CLAUDE.md for the constraints. Follow-ups not done:
+53 species covered. See CLAUDE.md for the constraints. Follow-ups not done:
 
 - The map has no zoom or hover detail; a dot cluster is one blob with no way to
   ask what it is.
@@ -106,7 +106,7 @@ data. It is the riskiest untested code in the project.
 
 ### Lower priority
 
-- 12 of 48 species are unlabelled at default zoom. The staggered-label idea
+- 13 of 53 species are unlabelled at default zoom. The staggered-label idea
   (alternating above/below the rule) roughly doubles the horizontal budget and
   was never built.
 - No error boundary.

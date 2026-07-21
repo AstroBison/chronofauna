@@ -58,7 +58,7 @@ One million years is the same number of pixels everywhere on the chart. That is
 what makes the Quaternary a sliver and the Stegosaurus→T. rex gap look as vast as
 it is — it's the pedagogical point of the whole site. **Do not add a log or
 piecewise axis to "make the recent stuff fit."** Zooming is the answer; the
-`focusInterval` helper and the "Jump to" period chips exist for that.
+`focusInterval` helper and the clickable axis bands exist for that.
 
 ### Two invariants in the viewport hook
 
@@ -100,7 +100,7 @@ contemporaries apart vertically. Measured on the current data:
 | Layout | Rows | Notes |
 | --- | --- | --- |
 | One shared block | 6 | Most compact; rows mix up to 8 groups, looks like confetti |
-| **Five families** | **13** | Current choice |
+| **Five families** | **14** | Current choice |
 | All ten groups | 18 | Effectively the old banded layout |
 
 Affinity packing — first-fit that prefers a row already holding the same group —
@@ -112,7 +112,7 @@ Colour still carries the finer ten-group distinction inside each block, and the
 filter chips remain per-group and double as the legend.
 
 An incidental win: family blocks have sparser rows than one shared block, so
-more labels fit — 30 of 48 at zoom-out versus 26.
+more labels fit — measurably more at zoom-out than one shared block managed.
 
 ### Lane packing must not depend on pixels
 
@@ -137,7 +137,7 @@ Labels sit **above** the rule, not inside it. That is what makes the thin style
 work: a name is no longer bounded by the width of its own bar, so it may
 overhang into the empty time that follows. The budget is
 `ruleWidth + gapAfterMy * pxPerMy` — its own span plus the gap before the next
-bar *in the same lane*, computed during packing. This labels ~40 of 48 species
+bar *in the same lane*, computed during packing. This labels ~40 of 53 species
 at full zoom-out, where the old inside-the-bar scheme could only label the
 long-lived ones.
 
@@ -276,10 +276,17 @@ Three constraints the script enforces, all of which matter:
   artist. Credits appear in two places — the detail panel and the `Credits`
   component in the footer — because a reader may never open the panel. Don't
   remove either.
-- **Stand-ins are disclosed.** Six genera have no silhouette of their own and
+- **Stand-ins are disclosed.** Eight genera have no silhouette of their own and
   fall back to a taxonomically correct relative (Quetzalcoatlus → *Azhdarcho*).
   Those carry `standIn: true` and the UI says so in plain language. Never let a
   stand-in render as though it depicts the named genus.
+
+  When choosing a fallback in `QUERY_CHAINS`, prefer a genus that is **not
+  already on the chart**. Lycaenops and Rubidgea first resolved to
+  *Inostrancevia* via the clade `gorgonopsia` — but Inostrancevia has its own
+  entry, so three species would have shared one outline and two of them would
+  have been showing a portrait of their neighbour. *Dinogorgon* is an equally
+  valid gorgonopsian that appears nowhere else.
 
 Rendering uses **CSS `mask-image`, not `<img>`** (see `Silhouette.tsx`), so one
 flat black source file can be painted any colour: white on a coloured bar, the

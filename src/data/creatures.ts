@@ -25,6 +25,65 @@ export const CREATURES: Creature[] = [
     blurb:
       "Not a dinosaur, and closer to you than to any dinosaur. Dimetrodon was an early synapsid — the branch that leads to mammals — and it died out some 40 million years before the first dinosaur appeared.",
   },
+  // Gorgonopsians: sabre-toothed therapsids, and the top predators of the Late
+  // Permian. Grouped as `synapsid` because that is what they are — the same
+  // branch as Dimetrodon and Cynognathus, and the one that leads to mammals.
+  // Every one of them died at the Permian–Triassic extinction.
+  {
+    id: "sauroctonus",
+    name: "Sauroctonus",
+    group: "synapsid",
+    start: 262,
+    end: 256,
+    lengthM: 2.5,
+    diet: "carnivore",
+    blurb:
+      "A gorgonopsian from what is now Russia. The great predators of the Permian sat on the mammal branch of the family tree, not the reptile one — closer kin to you than to any dinosaur.",
+  },
+  {
+    id: "gorgonops",
+    name: "Gorgonops",
+    group: "synapsid",
+    start: 260,
+    end: 254,
+    lengthM: 2.1,
+    diet: "carnivore",
+    blurb:
+      "The genus that names the whole group. Sabre teeth set in a skull built for a deep slashing bite, some 30 million years before the first dinosaur appeared.",
+  },
+  {
+    id: "lycaenops",
+    name: "Lycaenops",
+    group: "synapsid",
+    start: 259,
+    end: 254,
+    lengthM: 1.2,
+    diet: "carnivore",
+    blurb:
+      "“Wolf face” — slender and long-legged, it carried its limbs tucked under the body rather than sprawled out sideways, an early step toward the way mammals walk.",
+  },
+  {
+    id: "rubidgea",
+    name: "Rubidgea",
+    group: "synapsid",
+    start: 256,
+    end: 252,
+    lengthM: 3,
+    diet: "carnivore",
+    blurb:
+      "One of the largest gorgonopsians, with canines longer than a human hand. It hunted the dicynodont herds of southern Africa right up to the end of the Permian.",
+  },
+  {
+    id: "inostrancevia",
+    name: "Inostrancevia",
+    group: "synapsid",
+    start: 255,
+    end: 252,
+    lengthM: 3.5,
+    diet: "carnivore",
+    blurb:
+      "The biggest gorgonopsian known, over three metres long with 15-centimetre sabres. It was among the last of them: the whole group vanished in the Great Dying and nothing like it evolved again.",
+  },
   {
     id: "lystrosaurus",
     name: "Lystrosaurus",

@@ -48,6 +48,13 @@ const QUERY_CHAINS = {
   // These genera only offer NonCommercial images; a relative offers freer ones.
   mosasaurus: ["mosasaurus", "mosasauridae"],
   megatherium: ["megatherium", "megatheriidae", "folivora", "pilosa"],
+  // No silhouette of their own. Falling back to the clade `gorgonopsia` picks
+  // an Inostrancevia, which is already on the chart under its own name — three
+  // species would share one outline and the stand-in would be a portrait of its
+  // neighbour. Dinogorgon is a real gorgonopsian (and, like Rubidgea, a
+  // rubidgeine) that appears nowhere else, so it stands in without colliding.
+  lycaenops: ["lycaenops", "dinogorgon"],
+  rubidgea: ["rubidgea", "dinogorgon"],
 };
 
 const licenceRank = (href = "") => {

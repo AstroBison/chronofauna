@@ -28,6 +28,51 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/c5dbbce1-9b2b-4236-a6e3-0d9cd9ab0ff6"
   },
+  "sauroctonus": {
+    "file": "/silhouettes/sauroctonus.svg",
+    "taxon": "Sauroctonus parringtoni",
+    "standIn": false,
+    "attribution": "Christine Axon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/4f3725c2-d830-4b74-8149-cb0fc84463a8"
+  },
+  "gorgonops": {
+    "file": "/silhouettes/gorgonops.svg",
+    "taxon": "Gorgonops whaitsii",
+    "standIn": false,
+    "attribution": "Joseba Iza",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/aeec58db-9e75-4640-bcd0-793c3cf595db"
+  },
+  "lycaenops": {
+    "file": "/silhouettes/lycaenops.svg",
+    "taxon": "Dinogorgon",
+    "standIn": true,
+    "attribution": "Chris Jennings (Risiatto)",
+    "licenceName": "Public Domain Mark 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/ddbd5048-3148-4088-9ab1-97becdcb7ae3"
+  },
+  "rubidgea": {
+    "file": "/silhouettes/rubidgea.svg",
+    "taxon": "Dinogorgon",
+    "standIn": true,
+    "attribution": "Chris Jennings (Risiatto)",
+    "licenceName": "Public Domain Mark 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/ddbd5048-3148-4088-9ab1-97becdcb7ae3"
+  },
+  "inostrancevia": {
+    "file": "/silhouettes/inostrancevia.svg",
+    "taxon": "Inostrancevia alexandri",
+    "standIn": false,
+    "attribution": "artrociraptor",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/951b2182-d053-412f-86a7-1593e19a201c"
+  },
   "lystrosaurus": {
     "file": "/silhouettes/lystrosaurus.svg",
     "taxon": "Lystrosaurus murrayi",
