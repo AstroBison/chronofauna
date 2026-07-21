@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { packLanes, contemporariesOf } from "./layout";
-import { overlaps, intervalToRect, ticksInRange, niceTickStep } from "./scale";
+import {
+  overlaps,
+  intervalToRect,
+  ticksInRange,
+  niceTickStep,
+  formatMya,
+  MIN_PX_PER_MY,
+  MAX_PX_PER_MY,
+} from "./scale";
 import type { Creature } from "../types";
 
 const make = (id: string, start: number, end: number): Creature => ({
@@ -113,6 +121,37 @@ describe("intervalToRect", () => {
     expect(older.left).toBeLessThan(newer.left);
     expect(older.width).toBeCloseTo(100);
     expect(intervalToRect({ start: 50, end: 50 }, 10).width).toBe(0);
+  });
+});
+
+describe("formatMya precision", () => {
+  it("keeps a lone age readable without trailing zeros", () => {
+    expect(formatMya(68)).toBe("68 Ma");
+    expect(formatMya(4.2)).toBe("4.2 Ma");
+    expect(formatMya(0.3)).toBe("300 ka");
+    expect(formatMya(0)).toBe("today");
+  });
+
+  it("adds decimals when the step demands them", () => {
+    expect(formatMya(299, 0.02)).toBe("299.00 Ma");
+    expect(formatMya(298.98, 0.02)).toBe("298.98 Ma");
+    expect(formatMya(299, 1)).toBe("299 Ma");
+  });
+
+  it("never labels two adjacent ticks identically, at any zoom", () => {
+    // The bug this guards: precision used to come from the age's magnitude, so
+    // deep in the Permian every visible tick rendered as "299 Ma".
+    for (let pxPerMy = MIN_PX_PER_MY; pxPerMy <= MAX_PX_PER_MY; pxPerMy *= 1.35) {
+      const step = niceTickStep(pxPerMy);
+      for (const anchor of [299, 250, 66, 12, 2.5, 0.4, 0.05]) {
+        const ticks = ticksInRange(anchor, Math.max(0, anchor - step * 6), step);
+        const labels = ticks.map((age) => formatMya(age, step));
+        expect(
+          new Set(labels).size,
+          `pxPerMy ${pxPerMy.toFixed(1)} near ${anchor} Ma produced ${labels.join(", ")}`,
+        ).toBe(labels.length);
+      }
+    }
   });
 });
 

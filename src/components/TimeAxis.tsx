@@ -84,7 +84,8 @@ export function TimeAxis({ pxPerMy, range, onSelectSpan }: TimeAxisProps) {
       <div className="axis-row axis-ticks" style={{ height: TICK_ROW_HEIGHT }}>
         {ticks.map((age) => (
           <div key={age} className="axis-tick" style={{ left: myaToX(age, pxPerMy) }}>
-            <span className="axis-tick-label">{formatMya(age)}</span>
+            {/* Precision follows the tick spacing, not the age's magnitude. */}
+            <span className="axis-tick-label">{formatMya(age, step)}</span>
           </div>
         ))}
       </div>

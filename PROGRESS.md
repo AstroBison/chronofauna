@@ -3,7 +3,7 @@
 Snapshot at the end of the first build session. Everything below was verified in
 a browser against the running app, not inferred — figures are measured.
 
-**State: working and green.** `npm run typecheck`, `npm test` (30 tests) and
+**State: working and green.** `npm run typecheck`, `npm test` (33 tests) and
 `npm run build` all pass; no console errors on a clean load in either theme.
 
 ## Where things got to
@@ -55,12 +55,14 @@ measures it, scrolling minimally on both axes and clearing the sticky axis.
 Verified downward, upward and horizontally, including at deep zoom (canvas
 8756px, scroll moved 0 to 6019).
 
-### 1. Tick labels repeat at high zoom
+### ~~Tick labels repeat at high zoom~~ — fixed
 
-Zoomed fully into the Permian, three consecutive ticks all read "299 Ma".
-`formatMya` chooses precision from the age's magnitude, not from the tick step,
-so sub-million-year steps at old ages collapse to the same string. Derive the
-decimal places from the step passed to `ticksInRange`.
+Worse than recorded: at max zoom *every* visible tick read "299 Ma", not three.
+`formatMya` now takes an optional `step` and derives its decimals from it, so
+precision follows the spacing between neighbours rather than the magnitude of
+the age. Callers formatting a single age are unchanged and still trim trailing
+zeros. A test sweeps every zoom level from `MIN_PX_PER_MY` to `MAX_PX_PER_MY`
+across seven anchor ages and asserts no two adjacent ticks share a label.
 
 ### ~~Chart has no accessible name, role or summary~~ — fixed
 
@@ -74,20 +76,20 @@ by a generated visually-hidden summary, family sections are named via
 `aria-labelledby`, decorative lane guides are `aria-hidden`, and the extinction
 blurbs are readable as text rather than hover-only.
 
-### 2. Remaining accessibility gaps
+### 1. Remaining accessibility gaps
 
 - **43 tab stops before the chart**, 28 of them axis period bands. Consider
   making the axis a single focus group, or adding a skip link.
 - No arrow-key movement between bars.
 - Focus is not moved into the detail panel when it opens, nor restored on close.
 
-### 3. "Fit" leaves 120px of horizontal scroll
+### 2. "Fit" leaves 120px of horizontal scroll
 
 Labels overhang the right-hand edge of the timeline and widen the canvas, so the
 one button whose job is to fit the chart does not quite. Either measure the
 overhang into the fit calculation or clamp the last label.
 
-### 4. Mobile is weak
+### 3. Mobile is weak
 
 At 375px the filter chips wrap to five rows and consume ~250px — roughly 30% of
 the viewport before any data appears. Worse, **there is no touch pinch-zoom**:
@@ -95,7 +97,7 @@ the wheel handler catches trackpad pinch (ctrl+wheel) but no touch gestures are
 bound, so on a phone only the +/− buttons zoom. Consider a collapsible filter
 row and a `touchstart`/`touchmove` pinch handler.
 
-### 5. No tests around the viewport hook
+### 4. No tests around the viewport hook
 
 `useTimelineViewport` has produced three real bugs (a `pxPerMy` dependency that
 reset zoom on every change, absolute positioning ignoring container padding, and

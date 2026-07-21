@@ -80,13 +80,56 @@ export function ticksInRange(oldest: number, youngest: number, step: number): nu
   return ticks;
 }
 
-/** Format an age for axis labels, scaling units so small numbers stay legible. */
-export function formatMya(mya: number): string {
+/**
+ * Decimal places needed to tell two values `stepInUnit` apart.
+ *
+ * A step of 0.02 needs two places; a step of 5 needs none. Capped so a extreme
+ * zoom cannot ask for an absurd number of digits.
+ */
+function decimalsForStep(stepInUnit: number): number {
+  if (!Number.isFinite(stepInUnit) || stepInUnit <= 0) return 0;
+  return Math.max(0, Math.min(6, Math.ceil(-Math.log10(stepInUnit))));
+}
+
+const withDecimals = (value: number, decimals: number) =>
+  value.toLocaleString(undefined, {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+
+/**
+ * Format an age, scaling units so small numbers stay legible.
+ *
+ * Pass `step` — the spacing between the values being listed — when formatting a
+ * *sequence*, such as axis ticks. Precision then follows the step rather than
+ * the magnitude of the age.
+ *
+ * Without it, precision came from magnitude alone: anything over 10 Ma rounded
+ * to a whole number, so zoomed deep into the Permian every visible tick read
+ * "299 Ma" and the axis stopped saying anything at all. Magnitude is the wrong
+ * input — what matters is how far apart the neighbours are.
+ */
+export function formatMya(mya: number, step?: number): string {
   if (mya <= 0) return "today";
-  if (mya < 0.001) return `${Math.round(mya * 1_000_000).toLocaleString()} yr`;
-  if (mya < 1) return `${Math.round(mya * 1000).toLocaleString()} ka`;
-  if (mya < 10) return `${Number(mya.toFixed(1))} Ma`;
-  return `${Math.round(mya)} Ma`;
+
+  if (mya < 0.001) {
+    const years = mya * 1_000_000;
+    if (step === undefined) return `${Math.round(years).toLocaleString()} yr`;
+    return `${withDecimals(years, decimalsForStep(step * 1_000_000))} yr`;
+  }
+
+  if (mya < 1) {
+    const ka = mya * 1000;
+    if (step === undefined) return `${Math.round(ka).toLocaleString()} ka`;
+    return `${withDecimals(ka, decimalsForStep(step * 1000))} ka`;
+  }
+
+  if (step === undefined) {
+    // Trailing zeros are trimmed here: a lone age reads better as "5 Ma" than
+    // "5.0 Ma". In a sequence they are kept, so the column of ticks lines up.
+    return `${Number(mya.toFixed(mya < 10 ? 1 : 0))} Ma`;
+  }
+  return `${withDecimals(mya, decimalsForStep(step))} Ma`;
 }
 
 /** Format a duration for the detail panel. */
