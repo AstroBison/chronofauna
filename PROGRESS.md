@@ -8,7 +8,7 @@ a browser against the running app, not inferred — figures are measured.
 
 ## Where things got to
 
-An interactive deep-time chart, Permian → today, 53 species. Each animal is a
+An interactive deep-time chart, Permian → today, 104 species. Each animal is a
 hairline rule spanning its lifespan, with its name above it. Species are blocked
 into five families (mammal line, other reptiles, dinosaurs, pterosaurs, sea
 creatures); colour carries the finer ten-group distinction. Clicking an animal
@@ -23,7 +23,7 @@ were measured rather than guessed, and the ICS colour rules.
 
 Clicking an animal now shows its fossil sites on a reconstruction of the world
 as it was — GPlates coastlines plus real Paleobiology Database occurrences, all
-53 species covered. See CLAUDE.md for the constraints. Follow-ups not done:
+104 species covered. See CLAUDE.md for the constraints. Follow-ups not done:
 
 - The map has no zoom or hover detail; a dot cluster is one blob with no way to
   ask what it is.
@@ -106,7 +106,7 @@ data. It is the riskiest untested code in the project.
 
 ### Lower priority
 
-- 13 of 53 species are unlabelled at default zoom. The staggered-label idea
+- 41 of 104 species are unlabelled at default zoom. The staggered-label idea
   (alternating above/below the rule) roughly doubles the horizontal budget and
   was never built.
 - No error boundary.
@@ -124,6 +124,10 @@ the site discloses this in its "About the data & artwork" panel, that disclosure
 is not a substitute for review. For anything going in front of students this is
 the highest risk item in the project, and no amount of UI work reduces it.
 
-Six silhouettes are stand-ins showing a close relative rather than the named
-genus (Quetzalcoatlus → *Azhdarcho*, and five others). Those are taxonomically
-sound and disclosed per-animal in the detail panel.
+Seventeen silhouettes are stand-ins showing a close relative rather than the
+named genus (Quetzalcoatlus → *Azhdarcho*, and sixteen others). Those are
+taxonomically sound and disclosed per-animal in the detail panel.
+
+The 51 Mesozoic species added later carry the same caveat as the rest, and
+multiply it: that is 51 more ranges resting on the assistant's own knowledge,
+none of them checked.

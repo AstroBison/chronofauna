@@ -99,9 +99,9 @@ contemporaries apart vertically. Measured on the current data:
 
 | Layout | Rows | Notes |
 | --- | --- | --- |
-| One shared block | 6 | Most compact; rows mix up to 8 groups, looks like confetti |
-| **Five families** | **14** | Current choice |
-| All ten groups | 18 | Effectively the old banded layout |
+| One shared block | 12 | Most compact; rows mix many groups, looks like confetti |
+| **Five families** | **20** | Current choice |
+| All ten groups | 32 | Effectively the old banded layout |
 
 Affinity packing — first-fit that prefers a row already holding the same group —
 was tried and is not worth it: mixing only improved from 8,5,5,4,2,1 to
@@ -137,7 +137,7 @@ Labels sit **above** the rule, not inside it. That is what makes the thin style
 work: a name is no longer bounded by the width of its own bar, so it may
 overhang into the empty time that follows. The budget is
 `ruleWidth + gapAfterMy * pxPerMy` — its own span plus the gap before the next
-bar *in the same lane*, computed during packing. This labels ~40 of 53 species
+bar *in the same lane*, computed during packing. This labels ~63 of 104 species
 at full zoom-out, where the old inside-the-bar scheme could only label the
 long-lived ones.
 
@@ -276,7 +276,7 @@ Three constraints the script enforces, all of which matter:
   artist. Credits appear in two places — the detail panel and the `Credits`
   component in the footer — because a reader may never open the panel. Don't
   remove either.
-- **Stand-ins are disclosed.** Eight genera have no silhouette of their own and
+- **Stand-ins are disclosed.** Seventeen genera have no silhouette of their own and
   fall back to a taxonomically correct relative (Quetzalcoatlus → *Azhdarcho*).
   Those carry `standIn: true` and the UI says so in plain language. Never let a
   stand-in render as though it depicts the named genus.

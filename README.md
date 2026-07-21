@@ -37,7 +37,7 @@ Quaternary band in the axis to zoom down to it.
 
 ## What's included
 
-53 species from the Permian through today, arranged into five families — mammal
+104 species from the Permian through today, arranged into five families — mammal
 line, other reptiles, dinosaurs, pterosaurs and sea creatures — with colour
 marking the finer grouping within each (theropods, sauropodomorphs,
 ornithischians, and so on). The geologic time scale uses official ICS chart
@@ -82,12 +82,12 @@ which downloads to `public/silhouettes/` and regenerates `src/data/silhouettes.t
 with each artist's credit and licence. Both are committed, so you only need to
 run it after adding species.
 
-All 53 are public domain, CC-BY or CC-BY-SA — **no NonCommercial licences**, so
+All 104 are public domain, CC-BY or CC-BY-SA — **no NonCommercial licences**, so
 the site stays free to use in any context. Artists are credited in the detail
 panel and in the "Artwork credits" list in the footer; both are required by the
 CC-BY terms, so please keep them.
 
-Eight genera have no silhouette of their own, so they use one of a close
+Seventeen genera have no silhouette of their own, so they use one of a close
 relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid pterosaur;
 Lycaenops and Rubidgea borrow *Dinogorgon*, a fellow gorgonopsian. The site says
 so on each affected animal rather than passing the artwork off as the real thing.
@@ -98,14 +98,14 @@ Append an entry to `CREATURES` in `src/data/creatures.ts`:
 
 ```ts
 {
-  id: "utahraptor",
-  name: "Utahraptor",
+  id: "concavenator",
+  name: "Concavenator",
   group: "theropod",
-  start: 139,   // Mya it appeared
-  end: 135,     // Mya it died out (0 = still alive)
-  lengthM: 5.5,
+  start: 130,   // Mya it appeared
+  end: 125,     // Mya it died out (0 = still alive)
+  lengthM: 6,
   diet: "carnivore",
-  blurb: "A bear-sized dromaeosaur…",
+  blurb: "A hump-backed Spanish predator…",
 }
 ```
 

@@ -13,7 +13,8 @@ import type { Creature } from "../types";
  * Sorted oldest-first, which is also the order the packer prefers.
  */
 export const CREATURES: Creature[] = [
-  // ── Paleozoic: before the dinosaurs ────────────────────────────────────
+
+  // ── Paleozoic: before the dinosaurs ─────────────────────────────────────
   {
     id: "dimetrodon",
     name: "Dimetrodon",
@@ -25,10 +26,6 @@ export const CREATURES: Creature[] = [
     blurb:
       "Not a dinosaur, and closer to you than to any dinosaur. Dimetrodon was an early synapsid — the branch that leads to mammals — and it died out some 40 million years before the first dinosaur appeared.",
   },
-  // Gorgonopsians: sabre-toothed therapsids, and the top predators of the Late
-  // Permian. Grouped as `synapsid` because that is what they are — the same
-  // branch as Dimetrodon and Cynognathus, and the one that leads to mammals.
-  // Every one of them died at the Permian–Triassic extinction.
   {
     id: "sauroctonus",
     name: "Sauroctonus",
@@ -96,7 +93,7 @@ export const CREATURES: Creature[] = [
       "A stubby, tusked burrower that walked through the Great Dying almost untouched. For a while afterwards it was so abundant it made up most of the large land animals on Earth.",
   },
 
-  // ── Triassic: the dinosaurs arrive ────────────────────────────────────
+  // ── Mesozoic: the age of dinosaurs ──────────────────────────────────────
   {
     id: "cynognathus",
     name: "Cynognathus",
@@ -120,17 +117,6 @@ export const CREATURES: Creature[] = [
       "A seal-like coastal hunter with interlocking needle teeth, part of the first great reptilian return to the sea.",
   },
   {
-    id: "eoraptor",
-    name: "Eoraptor",
-    group: "theropod",
-    start: 231,
-    end: 228,
-    lengthM: 1.7,
-    diet: "omnivore",
-    blurb:
-      "One of the earliest known dinosaurs — small, light and unremarkable. Everything on this chart labelled 'dinosaur' descends from animals much like it.",
-  },
-  {
     id: "herrerasaurus",
     name: "Herrerasaurus",
     group: "theropod",
@@ -140,6 +126,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "An early predatory dinosaur from Argentina, living alongside Eoraptor while dinosaurs were still a minor part of the fauna.",
+  },
+  {
+    id: "eoraptor",
+    name: "Eoraptor",
+    group: "theropod",
+    start: 231,
+    end: 228,
+    lengthM: 1.7,
+    diet: "omnivore",
+    blurb:
+      "One of the earliest known dinosaurs — small, light and unremarkable. Everything on this chart labelled 'dinosaur' descends from animals much like it.",
   },
   {
     id: "postosuchus",
@@ -207,8 +204,6 @@ export const CREATURES: Creature[] = [
     blurb:
       "A shrew-sized creature at the very base of the mammal family tree. Mammals appear at the same time as the dinosaurs — they simply stayed small for the next 130 million years.",
   },
-
-  // ── Jurassic ──────────────────────────────────────────────────────────
   {
     id: "ichthyosaurus",
     name: "Ichthyosaurus",
@@ -219,6 +214,61 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "A dolphin-shaped reptile that gave birth to live young at sea. Some fossils preserve mothers caught mid-birth.",
+  },
+  {
+    id: "massospondylus",
+    name: "Massospondylus",
+    group: "sauropodomorph",
+    start: 200,
+    end: 183,
+    lengthM: 5,
+    diet: "herbivore",
+    blurb:
+      "Known from over eighty individuals, plus eggs containing embryos — the oldest dinosaur embryos found. The hatchlings walked on four legs, the adults on two.",
+  },
+  {
+    id: "temnodontosaurus",
+    name: "Temnodontosaurus",
+    group: "marine-reptile",
+    start: 200,
+    end: 178,
+    lengthM: 9,
+    diet: "carnivore",
+    blurb:
+      "A large ichthyosaur with eyes 20 centimetres across — the biggest of any known animal — suited to hunting in dim, deep water.",
+  },
+  {
+    id: "plesiosaurus",
+    name: "Plesiosaurus",
+    group: "marine-reptile",
+    start: 199,
+    end: 175,
+    lengthM: 3.5,
+    diet: "carnivore",
+    blurb:
+      "The animal that named the group: small head, long neck, four wing-like flippers. Another of Mary Anning's Lyme Regis discoveries.",
+  },
+  {
+    id: "scelidosaurus",
+    name: "Scelidosaurus",
+    group: "ornithischian",
+    start: 196,
+    end: 183,
+    lengthM: 4,
+    diet: "herbivore",
+    blurb:
+      "One of the earliest armoured dinosaurs, and among the most completely known animals of the Early Jurassic.",
+  },
+  {
+    id: "dimorphodon",
+    name: "Dimorphodon",
+    group: "pterosaur",
+    start: 195,
+    end: 190,
+    lengthM: 1.4,
+    diet: "carnivore",
+    blurb:
+      "An early pterosaur with a deep puffin-like head, found by Mary Anning on the Dorset coast in 1828.",
   },
   {
     id: "dilophosaurus",
@@ -243,6 +293,17 @@ export const CREATURES: Creature[] = [
       "The first dinosaur ever formally named, in 1824 — nearly two decades before the word 'dinosaur' was coined.",
   },
   {
+    id: "shunosaurus",
+    name: "Shunosaurus",
+    group: "sauropodomorph",
+    start: 170,
+    end: 160,
+    lengthM: 9.5,
+    diet: "herbivore",
+    blurb:
+      "An early Chinese sauropod with a bony club on the end of its tail, a defence rarely seen in the group.",
+  },
+  {
     id: "liopleurodon",
     name: "Liopleurodon",
     group: "marine-reptile",
@@ -254,6 +315,28 @@ export const CREATURES: Creature[] = [
       "A short-necked pliosaur that hunted by scent, with nostrils arranged to sample water directionally as it swam.",
   },
   {
+    id: "mamenchisaurus",
+    name: "Mamenchisaurus",
+    group: "sauropodomorph",
+    start: 160,
+    end: 145,
+    lengthM: 25,
+    diet: "herbivore",
+    blurb:
+      "Half of it was neck. At up to 12 metres, its neck is the longest of any animal known, held out almost horizontally like a crane jib.",
+  },
+  {
+    id: "kentrosaurus",
+    name: "Kentrosaurus",
+    group: "ornithischian",
+    start: 155,
+    end: 150,
+    lengthM: 4.5,
+    diet: "herbivore",
+    blurb:
+      "Stegosaurus's smaller African cousin, with plates along the front half and long paired spikes down the back and hips.",
+  },
+  {
     id: "allosaurus",
     name: "Allosaurus",
     group: "theropod",
@@ -263,6 +346,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "The dominant predator of Late Jurassic North America, and one of the best-understood large theropods thanks to thousands of bones from the Cleveland-Lloyd quarry.",
+  },
+  {
+    id: "camarasaurus",
+    name: "Camarasaurus",
+    group: "sauropodomorph",
+    start: 155,
+    end: 145,
+    lengthM: 18,
+    diet: "herbivore",
+    blurb:
+      "The most common sauropod of the Morrison Formation, with a boxy skull and spoon-shaped teeth for cropping tough vegetation.",
   },
   {
     id: "stegosaurus",
@@ -296,6 +390,17 @@ export const CREATURES: Creature[] = [
     diet: "herbivore",
     blurb:
       "Enormously long but comparatively light, with a whip tail that may have cracked above the speed of sound.",
+  },
+  {
+    id: "ceratosaurus",
+    name: "Ceratosaurus",
+    group: "theropod",
+    start: 153,
+    end: 148,
+    lengthM: 6,
+    diet: "carnivore",
+    blurb:
+      "A horned predator that shared the Morrison floodplains with Allosaurus. Its unusually flexible tail suggests it may have been a stronger swimmer than its rivals.",
   },
   {
     id: "apatosaurus",
@@ -341,8 +446,61 @@ export const CREATURES: Creature[] = [
     blurb:
       "A chicken-sized predator sharing the Solnhofen lagoons with Archaeopteryx — a reminder that most dinosaurs were small.",
   },
-
-  // ── Cretaceous ────────────────────────────────────────────────────────
+  {
+    id: "utahraptor",
+    name: "Utahraptor",
+    group: "theropod",
+    start: 139,
+    end: 134,
+    lengthM: 5.5,
+    diet: "carnivore",
+    blurb:
+      "The largest dromaeosaur known, roughly the size of a polar bear. It shows the sickle-clawed body plan of Velociraptor scaled up many times over.",
+  },
+  {
+    id: "sarcosuchus",
+    name: "Sarcosuchus",
+    group: "other-reptile",
+    start: 133,
+    end: 112,
+    lengthM: 11,
+    diet: "carnivore",
+    blurb:
+      "“SuperCroc” — a twelve-metre relative of crocodiles that ambushed dinosaurs at the water's edge in what is now the Sahara.",
+  },
+  {
+    id: "baryonyx",
+    name: "Baryonyx",
+    group: "theropod",
+    start: 130,
+    end: 125,
+    lengthM: 8.5,
+    diet: "carnivore",
+    blurb:
+      "Found in a Surrey clay pit with fish scales still in its stomach. Its long crocodile-like jaws and huge thumb claw mark it as a fish specialist.",
+  },
+  {
+    id: "hypsilophodon",
+    name: "Hypsilophodon",
+    group: "ornithischian",
+    start: 130,
+    end: 125,
+    lengthM: 2,
+    diet: "herbivore",
+    blurb:
+      "A small, fast plant-eater from the Isle of Wight, once wrongly reconstructed as tree-dwelling — an error that took a century to shake off.",
+  },
+  {
+    id: "amargasaurus",
+    name: "Amargasaurus",
+    group: "sauropodomorph",
+    start: 129,
+    end: 122,
+    lengthM: 10,
+    diet: "herbivore",
+    blurb:
+      "A small sauropod carrying two rows of tall neck spines, which may have supported a sail, a pair of crests, or simply been armour.",
+  },
   {
     id: "iguanodon",
     name: "Iguanodon",
@@ -366,6 +524,94 @@ export const CREATURES: Creature[] = [
       "A badger-sized mammal found with a juvenile dinosaur in its stomach — evidence that the arrow occasionally pointed the other way.",
   },
   {
+    id: "psittacosaurus",
+    name: "Psittacosaurus",
+    group: "ornithischian",
+    start: 126,
+    end: 101,
+    lengthM: 2,
+    diet: "herbivore",
+    blurb:
+      "A parrot-beaked early ceratopsian, known from over a thousand specimens. One preserves its countershaded colour pattern and a fan of bristles on the tail.",
+  },
+  {
+    id: "sinosauropteryx",
+    name: "Sinosauropteryx",
+    group: "theropod",
+    start: 125,
+    end: 122,
+    lengthM: 1,
+    diet: "carnivore",
+    blurb:
+      "The first dinosaur found with feathers, in 1996. It settled the argument: birds are dinosaurs, and many dinosaurs were fuzzy.",
+  },
+  {
+    id: "yutyrannus",
+    name: "Yutyrannus",
+    group: "theropod",
+    start: 125,
+    end: 122,
+    lengthM: 9,
+    diet: "carnivore",
+    blurb:
+      "A nine-metre tyrannosaur covered in shaggy filaments — the largest animal ever found with direct evidence of feathers.",
+  },
+  {
+    id: "microraptor",
+    name: "Microraptor",
+    group: "theropod",
+    start: 125,
+    end: 120,
+    lengthM: 0.8,
+    diet: "carnivore",
+    blurb:
+      "A crow-sized dromaeosaur with flight feathers on all four limbs. Fossil melanosomes suggest it was glossy black, like a starling.",
+  },
+  {
+    id: "dsungaripterus",
+    name: "Dsungaripterus",
+    group: "pterosaur",
+    start: 125,
+    end: 113,
+    lengthM: 3,
+    diet: "carnivore",
+    blurb:
+      "Its upturned, toothless beak tip worked like forceps for prising shellfish out of crevices, with blunt crushing teeth further back.",
+  },
+  {
+    id: "kronosaurus",
+    name: "Kronosaurus",
+    group: "marine-reptile",
+    start: 125,
+    end: 100,
+    lengthM: 9,
+    diet: "carnivore",
+    blurb:
+      "A short-necked pliosaur from the inland sea that once covered Australia, with a skull over two metres long.",
+  },
+  {
+    id: "suchomimus",
+    name: "Suchomimus",
+    group: "theropod",
+    start: 121,
+    end: 112,
+    lengthM: 11,
+    diet: "carnivore",
+    blurb:
+      "A sail-backed African relative of Baryonyx, with over a hundred hooked teeth in narrow jaws built for gripping fish.",
+  },
+  {
+    id: "acrocanthosaurus",
+    name: "Acrocanthosaurus",
+    group: "theropod",
+    start: 116,
+    end: 110,
+    lengthM: 11.5,
+    diet: "carnivore",
+    blurb:
+      "North America's great predator before the tyrannosaurs, carrying tall neural spines that formed a ridge along its back.",
+  },
+  {
     id: "deinonychus",
     name: "Deinonychus",
     group: "theropod",
@@ -377,6 +623,61 @@ export const CREATURES: Creature[] = [
       "The agile, sickle-clawed predator that triggered the 'Dinosaur Renaissance' and our modern picture of dinosaurs as active, bird-like animals.",
   },
   {
+    id: "tapejara",
+    name: "Tapejara",
+    group: "pterosaur",
+    start: 112,
+    end: 108,
+    lengthM: 1.5,
+    diet: "herbivore",
+    blurb:
+      "Carried an enormous sail-like head crest, far larger than the skull beneath it, almost certainly for display.",
+  },
+  {
+    id: "tropeognathus",
+    name: "Tropeognathus",
+    group: "pterosaur",
+    start: 112,
+    end: 108,
+    lengthM: 8.2,
+    diet: "carnivore",
+    blurb:
+      "A large Brazilian pterosaur with keeled crests on both jaws, thought to have steadied its beak while snatching fish at speed.",
+  },
+  {
+    id: "patagotitan",
+    name: "Patagotitan",
+    group: "sauropodomorph",
+    start: 102,
+    end: 95,
+    lengthM: 31,
+    diet: "herbivore",
+    blurb:
+      "Among the largest land animals ever weighed up: roughly 60 tonnes, known from six individuals found together in Argentina.",
+  },
+  {
+    id: "carcharodontosaurus",
+    name: "Carcharodontosaurus",
+    group: "theropod",
+    start: 100,
+    end: 94,
+    lengthM: 12,
+    diet: "carnivore",
+    blurb:
+      "“Shark-toothed lizard”, named for blade-like teeth built for slicing. It hunted the same North African rivers as Spinosaurus.",
+  },
+  {
+    id: "giganotosaurus",
+    name: "Giganotosaurus",
+    group: "theropod",
+    start: 99,
+    end: 96,
+    lengthM: 12.5,
+    diet: "carnivore",
+    blurb:
+      "Slightly longer than Tyrannosaurus, though more lightly built. It lived in South America some 30 million years before T. rex existed.",
+  },
+  {
     id: "spinosaurus",
     name: "Spinosaurus",
     group: "theropod",
@@ -386,6 +687,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "The longest known predatory dinosaur, sail-backed and semi-aquatic, hunting fish in North African river systems.",
+  },
+  {
+    id: "mapusaurus",
+    name: "Mapusaurus",
+    group: "theropod",
+    start: 97,
+    end: 93,
+    lengthM: 11,
+    diet: "carnivore",
+    blurb:
+      "Found as several individuals in one bone bed, raising the possibility that these giant predators hunted the enormous local sauropods together.",
   },
   {
     id: "argentinosaurus",
@@ -410,6 +722,39 @@ export const CREATURES: Creature[] = [
       "A toothless, crested pterosaur with a six-metre wingspan that soared over the inland sea splitting North America in two.",
   },
   {
+    id: "tylosaurus",
+    name: "Tylosaurus",
+    group: "marine-reptile",
+    start: 86,
+    end: 75,
+    lengthM: 13,
+    diet: "carnivore",
+    blurb:
+      "A giant mosasaur with a reinforced snout it may have used to ram prey. Stomach contents include fish, sharks, birds and other mosasaurs.",
+  },
+  {
+    id: "dreadnoughtus",
+    name: "Dreadnoughtus",
+    group: "sauropodomorph",
+    start: 84,
+    end: 76,
+    lengthM: 26,
+    diet: "herbivore",
+    blurb:
+      "One of the most complete giant titanosaurs, and still growing when it died — the largest land animal whose mass can be calculated with confidence.",
+  },
+  {
+    id: "deinosuchus",
+    name: "Deinosuchus",
+    group: "other-reptile",
+    start: 82,
+    end: 73,
+    lengthM: 11,
+    diet: "carnivore",
+    blurb:
+      "An alligator relative the length of a bus. Hadrosaur bones bearing its bite marks show it took dinosaurs at the shoreline.",
+  },
+  {
     id: "mosasaurus",
     name: "Mosasaurus",
     group: "marine-reptile",
@@ -432,6 +777,50 @@ export const CREATURES: Creature[] = [
       "Over half its length was neck, holding 72 vertebrae — more than any other animal known.",
   },
   {
+    id: "maiasaura",
+    name: "Maiasaura",
+    group: "ornithischian",
+    start: 80,
+    end: 75,
+    lengthM: 9,
+    diet: "herbivore",
+    blurb:
+      "“Good mother lizard”, found with nests, eggs and hatchlings whose leg joints were too undeveloped to walk. Proof that some dinosaurs raised their young.",
+  },
+  {
+    id: "archelon",
+    name: "Archelon",
+    group: "marine-reptile",
+    start: 80,
+    end: 74,
+    lengthM: 4,
+    diet: "carnivore",
+    blurb:
+      "The largest sea turtle known, over four metres across the flippers. Its shell was a leathery frame of struts rather than a solid dome.",
+  },
+  {
+    id: "corythosaurus",
+    name: "Corythosaurus",
+    group: "ornithischian",
+    start: 77,
+    end: 75,
+    lengthM: 9,
+    diet: "herbivore",
+    blurb:
+      "A hadrosaur whose helmet-like crest was a hollow resonating chamber, probably used to call across the herd.",
+  },
+  {
+    id: "troodon",
+    name: "Troodon",
+    group: "theropod",
+    start: 77,
+    end: 74,
+    lengthM: 2.4,
+    diet: "omnivore",
+    blurb:
+      "Famous for its large brain relative to body size. The name is now contested — many specimens have been reassigned — but the animal it described was real and unusually sharp-eyed.",
+  },
+  {
     id: "parasaurolophus",
     name: "Parasaurolophus",
     group: "ornithischian",
@@ -443,6 +832,72 @@ export const CREATURES: Creature[] = [
       "Its hollow head crest was a resonating tube; models of it produce a low foghorn note, suggesting herds that called to one another.",
   },
   {
+    id: "euoplocephalus",
+    name: "Euoplocephalus",
+    group: "ornithischian",
+    start: 76,
+    end: 75,
+    lengthM: 6,
+    diet: "herbivore",
+    blurb:
+      "So thoroughly armoured that even its eyelids were bony. It carried a heavy tail club capable of breaking a predator's leg.",
+  },
+  {
+    id: "styracosaurus",
+    name: "Styracosaurus",
+    group: "ornithischian",
+    start: 76,
+    end: 74,
+    lengthM: 5.5,
+    diet: "herbivore",
+    blurb:
+      "A horned dinosaur with a frill fringed by six long spikes — display gear, most likely, rather than armour.",
+  },
+  {
+    id: "pentaceratops",
+    name: "Pentaceratops",
+    group: "ornithischian",
+    start: 76,
+    end: 73,
+    lengthM: 6,
+    diet: "herbivore",
+    blurb:
+      "Its skull is among the largest of any land animal ever, approaching three metres from beak to the top of the frill.",
+  },
+  {
+    id: "struthiomimus",
+    name: "Struthiomimus",
+    group: "theropod",
+    start: 76,
+    end: 70,
+    lengthM: 4.3,
+    diet: "omnivore",
+    blurb:
+      "An ostrich-mimic dinosaur: toothless beak, long legs, and a build made for running rather than fighting.",
+  },
+  {
+    id: "oviraptor",
+    name: "Oviraptor",
+    group: "theropod",
+    start: 75,
+    end: 71,
+    lengthM: 1.6,
+    diet: "omnivore",
+    blurb:
+      "Named “egg thief” after being found atop a nest — later discovered to be its own. It was brooding, not raiding, and the name is an accident of that mistake.",
+  },
+  {
+    id: "protoceratops",
+    name: "Protoceratops",
+    group: "ornithischian",
+    start: 75,
+    end: 71,
+    lengthM: 2,
+    diet: "herbivore",
+    blurb:
+      "Sheep-sized and hornless, it is best known from the “Fighting Dinosaurs” fossil, locked in combat with a Velociraptor when a dune collapsed on both.",
+  },
+  {
     id: "velociraptor",
     name: "Velociraptor",
     group: "theropod",
@@ -452,6 +907,127 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "Turkey-sized and definitively feathered — fossil forearms preserve quill knobs. The film version is closer in size to Deinonychus.",
+  },
+  {
+    id: "gallimimus",
+    name: "Gallimimus",
+    group: "theropod",
+    start: 74,
+    end: 70,
+    lengthM: 6,
+    diet: "omnivore",
+    blurb:
+      "The largest of the ostrich mimics, and among the fastest dinosaurs known. Its beak may have been used to strain small food from water.",
+  },
+  {
+    id: "edmontosaurus",
+    name: "Edmontosaurus",
+    group: "ornithischian",
+    start: 73,
+    end: 66,
+    lengthM: 12,
+    diet: "herbivore",
+    blurb:
+      "A huge duck-billed grazer with batteries of hundreds of teeth. One specimen shows a healed T. rex bite, evidence of an attack it survived.",
+  },
+  {
+    id: "carnotaurus",
+    name: "Carnotaurus",
+    group: "theropod",
+    start: 72,
+    end: 69,
+    lengthM: 8,
+    diet: "carnivore",
+    blurb:
+      "A bull-horned predator with almost comically small arms and deep skin impressions preserved across its body.",
+  },
+  {
+    id: "albertosaurus",
+    name: "Albertosaurus",
+    group: "theropod",
+    start: 71,
+    end: 68,
+    lengthM: 9,
+    diet: "carnivore",
+    blurb:
+      "A lighter, earlier cousin of T. rex. One Alberta bone bed holds at least 26 individuals, hinting they may have moved in groups.",
+  },
+  {
+    id: "deinocheirus",
+    name: "Deinocheirus",
+    group: "theropod",
+    start: 70,
+    end: 66,
+    lengthM: 11,
+    diet: "omnivore",
+    blurb:
+      "Known for fifty years only from a pair of giant arms. Complete finds in 2014 revealed a humpbacked, duck-billed oddity unlike anything predicted.",
+  },
+  {
+    id: "pachycephalosaurus",
+    name: "Pachycephalosaurus",
+    group: "ornithischian",
+    start: 70,
+    end: 66,
+    lengthM: 4.5,
+    diet: "herbivore",
+    blurb:
+      "Its skull roof was 25 centimetres of solid bone. Whether it head-butted rivals or shoved flanks is still argued over.",
+  },
+  {
+    id: "saltasaurus",
+    name: "Saltasaurus",
+    group: "sauropodomorph",
+    start: 70,
+    end: 66,
+    lengthM: 12.8,
+    diet: "herbivore",
+    blurb:
+      "A small titanosaur whose skin was studded with bony plates — the discovery that showed sauropods could be armoured.",
+  },
+  {
+    id: "therizinosaurus",
+    name: "Therizinosaurus",
+    group: "theropod",
+    start: 70,
+    end: 66,
+    lengthM: 10,
+    diet: "herbivore",
+    blurb:
+      "A theropod that gave up meat. Its metre-long claws — the largest of any animal — were probably used to pull vegetation within reach.",
+  },
+  {
+    id: "ankylosaurus",
+    name: "Ankylosaurus",
+    group: "ornithischian",
+    start: 68,
+    end: 66,
+    lengthM: 8,
+    diet: "herbivore",
+    blurb:
+      "An armoured tank with a bony tail club capable of shattering bone. A contemporary of both Triceratops and T. rex.",
+  },
+  {
+    id: "quetzalcoatlus",
+    name: "Quetzalcoatlus",
+    group: "pterosaur",
+    start: 68,
+    end: 66,
+    lengthM: 11,
+    diet: "carnivore",
+    blurb:
+      "As tall as a giraffe when standing, with a wingspan over ten metres — the largest flying animal ever known.",
+  },
+  {
+    id: "torosaurus",
+    name: "Torosaurus",
+    group: "ornithischian",
+    start: 68,
+    end: 66,
+    lengthM: 9,
+    diet: "herbivore",
+    blurb:
+      "A close relative of Triceratops with an even longer frill, pierced by two large openings. Some argue it is simply a fully mature Triceratops.",
   },
   {
     id: "triceratops",
@@ -476,30 +1052,8 @@ export const CREATURES: Creature[] = [
     blurb:
       "The famous one — and a latecomer. Its entire genus occupies the last two million years of the Mesozoic, a sliver at the right-hand edge of the age of dinosaurs.",
   },
-  {
-    id: "ankylosaurus",
-    name: "Ankylosaurus",
-    group: "ornithischian",
-    start: 68,
-    end: 66,
-    lengthM: 8,
-    diet: "herbivore",
-    blurb:
-      "An armoured tank with a bony tail club capable of shattering bone. A contemporary of both Triceratops and T. rex.",
-  },
-  {
-    id: "quetzalcoatlus",
-    name: "Quetzalcoatlus",
-    group: "pterosaur",
-    start: 68,
-    end: 66,
-    lengthM: 11,
-    diet: "carnivore",
-    blurb:
-      "As tall as a giraffe when standing, with a wingspan over ten metres — the largest flying animal ever known.",
-  },
 
-  // ── Cenozoic: the age of mammals ──────────────────────────────────────
+  // ── Cenozoic: the age of mammals ────────────────────────────────────────
   {
     id: "titanoboa",
     name: "Titanoboa",
@@ -573,7 +1127,7 @@ export const CREATURES: Creature[] = [
     name: "Australopithecus",
     group: "hominin",
     start: 4.2,
-    end: 2.0,
+    end: 2,
     lengthM: 1.2,
     diet: "omnivore",
     blurb:

@@ -55,6 +55,24 @@ const QUERY_CHAINS = {
   // rubidgeine) that appears nowhere else, so it stands in without colliding.
   lycaenops: ["lycaenops", "dinogorgon"],
   rubidgea: ["rubidgea", "dinogorgon"],
+
+  // Present in PhyloPic only under the full binomial, so these end up being
+  // the real animal rather than a stand-in.
+  oviraptor: ["oviraptor philoceratops", "oviraptoridae"],
+  tropeognathus: ["tropeognathus mesembrinus", "anhangueridae"],
+  struthiomimus: ["struthiomimus", "ornithomimidae"],
+
+  // Genuinely absent; each falls back within its own clade. The titanosaurs
+  // are deliberately pointed at four *different* relatives — sharing one would
+  // give Argentinosaurus, Patagotitan, Dreadnoughtus and Saltasaurus the same
+  // outline and make the chart look like it had run out of pictures.
+  amargasaurus: ["amargasaurus", "dicraeosauridae"],
+  patagotitan: ["patagotitan", "abditosaurus"],
+  dreadnoughtus: ["dreadnoughtus", "opisthocoelicaudia"],
+  saltasaurus: ["saltasaurus", "neuquensaurus"],
+  gallimimus: ["gallimimus", "ornithomimus"],
+  tapejara: ["tapejara", "tapejaridae"],
+  dsungaripterus: ["dsungaripterus", "pterodactylus"],
 };
 
 const licenceRank = (href = "") => {
@@ -136,8 +154,11 @@ for (const creature of CREATURES) {
   }
   await writeFile(join(OUT_DIR, `${creature.id}.svg`), Buffer.from(await svg.arrayBuffer()));
 
-  // A stand-in is any image resolved from something other than the genus.
-  const standIn = matchedQuery.toLowerCase() !== genus.toLowerCase();
+  // Judge by what the artwork actually depicts, not by which query found it.
+  // Searching a family often turns up the genus itself — "ornithomimidae"
+  // returns Struthiomimus — and calling that a stand-in would disclose a
+  // substitution that never happened.
+  const standIn = !chosen.taxon.toLowerCase().startsWith(genus.toLowerCase());
   if (standIn) warnings.push(`${creature.name}: stand-in silhouette (${chosen.taxon})`);
   if (chosen.rank === 9) warnings.push(`${creature.name}: NonCommercial licence`);
 
