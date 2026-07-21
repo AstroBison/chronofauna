@@ -30,6 +30,12 @@ function SpanRow({ spans, height, pxPerMy, onSelect }: SpanRowProps) {
             className="axis-span"
             style={{ left, width, background: span.color, color: readableInk(span.color) }}
             onClick={() => onSelect(span)}
+            /* Named explicitly for the same reason as the creature bars: a
+               narrow span hides its text, and a title alone is not a dependable
+               accessible name. */
+            aria-label={`${span.name} ${span.rank}, ${formatMya(span.start)} to ${formatMya(
+              span.end,
+            )}. Zoom to it.`}
             title={`${span.name} — ${formatMya(span.start)} to ${formatMya(span.end)}. Click to zoom.`}
           >
             {/* Drop the name rather than let it clip mid-word ("Late Jurass…"). */}

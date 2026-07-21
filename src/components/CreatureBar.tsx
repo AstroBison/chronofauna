@@ -51,12 +51,35 @@ export function CreatureBar({ packed, pxPerMy, color, state, onSelect }: Creatur
   const showLabel = labelWidth <= roomForLabel;
   const showThumbnail = showLabel && labelWidth + BAR_THUMBNAIL_EXTRA <= roomForLabel;
 
+  const lifespan = `${formatMya(creature.start)} to ${formatMya(creature.end)}`;
+  const duration = formatDuration(durationMy(creature));
+
+  /*
+   * Named explicitly rather than by its own text, because that text is
+   * conditional: a bar with no room drops its label, and which bars those are
+   * changes with zoom. Those buttons were left with only a `title`, which is an
+   * unreliable naming source and largely ignored by mobile screen readers — so
+   * at any given zoom a dozen buttons were effectively anonymous.
+   *
+   * The visible label leads, so the accessible name still contains what a
+   * speech-control user would say (WCAG 2.5.3, Label in Name).
+   */
+  const accessibleName = [
+    label,
+    label === creature.name ? null : creature.name,
+    lifespan,
+    duration,
+  ]
+    .filter(Boolean)
+    .join(", ");
+
   return (
     <button
       className={`bar bar--${state}`}
       /* Lets the viewport find this bar to scroll it into view; see
          `revealCreature` in useTimelineViewport. */
       data-creature-id={creature.id}
+      aria-label={accessibleName}
       style={{
         left,
         width: ruleWidth,
@@ -66,9 +89,7 @@ export function CreatureBar({ packed, pxPerMy, color, state, onSelect }: Creatur
       } as React.CSSProperties}
       onClick={() => onSelect(creature.id)}
       aria-pressed={state === "selected"}
-      title={`${creature.name}: ${formatMya(creature.start)} – ${formatMya(
-        creature.end,
-      )} (${formatDuration(durationMy(creature))})`}
+      title={`${creature.name}: ${lifespan} (${duration})`}
     >
       {showLabel && (
         <span className="bar-annotation">

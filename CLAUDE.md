@@ -225,6 +225,27 @@ against the *padding box*: `padding-top` on `.lanes` does not move them and will
 not create a gap. The clear strip for the extinction captions is
 `LANES_TOP_INSET`, added to each row's computed `top`. This bit me once already.
 
+## Accessibility of the chart
+
+**Every bar and axis span carries an explicit `aria-label`.** Do not remove them
+in favour of the visible text: that text is conditional — a bar or span with no
+room drops its label, and which ones those are changes with zoom. Relying on
+rendered text left a dozen buttons named only by `title`, which is an unreliable
+naming source and is largely ignored by mobile screen readers.
+
+The visible label leads the accessible name so speech control still works
+(WCAG 2.5.3, Label in Name). `title` stays only as a mouse tooltip.
+
+The scroll viewport is a labelled `role="region"` described by
+`#chart-summary`, a visually-hidden paragraph that states the species count, the
+families and what a bar is. It is generated from the data, so it cannot go stale
+as species are added. Family `<section>`s are named via `aria-labelledby`, and
+purely decorative elements (lane guides) are `aria-hidden`.
+
+Still open: the axis contributes 28 tab stops before the chart, there is no
+arrow-key movement between bars, and focus is not moved into the detail panel.
+See `PROGRESS.md`.
+
 ## Filtering vs. selection
 
 Two independent visual states, both applied in `stateFor` in `TimelineChart`:

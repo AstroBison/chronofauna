@@ -62,12 +62,22 @@ Zoomed fully into the Permian, three consecutive ticks all read "299 Ma".
 so sub-million-year steps at old ages collapse to the same string. Derive the
 decimal places from the step passed to `ticksInRange`.
 
-### 2. Accessibility gaps
+### ~~Chart has no accessible name, role or summary~~ — fixed
+
+Worse than first recorded: at any given zoom **12 bars and 12 axis spans had no
+accessible name at all**, only a `title`. Which ones were anonymous changed as
+the reader zoomed, because the visible label is dropped when a bar is too narrow.
+
+Now every bar and span has an explicit `aria-label` (visible text first, so
+WCAG 2.5.3 still passes), the viewport is a labelled `role="region"` described
+by a generated visually-hidden summary, family sections are named via
+`aria-labelledby`, decorative lane guides are `aria-hidden`, and the extinction
+blurbs are readable as text rather than hover-only.
+
+### 2. Remaining accessibility gaps
 
 - **43 tab stops before the chart**, 28 of them axis period bands. Consider
   making the axis a single focus group, or adding a skip link.
-- The chart exposes **no accessible name, role or summary** — a screen reader
-  meets 48 buttons with no context for what they belong to.
 - No arrow-key movement between bars.
 - Focus is not moved into the detail panel when it opens, nor restored on close.
 
