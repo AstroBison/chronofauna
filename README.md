@@ -1,4 +1,4 @@
-# DinoLine
+# Chronofauna
 
 An interactive timeline of prehistoric life. Every animal is a line drawn to
 scale across 300 million years, so you can see at a glance how long each one

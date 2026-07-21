@@ -113,7 +113,7 @@ export default function App() {
     <div className={`app ${selected ? "app--with-detail" : ""}`}>
       <header className="topbar">
         <div className="brand">
-          <h1>DinoLine</h1>
+          <h1>Chronofauna</h1>
           <p>Every line is one animal, to scale across 300 million years</p>
         </div>
 

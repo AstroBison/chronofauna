@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export type Theme = "light" | "dark";
 
-const STORAGE_KEY = "dinoline-theme";
+const STORAGE_KEY = "chronofauna-theme";
 
 function readStoredChoice(): Theme | null {
   try {
