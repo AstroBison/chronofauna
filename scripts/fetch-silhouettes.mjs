@@ -77,6 +77,13 @@ const QUERY_CHAINS = {
   gallimimus: ["gallimimus", "ornithomimus"],
   tapejara: ["tapejara", "tapejaridae"],
   dsungaripterus: ["dsungaripterus", "pterodactylus"],
+
+  // No PhyloPic image of their own; each falls back within its own family to a
+  // relative that is not otherwise on the chart. Metriacanthosaurus borrows the
+  // metriacanthosaurid Yangchuanosaurus; Mononykus the alvarezsaurid
+  // Alvarezsaurus.
+  metriacanthosaurus: ["metriacanthosaurus", "metriacanthosauridae"],
+  mononykus: ["mononykus", "alvarezsauridae"],
 };
 
 const licenceRank = (href = "") => {

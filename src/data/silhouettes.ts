@@ -262,6 +262,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/52d69849-6f8c-40dc-8cfb-7f28e1506911"
   },
+  "metriacanthosaurus": {
+    "file": "/silhouettes/metriacanthosaurus.svg",
+    "taxon": "Yangchuanosaurus shangyouensis",
+    "standIn": true,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/c379ba3c-019d-48f1-8797-29ec7185fb2b"
+  },
   "mamenchisaurus": {
     "file": "/silhouettes/mamenchisaurus.svg",
     "taxon": "Mamenchisaurus youngi",
@@ -496,6 +505,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/71cd33c1-475e-4ee6-ba4b-1193db278eed"
   },
+  "ouranosaurus": {
+    "file": "/silhouettes/ouranosaurus.svg",
+    "taxon": "Ouranosaurus nigeriensis",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/2d16ee00-8793-4c02-8208-94ed13b35dfe"
+  },
   "acrocanthosaurus": {
     "file": "/silhouettes/acrocanthosaurus.svg",
     "taxon": "Acrocanthosaurus atokensis",
@@ -567,6 +585,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/0dd7eaf6-1caf-4579-9f42-340fa9f34c48"
+  },
+  "moros-intrepidus": {
+    "file": "/silhouettes/moros-intrepidus.svg",
+    "taxon": "Moros intrepidus",
+    "standIn": false,
+    "attribution": "Cy Marchant",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/c573d59d-751c-4511-948e-86d9e8f53dc4"
   },
   "mapusaurus": {
     "file": "/silhouettes/mapusaurus.svg",
@@ -694,6 +721,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
     "sourceUrl": "https://www.phylopic.org/images/5b062105-b6a2-4405-bd75-3d0399102b9a"
   },
+  "nasutoceratops": {
+    "file": "/silhouettes/nasutoceratops.svg",
+    "taxon": "Nasutoceratops titusi",
+    "standIn": false,
+    "attribution": "Lukas Panzarin (vectorized by T. Michael Keesey)",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/ef275bb4-d7bc-4687-a52e-9dab12a1f582"
+  },
   "styracosaurus": {
     "file": "/silhouettes/styracosaurus.svg",
     "taxon": "Styracosaurus albertensis",
@@ -757,6 +793,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/b778f21e-0415-4990-b7be-27dc3ce21405"
   },
+  "sinoceratops": {
+    "file": "/silhouettes/sinoceratops.svg",
+    "taxon": "Sinoceratops zhuchengensis",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/cc582628-b4c5-45fd-bb6a-c3935d4e677b"
+  },
   "edmontosaurus": {
     "file": "/silhouettes/edmontosaurus.svg",
     "taxon": "Edmontosaurus regalis",
@@ -766,6 +811,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/fb219ea5-5581-4dd8-a668-a600385e2b1d"
   },
+  "mononykus": {
+    "file": "/silhouettes/mononykus.svg",
+    "taxon": "Alvarezsaurus calvoi",
+    "standIn": true,
+    "attribution": "Jaime Headden",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/a724b06d-541b-42ac-8cea-b84f985653c6"
+  },
+  "pyroraptor": {
+    "file": "/silhouettes/pyroraptor.svg",
+    "taxon": "Pyroraptor olympius",
+    "standIn": false,
+    "attribution": "Mette Aumala",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b93bf7e4-0881-440c-b6b6-a324180387f0"
+  },
   "carnotaurus": {
     "file": "/silhouettes/carnotaurus.svg",
     "taxon": "Carnotaurus sastrei",
@@ -774,6 +837,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/07ac345a-7b69-4f99-a3fd-84b4d08fcd80"
+  },
+  "atrociraptor": {
+    "file": "/silhouettes/atrociraptor.svg",
+    "taxon": "Atrociraptor marshalli",
+    "standIn": false,
+    "attribution": "Mette Aumala",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/277ceeda-a1ca-4d81-a97e-07a66907d4cc"
   },
   "albertosaurus": {
     "file": "/silhouettes/albertosaurus.svg",

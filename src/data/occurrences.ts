@@ -1815,6 +1815,19 @@ export const OCCURRENCES: Record<string, Occurrence> = {
     ],
     "siteCount": 13
   },
+  "metriacanthosaurus": {
+    "points": [
+      [
+        15,
+        33
+      ]
+    ],
+    "mapAge": 170,
+    "countries": [
+      "UK"
+    ],
+    "siteCount": 1
+  },
   "mamenchisaurus": {
     "points": [
       [
@@ -3617,6 +3630,42 @@ export const OCCURRENCES: Record<string, Occurrence> = {
     ],
     "siteCount": 2
   },
+  "ouranosaurus": {
+    "points": [
+      [
+        23,
+        22
+      ],
+      [
+        32,
+        -3
+      ],
+      [
+        16,
+        -3
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        16,
+        4
+      ],
+      [
+        16,
+        5
+      ]
+    ],
+    "mapAge": 120,
+    "countries": [
+      "CM",
+      "NE",
+      "SD",
+      "TN"
+    ],
+    "siteCount": 8
+  },
   "acrocanthosaurus": {
     "points": [
       [
@@ -4067,6 +4116,19 @@ export const OCCURRENCES: Record<string, Occurrence> = {
       "TN"
     ],
     "siteCount": 44
+  },
+  "moros-intrepidus": {
+    "points": [
+      [
+        -69,
+        46
+      ]
+    ],
+    "mapAge": 100,
+    "countries": [
+      "US"
+    ],
+    "siteCount": 1
   },
   "mapusaurus": {
     "points": [
@@ -5080,6 +5142,19 @@ export const OCCURRENCES: Record<string, Occurrence> = {
     ],
     "siteCount": 18
   },
+  "nasutoceratops": {
+    "points": [
+      [
+        -75,
+        49
+      ]
+    ],
+    "mapAge": 80,
+    "countries": [
+      "US"
+    ],
+    "siteCount": 1
+  },
   "styracosaurus": {
     "points": [
       [
@@ -5334,6 +5409,19 @@ export const OCCURRENCES: Record<string, Occurrence> = {
     ],
     "siteCount": 30
   },
+  "sinoceratops": {
+    "points": [
+      [
+        117,
+        36
+      ]
+    ],
+    "mapAge": 66,
+    "countries": [
+      "CN"
+    ],
+    "siteCount": 1
+  },
   "edmontosaurus": {
     "points": [
       [
@@ -5504,6 +5592,53 @@ export const OCCURRENCES: Record<string, Occurrence> = {
     ],
     "siteCount": 85
   },
+  "mononykus": {
+    "points": [
+      [
+        93,
+        36
+      ],
+      [
+        99,
+        39
+      ],
+      [
+        93,
+        37
+      ],
+      [
+        94,
+        36
+      ]
+    ],
+    "mapAge": 66,
+    "countries": [
+      "MN"
+    ],
+    "siteCount": 6
+  },
+  "pyroraptor": {
+    "points": [
+      [
+        10,
+        30
+      ],
+      [
+        15,
+        32
+      ],
+      [
+        9,
+        31
+      ]
+    ],
+    "mapAge": 66,
+    "countries": [
+      "ES",
+      "FR"
+    ],
+    "siteCount": 3
+  },
   "carnotaurus": {
     "points": [
       [
@@ -5516,6 +5651,31 @@ export const OCCURRENCES: Record<string, Occurrence> = {
       "AR"
     ],
     "siteCount": 1
+  },
+  "atrociraptor": {
+    "points": [
+      [
+        -68,
+        64
+      ],
+      [
+        -67,
+        63
+      ],
+      [
+        -67,
+        62
+      ],
+      [
+        -68,
+        67
+      ]
+    ],
+    "mapAge": 66,
+    "countries": [
+      "CA"
+    ],
+    "siteCount": 6
   },
   "albertosaurus": {
     "points": [

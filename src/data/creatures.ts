@@ -315,6 +315,17 @@ export const CREATURES: Creature[] = [
       "A short-necked pliosaur that hunted by scent, with nostrils arranged to sample water directionally as it swam.",
   },
   {
+    id: "metriacanthosaurus",
+    name: "Metriacanthosaurus",
+    group: "theropod",
+    start: 162,
+    end: 158,
+    lengthM: 8,
+    diet: "carnivore",
+    blurb:
+      "A large Jurassic predator from the sea-edge muds of southern England, known from a single partial skeleton. Its tall vertebral spines hint at a low ridge running along the back.",
+  },
+  {
     id: "mamenchisaurus",
     name: "Mamenchisaurus",
     group: "sauropodomorph",
@@ -601,6 +612,17 @@ export const CREATURES: Creature[] = [
       "A sail-backed African relative of Baryonyx, with over a hundred hooked teeth in narrow jaws built for gripping fish.",
   },
   {
+    id: "ouranosaurus",
+    name: "Ouranosaurus",
+    group: "ornithischian",
+    start: 118,
+    end: 110,
+    lengthM: 7,
+    diet: "herbivore",
+    blurb:
+      "A sail-backed plant-eater from what is now Niger, its spine drawn up into tall bony rods that may have carried a sail or a fatty hump. It cropped low vegetation with a broad, duck-like beak.",
+  },
+  {
     id: "acrocanthosaurus",
     name: "Acrocanthosaurus",
     group: "theropod",
@@ -687,6 +709,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "The longest known predatory dinosaur, sail-backed and semi-aquatic, hunting fish in North African river systems.",
+  },
+  {
+    id: "moros-intrepidus",
+    name: "Moros intrepidus",
+    group: "theropod",
+    start: 98,
+    end: 96,
+    lengthM: 1.2,
+    diet: "carnivore",
+    blurb:
+      "A house-cat-sized ancestor of the tyrant dinosaurs, from Cretaceous Utah. Tens of millions of years before T. rex, tyrannosaurs were still small, fleet-footed hunters like this one.",
   },
   {
     id: "mapusaurus",
@@ -843,6 +876,17 @@ export const CREATURES: Creature[] = [
       "So thoroughly armoured that even its eyelids were bony. It carried a heavy tail club capable of breaking a predator's leg.",
   },
   {
+    id: "nasutoceratops",
+    name: "Nasutoceratops",
+    group: "ornithischian",
+    start: 76,
+    end: 75,
+    lengthM: 4.5,
+    diet: "herbivore",
+    blurb:
+      "A horned dinosaur from Utah with long, forward-curving brow horns and an oversized nose. Its horns recall a modern steer's more than a Triceratops'.",
+  },
+  {
     id: "styracosaurus",
     name: "Styracosaurus",
     group: "ornithischian",
@@ -920,6 +964,17 @@ export const CREATURES: Creature[] = [
       "The largest of the ostrich mimics, and among the fastest dinosaurs known. Its beak may have been used to strain small food from water.",
   },
   {
+    id: "sinoceratops",
+    name: "Sinoceratops",
+    group: "ornithischian",
+    start: 73,
+    end: 72,
+    lengthM: 6,
+    diet: "herbivore",
+    blurb:
+      "One of the few large horned dinosaurs known from Asia, from Shandong in China. A single curved horn tipped its nose, and a row of small hooklets fringed its frill.",
+  },
+  {
     id: "edmontosaurus",
     name: "Edmontosaurus",
     group: "ornithischian",
@@ -931,6 +986,28 @@ export const CREATURES: Creature[] = [
       "A huge duck-billed grazer with batteries of hundreds of teeth. One specimen shows a healed T. rex bite, evidence of an attack it survived.",
   },
   {
+    id: "mononykus",
+    name: "Mononykus",
+    group: "theropod",
+    start: 72,
+    end: 70,
+    lengthM: 1,
+    diet: "insectivore",
+    blurb:
+      "A slender, long-legged runner with strange stubby arms, each ending in a single stout claw — most likely for tearing into insect nests. It was a bird-like dinosaur of the Mongolian desert.",
+  },
+  {
+    id: "pyroraptor",
+    name: "Pyroraptor",
+    group: "theropod",
+    start: 72,
+    end: 70,
+    lengthM: 1.5,
+    diet: "carnivore",
+    blurb:
+      "A small feathered raptor from southern France and Spain, named 'fire thief' for the red sandstone that yielded its first bones. It hunted the Late Cretaceous islands of ancient Europe.",
+  },
+  {
     id: "carnotaurus",
     name: "Carnotaurus",
     group: "theropod",
@@ -940,6 +1017,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "A bull-horned predator with almost comically small arms and deep skin impressions preserved across its body.",
+  },
+  {
+    id: "atrociraptor",
+    name: "Atrociraptor",
+    group: "theropod",
+    start: 71,
+    end: 70,
+    lengthM: 2,
+    diet: "carnivore",
+    blurb:
+      "A short-snouted raptor from Alberta with a mouth full of strongly raked teeth. Compact and fast, it was among the last of the dromaeosaurs before the end-Cretaceous extinction.",
   },
   {
     id: "albertosaurus",

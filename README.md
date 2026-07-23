@@ -37,7 +37,7 @@ Quaternary band in the axis to zoom down to it.
 
 ## What's included
 
-124 species from the Permian through today, arranged into five families — mammal
+132 species from the Permian through today, arranged into five families — mammal
 line, other reptiles, dinosaurs, pterosaurs and sea creatures — with colour
 marking the finer grouping within each (theropods, sauropodomorphs,
 ornithischians, and so on). The geologic time scale uses official ICS chart
@@ -82,12 +82,12 @@ which downloads to `public/silhouettes/` and regenerates `src/data/silhouettes.t
 with each artist's credit and licence. Both are committed, so you only need to
 run it after adding species.
 
-All 124 are public domain, CC-BY or CC-BY-SA — **no NonCommercial licences**, so
+All 132 are public domain, CC-BY or CC-BY-SA — **no NonCommercial licences**, so
 the site stays free to use in any context. Artists are credited in the detail
 panel and in the "Artwork credits" list in the footer; both are required by the
 CC-BY terms, so please keep them.
 
-Eighteen genera have no silhouette of their own, so they use one of a close
+Twenty genera have no silhouette of their own, so they use one of a close
 relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid pterosaur;
 Lycaenops and Rubidgea borrow *Dinogorgon*, a fellow gorgonopsian; Moropus
 borrows *Chalicotherium*, a fellow chalicothere. The site says so on each
