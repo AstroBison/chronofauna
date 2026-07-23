@@ -1066,6 +1066,40 @@ export const CREATURES: Creature[] = [
       "A one-tonne snake from Colombian coal swamps, thriving in the hothouse world that followed the dinosaurs' exit.",
   },
   {
+    id: "coryphodon",
+    name: "Coryphodon",
+    group: "mammal",
+    start: 57,
+    end: 50,
+    lengthM: 2.25,
+    diet: "herbivore",
+    blurb:
+      "A hippo-shaped browser of Paleocene swamps and among the first mammals to grow genuinely large once the dinosaurs were gone. Its brain weighed barely 90 grams in a half-tonne body.",
+  },
+  {
+    id: "eohippus",
+    name: "Eohippus",
+    commonName: "Dawn horse",
+    group: "mammal",
+    start: 56,
+    end: 52,
+    lengthM: 0.6,
+    diet: "herbivore",
+    blurb:
+      "The earliest horse: a dog-sized forest browser with four toes on each front foot, from the Eocene of North America. Every thoroughbred alive descends from something like it.",
+  },
+  {
+    id: "uintatherium",
+    name: "Uintatherium",
+    group: "mammal",
+    start: 46,
+    end: 40,
+    lengthM: 4,
+    diet: "herbivore",
+    blurb:
+      "A rhino-sized Eocene giant from Wyoming with six blunt horns and sabre-like canines, yet a brain small enough to hold in one hand. Its whole branch of mammals left no descendants.",
+  },
+  {
     id: "andrewsarchus",
     name: "Andrewsarchus",
     group: "mammal",
@@ -1075,6 +1109,17 @@ export const CREATURES: Creature[] = [
     diet: "omnivore",
     blurb:
       "Known from a single enormous skull. Its closest living relatives are, improbably, hippos and whales.",
+  },
+  {
+    id: "hyaenodon",
+    name: "Hyaenodon",
+    group: "mammal",
+    start: 42,
+    end: 16,
+    lengthM: 1.5,
+    diet: "carnivore",
+    blurb:
+      "A powerful hunter unrelated to any cat, dog or hyena alive today. It was a creodont — a group that held the top-predator role for tens of millions of years before modern carnivores displaced them.",
   },
   {
     id: "basilosaurus",
@@ -1088,6 +1133,52 @@ export const CREATURES: Creature[] = [
       "A fully aquatic early whale that kept small, useless hind legs — a transitional form caught in the act.",
   },
   {
+    id: "megacerops",
+    name: "Megacerops",
+    commonName: "Brontothere",
+    group: "mammal",
+    start: 38,
+    end: 34,
+    lengthM: 5,
+    diet: "herbivore",
+    blurb:
+      "A brontothere as large as a big elephant, carrying a blunt Y-shaped horn of bone on its nose. Herds roamed the North American plains until volcanic upheaval ended them.",
+  },
+  {
+    id: "mesohippus",
+    name: "Mesohippus",
+    group: "mammal",
+    start: 37,
+    end: 29,
+    lengthM: 1.2,
+    diet: "herbivore",
+    blurb:
+      "A three-toed horse the size of a sheep, already running on the enlarged middle toe of each foot. It browsed the drying woodlands of Oligocene North America.",
+  },
+  {
+    id: "archaeotherium",
+    name: "Archaeotherium",
+    group: "mammal",
+    start: 35,
+    end: 28,
+    lengthM: 2,
+    diet: "omnivore",
+    blurb:
+      "An entelodont — a long-legged, warthog-faced omnivore nicknamed the 'hell pig,' though it was no true pig. Bite marks show it scavenged carcasses and brawled with its own kind.",
+  },
+  {
+    id: "merycoidodon",
+    name: "Merycoidodon",
+    commonName: "Oreodont",
+    group: "mammal",
+    start: 34,
+    end: 30,
+    lengthM: 1.4,
+    diet: "herbivore",
+    blurb:
+      "A sheep-sized cud-chewer so abundant in the Oligocene badlands of the American West that its bones fill whole rock layers. Nothing quite like it survives today.",
+  },
+  {
     id: "paraceratherium",
     name: "Paraceratherium",
     group: "mammal",
@@ -1097,6 +1188,28 @@ export const CREATURES: Creature[] = [
     diet: "herbivore",
     blurb:
       "A hornless rhino relative standing five metres at the shoulder — the largest land mammal known.",
+  },
+  {
+    id: "daeodon",
+    name: "Daeodon",
+    group: "mammal",
+    start: 24,
+    end: 19,
+    lengthM: 3.6,
+    diet: "omnivore",
+    blurb:
+      "The largest entelodont, standing two metres at the shoulder with a metre-long skull. It ranged across early Miocene North America as part scavenger, part bone-crushing bully.",
+  },
+  {
+    id: "moropus",
+    name: "Moropus",
+    group: "mammal",
+    start: 23,
+    end: 13,
+    lengthM: 3,
+    diet: "herbivore",
+    blurb:
+      "A chalicothere: a horse relative that traded hooves for claws and used them to hook branches down to its mouth. It stood taller at the shoulder than a modern horse.",
   },
   {
     id: "megalodon",
@@ -1111,6 +1224,63 @@ export const CREATURES: Creature[] = [
       "A shark with teeth the size of a hand. It went extinct several million years before any human existed.",
   },
   {
+    id: "aepycamelus",
+    name: "Aepycamelus",
+    commonName: "Giraffe camel",
+    group: "mammal",
+    start: 21,
+    end: 10,
+    lengthM: 3,
+    diet: "herbivore",
+    blurb:
+      "A camel built like a giraffe, with stilt legs and a long neck for browsing treetops. Camels evolved in North America and only later spread to Asia and South America.",
+  },
+  {
+    id: "amphicyon",
+    name: "Amphicyon",
+    commonName: "Bear-dog",
+    group: "mammal",
+    start: 20,
+    end: 9,
+    lengthM: 2.5,
+    diet: "carnivore",
+    blurb:
+      "A 'bear-dog' — neither bear nor dog, but a heavyweight predator with a build somewhere between the two. The largest species rivalled a modern brown bear.",
+  },
+  {
+    id: "teleoceras",
+    name: "Teleoceras",
+    group: "mammal",
+    start: 17,
+    end: 5,
+    lengthM: 4,
+    diet: "herbivore",
+    blurb:
+      "A barrel-bodied rhino with legs so short it looked like a hippo, and it may have lived like one. A Nebraska ashfall buried a whole herd where they died around a waterhole.",
+  },
+  {
+    id: "gomphotherium",
+    name: "Gomphotherium",
+    group: "mammal",
+    start: 16,
+    end: 5,
+    lengthM: 5,
+    diet: "herbivore",
+    blurb:
+      "An early relative of elephants with four tusks — two curving down from the upper jaw and two flattened, shovel-like ones below. It spread across four continents.",
+  },
+  {
+    id: "barbourofelis",
+    name: "Barbourofelis",
+    group: "mammal",
+    start: 13,
+    end: 6,
+    lengthM: 1.7,
+    diet: "carnivore",
+    blurb:
+      "A sabre-toothed predator that only looked like a cat — it belonged to a separate family entirely. Bony flanges on its lower jaw sheathed its enormous canines when the mouth was closed.",
+  },
+  {
     id: "megatherium",
     name: "Megatherium",
     commonName: "Giant ground sloth",
@@ -1121,6 +1291,18 @@ export const CREATURES: Creature[] = [
     diet: "herbivore",
     blurb:
       "An elephant-sized ground sloth that could rear up to pull down branches. It survived until the end of the last ice age.",
+  },
+  {
+    id: "titanis",
+    name: "Titanis",
+    commonName: "Terror bird",
+    group: "theropod",
+    start: 5,
+    end: 1.8,
+    lengthM: 2.5,
+    diet: "carnivore",
+    blurb:
+      "A flightless 'terror bird' two and a half metres tall that hunted on foot in Florida and Texas. Birds are dinosaurs — so a dinosaur was still stalking North America barely two million years ago.",
   },
   {
     id: "australopithecus",
@@ -1134,6 +1316,30 @@ export const CREATURES: Creature[] = [
       "Small-brained but fully upright. 'Lucy' belongs here, as do the Laetoli footprints — a family walking across fresh ash 3.7 million years ago.",
   },
   {
+    id: "mammut-americanum",
+    name: "Mammut americanum",
+    commonName: "American mastodon",
+    group: "mammal",
+    start: 3.5,
+    end: 0.011,
+    lengthM: 4.5,
+    diet: "herbivore",
+    blurb:
+      "Not a mammoth but a distant cousin, browsing the spruce forests of ice-age North America. Its cusped teeth were built for crushing twigs, not grinding grass — a different animal from the mammoth it is often confused with.",
+  },
+  {
+    id: "castoroides",
+    name: "Castoroides",
+    commonName: "Giant beaver",
+    group: "mammal",
+    start: 3,
+    end: 0.011,
+    lengthM: 2,
+    diet: "herbivore",
+    blurb:
+      "A beaver the size of a black bear and nearly two and a half metres long. Despite the bulk, its teeth suggest it grazed aquatic plants rather than felling trees like its modern relatives.",
+  },
+  {
     id: "smilodon",
     name: "Smilodon",
     commonName: "Sabre-toothed cat",
@@ -1144,6 +1350,18 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "Heavily built, with 18-centimetre canines used for a precise killing bite. Thousands were trapped in the La Brea asphalt seeps.",
+  },
+  {
+    id: "arctodus",
+    name: "Arctodus",
+    commonName: "Short-faced bear",
+    group: "mammal",
+    start: 1.8,
+    end: 0.011,
+    lengthM: 2.7,
+    diet: "omnivore",
+    blurb:
+      "The giant short-faced bear, which reared onto its hind legs could look a standing person in the eye from well over three metres up. Long-legged and far-ranging, it was among the largest land carnivores of ice-age North America.",
   },
   {
     id: "mammuthus-primigenius",
@@ -1168,5 +1386,17 @@ export const CREATURES: Creature[] = [
     diet: "omnivore",
     blurb:
       "Our own species. At this scale our entire history is a hairline at the right edge — zoom all the way in to see it.",
+  },
+  {
+    id: "aenocyon-dirus",
+    name: "Aenocyon dirus",
+    commonName: "Dire wolf",
+    group: "mammal",
+    start: 0.25,
+    end: 0.0099,
+    lengthM: 1.7,
+    diet: "carnivore",
+    blurb:
+      "Heavier and stronger-jawed than a grey wolf, and abundant at the La Brea tar pits. DNA has since shown it was only a distant relative of true wolves, not the close cousin it looks like.",
   },
 ];

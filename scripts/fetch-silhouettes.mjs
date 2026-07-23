@@ -48,6 +48,10 @@ const QUERY_CHAINS = {
   // These genera only offer NonCommercial images; a relative offers freer ones.
   mosasaurus: ["mosasaurus", "mosasauridae"],
   megatherium: ["megatherium", "megatheriidae", "folivora", "pilosa"],
+  // PhyloPic's only Moropus is CC BY-NC (and its family holds nothing else), so
+  // fall back to Chalicotherium — a public-domain chalicothere that is not on
+  // the chart, so it stands in without duplicating another animal's outline.
+  moropus: ["moropus", "chalicotherium"],
   // No silhouette of their own. Falling back to the clade `gorgonopsia` picks
   // an Inostrancevia, which is already on the chart under its own name — three
   // species would share one outline and the stand-in would be a portrait of its

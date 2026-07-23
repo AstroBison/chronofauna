@@ -311,10 +311,10 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "file": "/silhouettes/brachiosaurus.svg",
     "taxon": "Brachiosaurus altithorax",
     "standIn": false,
-    "attribution": "Michael P. Taylor",
+    "attribution": "Amy Beauvois",
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "sourceUrl": "https://www.phylopic.org/images/2431b273-7b21-482e-b971-70377686335d"
+    "sourceUrl": "https://www.phylopic.org/images/2003b4f6-7b8d-4c98-9797-1aca028dc2ac"
   },
   "diplodocus": {
     "file": "/silhouettes/diplodocus.svg",
@@ -874,6 +874,33 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
     "sourceUrl": "https://www.phylopic.org/images/beca4a24-33ef-4659-a20f-7d6835703c1c"
   },
+  "coryphodon": {
+    "file": "/silhouettes/coryphodon.svg",
+    "taxon": "Coryphodon",
+    "standIn": false,
+    "attribution": "Colin McElroy (vectorized by Andrew Schwartz)",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/e616d377-d437-4524-aab7-67da359a4ade"
+  },
+  "eohippus": {
+    "file": "/silhouettes/eohippus.svg",
+    "taxon": "Eohippus angustidens",
+    "standIn": false,
+    "attribution": "Scott Hartman",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/342af629-dc39-48ba-8cf2-0029cfdf105b"
+  },
+  "uintatherium": {
+    "file": "/silhouettes/uintatherium.svg",
+    "taxon": "Uintatherium anceps",
+    "standIn": false,
+    "attribution": "Zimices",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5fe1c8ef-f7c4-47ff-9cc0-b528107fde98"
+  },
   "andrewsarchus": {
     "file": "/silhouettes/andrewsarchus.svg",
     "taxon": "Andrewsarchus mongoliensis",
@@ -882,6 +909,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/31e41454-b7b3-4c17-8e71-bd3ab4bca376"
+  },
+  "hyaenodon": {
+    "file": "/silhouettes/hyaenodon.svg",
+    "taxon": "Hyaenodon horridus",
+    "standIn": false,
+    "attribution": "Robert Bruce Horsfall, from W.B. Scott's 1912 \"A History of Land Mammals in the Western Hemisphere\"",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/8e3178f8-8171-4b2d-90cc-9b2dce76bdf8"
   },
   "basilosaurus": {
     "file": "/silhouettes/basilosaurus.svg",
@@ -892,6 +928,42 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/aeffb6cf-825a-4c12-9801-a4a46226add5"
   },
+  "megacerops": {
+    "file": "/silhouettes/megacerops.svg",
+    "taxon": "Megacerops coloradensis",
+    "standIn": false,
+    "attribution": "Michael Tripoli",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/ba7eab6c-2d72-4292-97aa-24bae7a2b341"
+  },
+  "mesohippus": {
+    "file": "/silhouettes/mesohippus.svg",
+    "taxon": "Mesohippus",
+    "standIn": false,
+    "attribution": "Heinrich Harder (vectorized by T. Michael Keesey)",
+    "licenceName": "Public Domain Mark 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/de4f0606-7e53-4439-8105-797546c7d1c4"
+  },
+  "archaeotherium": {
+    "file": "/silhouettes/archaeotherium.svg",
+    "taxon": "Archaeotherium mortoni",
+    "standIn": false,
+    "attribution": "Zimices",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/0bb0694c-ad1f-4b74-9a93-eab6528723a3"
+  },
+  "merycoidodon": {
+    "file": "/silhouettes/merycoidodon.svg",
+    "taxon": "Merycoidodon (Merycoidodon) culbertsoni",
+    "standIn": false,
+    "attribution": "Zimices",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5febaf63-71b2-425f-b44e-d1e1e6b6c3ed"
+  },
   "paraceratherium": {
     "file": "/silhouettes/paraceratherium.svg",
     "taxon": "Paraceratherium",
@@ -900,6 +972,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "Public Domain Mark 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/40e7e4c8-9206-4189-8c8d-b21d36e5b327"
+  },
+  "daeodon": {
+    "file": "/silhouettes/daeodon.svg",
+    "taxon": "Daeodon",
+    "standIn": false,
+    "attribution": "Steven Traver",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/f9d16638-b5d8-4321-a0af-0cd67e4740be"
+  },
+  "moropus": {
+    "file": "/silhouettes/moropus.svg",
+    "taxon": "Chalicotherium",
+    "standIn": true,
+    "attribution": "Steven Traver",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/33a00ce3-1fae-450d-b65f-7084a62dfecc"
   },
   "megalodon": {
     "file": "/silhouettes/megalodon.svg",
@@ -910,6 +1000,51 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/a807f354-fd7c-4547-a7e8-573f7ca75e63"
   },
+  "aepycamelus": {
+    "file": "/silhouettes/aepycamelus.svg",
+    "taxon": "Aepycamelus giraffinus",
+    "standIn": false,
+    "attribution": "Steven Traver",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/993af71b-e784-4694-bc5f-e050b334393f"
+  },
+  "amphicyon": {
+    "file": "/silhouettes/amphicyon.svg",
+    "taxon": "Amphicyon ingens",
+    "standIn": false,
+    "attribution": "Rom-diz",
+    "licenceName": "Public Domain Mark 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/33ada84e-026c-4af8-9de3-01eade53d730"
+  },
+  "teleoceras": {
+    "file": "/silhouettes/teleoceras.svg",
+    "taxon": "Teleoceras proterum",
+    "standIn": false,
+    "attribution": "Michael Tripoli",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/47ece020-eef5-4951-9dfe-57d21f3b567c"
+  },
+  "gomphotherium": {
+    "file": "/silhouettes/gomphotherium.svg",
+    "taxon": "Gomphotherium angustidens",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5d4a8a6f-7564-45b0-ac31-ce2eab6f5b24"
+  },
+  "barbourofelis": {
+    "file": "/silhouettes/barbourofelis.svg",
+    "taxon": "Barbourofelis fricki",
+    "standIn": false,
+    "attribution": "Narimane Chatar",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/a46a1f25-01fc-4fbe-b836-980bcf1e88dc"
+  },
   "megatherium": {
     "file": "/silhouettes/megatherium.svg",
     "taxon": "Proscelidodon gracillimus",
@@ -918,6 +1053,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/afde58bf-878b-46b0-864c-76c2543bcf11"
+  },
+  "titanis": {
+    "file": "/silhouettes/titanis.svg",
+    "taxon": "Titanis walleri",
+    "standIn": false,
+    "attribution": "Unknown artist",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5fad3e3e-1b8d-44a6-b537-f06e3135c444"
   },
   "australopithecus": {
     "file": "/silhouettes/australopithecus.svg",
@@ -928,6 +1072,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/ddabd18e-e81e-498b-9139-7e468c0a1763"
   },
+  "mammut-americanum": {
+    "file": "/silhouettes/mammut-americanum.svg",
+    "taxon": "Mammut americanum",
+    "standIn": false,
+    "attribution": "artrociraptor",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/7669386a-e936-4901-bb2a-74acf6b5d731"
+  },
+  "castoroides": {
+    "file": "/silhouettes/castoroides.svg",
+    "taxon": "Castoroides ohioensis",
+    "standIn": false,
+    "attribution": "Zimices",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/36360d2c-e69b-43b5-9a34-95f90307202b"
+  },
   "smilodon": {
     "file": "/silhouettes/smilodon.svg",
     "taxon": "Smilodon fatalis",
@@ -937,14 +1099,23 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/6ab0dfd7-2baf-4d08-b437-738c779ee28d"
   },
+  "arctodus": {
+    "file": "/silhouettes/arctodus.svg",
+    "taxon": "Arctodus simus",
+    "standIn": false,
+    "attribution": "Tracy A. Heath",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/8d4b7834-9dd3-4f5a-84a7-99fa159a112a"
+  },
   "mammuthus-primigenius": {
     "file": "/silhouettes/mammuthus-primigenius.svg",
     "taxon": "Mammuthus primigenius",
     "standIn": false,
-    "attribution": "Kamil S. Jaron",
+    "attribution": "Amy Beauvois",
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "sourceUrl": "https://www.phylopic.org/images/f39f0aa9-97f1-4982-976c-07ffb78a4682"
+    "sourceUrl": "https://www.phylopic.org/images/6f0acd79-1f7d-402f-8679-dc3036b1a504"
   },
   "homo-sapiens": {
     "file": "/silhouettes/homo-sapiens.svg",
@@ -954,5 +1125,14 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
+  },
+  "aenocyon-dirus": {
+    "file": "/silhouettes/aenocyon-dirus.svg",
+    "taxon": "Aenocyon dirus",
+    "standIn": false,
+    "attribution": "Margot Michaud",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/d913b75d-3055-48e2-b597-78cfbceac165"
   }
 };
