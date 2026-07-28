@@ -25,6 +25,9 @@ export default function App() {
   const [filtersOpen, setFiltersOpen] = useState(false);
   /** Narrows the sauropodomorph group to a sub-clade; "all" leaves it untouched. */
   const [sauropodFilter, setSauropodFilter] = useState<SauropodFilter>("all");
+  /** When false (default), lesser-known `minor` species are held back so the
+   *  landing chart stays legible; the toggle reveals the full set. */
+  const [showAll, setShowAll] = useState(false);
 
   const { theme, toggleTheme } = useTheme();
 
@@ -42,9 +45,20 @@ export default function App() {
 
   const selected = selectedId ? CREATURES_BY_ID.get(selectedId) ?? null : null;
 
-  // Bars are always laid out from the full set, so rows stay put as filters
+  // The count of well-known species is fixed; only the tail is toggled in.
+  const notableCount = useMemo(() => CREATURES.filter((c) => !c.minor).length, []);
+
+  // The set the chart is built from. Detail level is a layout mode, not a
+  // filter: hiding the tail genuinely removes its lanes, so the default chart is
+  // shorter and sparser rather than pocked with gaps where hidden bars would be.
+  const visibleCreatures = useMemo(
+    () => (showAll ? CREATURES : CREATURES.filter((c) => !c.minor)),
+    [showAll],
+  );
+
+  // Bars are laid out from the whole *visible* set, so rows stay put as filters
   // change; filtering only affects how a bar is painted.
-  const blocks = useMemo(() => packByFamily(CREATURES), []);
+  const blocks = useMemo(() => packByFamily(visibleCreatures), [visibleCreatures]);
 
   const matchedIds = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -53,7 +67,7 @@ export default function App() {
     if (!filtering) return null;
 
     return new Set(
-      CREATURES.filter((creature) => {
+      visibleCreatures.filter((creature) => {
         const groupOk = activeGroups.size === 0 || activeGroups.has(creature.group);
         // The sauropod sub-filter only ever narrows sauropodomorphs; everything
         // else passes it untouched.
@@ -67,11 +81,13 @@ export default function App() {
         return groupOk && cladeOk && textOk;
       }).map((creature) => creature.id),
     );
-  }, [query, activeGroups, sauropodFilter]);
+  }, [query, activeGroups, sauropodFilter, visibleCreatures]);
 
+  // Contemporaries are drawn from the visible set, so the "lived alongside" list
+  // never points at a bar that isn't on the chart to scroll to.
   const contemporaries = useMemo(
-    () => (selected ? contemporariesOf(selected, CREATURES) : []),
-    [selected],
+    () => (selected ? contemporariesOf(selected, visibleCreatures) : []),
+    [selected, visibleCreatures],
   );
   const contemporaryIds = useMemo(
     () => new Set(contemporaries.map((c) => c.id)),
@@ -148,12 +164,16 @@ export default function App() {
       <GroupFilterBar
         activeGroups={activeGroups}
         onToggleGroup={toggleGroup}
-        resultCount={matchedIds ? matchedIds.size : CREATURES.length}
-        totalCount={CREATURES.length}
+        resultCount={matchedIds ? matchedIds.size : visibleCreatures.length}
+        totalCount={visibleCreatures.length}
         open={filtersOpen}
         onToggleOpen={() => setFiltersOpen((v) => !v)}
         sauropodFilter={sauropodFilter}
         onSauropodFilterChange={setSauropodFilter}
+        showAll={showAll}
+        onToggleShowAll={() => setShowAll((v) => !v)}
+        notableCount={notableCount}
+        allCount={CREATURES.length}
       />
 
       <div className="stage">

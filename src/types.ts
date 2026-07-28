@@ -62,6 +62,12 @@ export interface Creature extends Interval {
   group: CreatureGroup;
   /** Set only on sauropodomorphs, to drive their sub-filter. */
   sauropodClade?: SauropodClade;
+  /**
+   * Lesser-known genera kept out of the default view and revealed only by the
+   * "all species" toggle. This lets the chart carry a long tail of species
+   * without the default landing chart becoming an unreadable wall of bars.
+   */
+  minor?: boolean;
   /** Approximate body length in metres. Used for the size comparison. */
   lengthM?: number;
   diet: "carnivore" | "herbivore" | "omnivore" | "insectivore" | "filter-feeder";

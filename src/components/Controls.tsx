@@ -116,6 +116,12 @@ interface GroupFilterBarProps {
   /** Sub-clade the sauropodomorph group is narrowed to ("all" = not narrowed). */
   sauropodFilter: SauropodFilter;
   onSauropodFilterChange: (value: SauropodFilter) => void;
+  /** Detail level: whether lesser-known `minor` species are shown. */
+  showAll: boolean;
+  onToggleShowAll: () => void;
+  /** Species shown by default (the well-known set) and in total. */
+  notableCount: number;
+  allCount: number;
 }
 
 /**
@@ -141,7 +147,14 @@ export function GroupFilterBar({
   onToggleOpen,
   sauropodFilter,
   onSauropodFilterChange,
+  showAll,
+  onToggleShowAll,
+  notableCount,
+  allCount,
 }: GroupFilterBarProps) {
+  // Only worth offering the detail toggle once a tail of minor species exists.
+  const hasMinor = allCount > notableCount;
+
   return (
     <div className={`filterbar ${open ? "is-open" : ""}`}>
       <button
@@ -207,6 +220,17 @@ export function GroupFilterBar({
           );
         })}
       </div>
+
+      {hasMinor && (
+        <button
+          type="button"
+          className="detail-toggle"
+          onClick={onToggleShowAll}
+          aria-pressed={showAll}
+        >
+          {showAll ? `Notable only` : `Show all ${allCount}`}
+        </button>
+      )}
 
       <span className="result-count">
         {resultCount === totalCount

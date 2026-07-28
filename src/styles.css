@@ -426,6 +426,35 @@ button {
   opacity: 0.42;
 }
 
+/* Detail-level toggle: reveals or hides the long tail of minor species. */
+.detail-toggle {
+  margin-left: auto;
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 12px;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.detail-toggle:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.detail-toggle[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* When the toggle is present it owns the left-auto margin; the count trails it. */
+.detail-toggle + .result-count {
+  margin-left: 0;
+}
+
 .result-count {
   margin-left: auto;
   color: var(--ink-faint);
