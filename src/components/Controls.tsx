@@ -85,11 +85,30 @@ export function Toolbar({
   );
 }
 
+/** Funnel glyph for the mobile filter toggle; inline so it inherits colour. */
+function FilterIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true">
+      <path
+        d="M2 3h12l-4.6 5.4V13L6.6 11.4V8.4L2 3Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 interface GroupFilterBarProps {
   activeGroups: Set<CreatureGroup>;
   onToggleGroup: (group: CreatureGroup) => void;
   resultCount: number;
   totalCount: number;
+  /** Whether the chip panel is expanded. Only meaningful on narrow screens; on
+   *  wide ones the chips are always shown and the toggle is hidden. */
+  open: boolean;
+  onToggleOpen: () => void;
 }
 
 /**
@@ -99,18 +118,37 @@ interface GroupFilterBarProps {
  * actually filters. Filling all ten with solid colour by default produced a
  * rainbow band that competed with the chart for attention and, worse, implied
  * ten active selections when nothing was selected at all.
+ *
+ * On a phone the ten chips would wrap to five rows and eat a third of the
+ * screen, so there they collapse behind a single "Filter" button and drop down
+ * as a panel over the chart. Wide screens ignore all of that and show the row
+ * inline (`.filter-toggle` is hidden by CSS, the panel is static).
  */
 export function GroupFilterBar({
   activeGroups,
   onToggleGroup,
   resultCount,
   totalCount,
+  open,
+  onToggleOpen,
 }: GroupFilterBarProps) {
   const filtering = activeGroups.size > 0;
 
   return (
-    <div className="filterbar">
-      <div className="group-filters">
+    <div className={`filterbar ${open ? "is-open" : ""}`}>
+      <button
+        type="button"
+        className="filter-toggle"
+        onClick={onToggleOpen}
+        aria-expanded={open}
+        aria-controls="group-filters"
+      >
+        <FilterIcon />
+        Filter
+        {filtering && <span className="filter-toggle-count">{activeGroups.size}</span>}
+      </button>
+
+      <div className="group-filters" id="group-filters">
         {GROUP_ORDER.map((group) => {
           const active = filtering && activeGroups.has(group);
           return (
@@ -135,6 +173,17 @@ export function GroupFilterBar({
           ? `${totalCount} species`
           : `${resultCount} of ${totalCount}`}
       </span>
+
+      {/* Tap-anywhere-else to dismiss the dropdown; only present while open, and
+          only visible on narrow screens where the panel actually overlays. */}
+      {open && (
+        <button
+          type="button"
+          className="filter-backdrop"
+          aria-label="Close filters"
+          onClick={onToggleOpen}
+        />
+      )}
     </div>
   );
 }

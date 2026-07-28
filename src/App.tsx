@@ -16,6 +16,8 @@ export default function App() {
   const [query, setQuery] = useState("");
   /** Empty set means "no filter applied", i.e. show every group. */
   const [activeGroups, setActiveGroups] = useState<Set<CreatureGroup>>(new Set());
+  /** Whether the collapsible filter panel is open (only affects narrow screens). */
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const { theme, toggleTheme } = useTheme();
 
@@ -135,6 +137,8 @@ export default function App() {
         onToggleGroup={toggleGroup}
         resultCount={matchedIds ? matchedIds.size : CREATURES.length}
         totalCount={CREATURES.length}
+        open={filtersOpen}
+        onToggleOpen={() => setFiltersOpen((v) => !v)}
       />
 
       <div className="stage">
@@ -163,8 +167,8 @@ export default function App() {
 
       <footer className="colophon">
         <p>
-          Drag or scroll to pan · ⌘/Ctrl + scroll to zoom · click a period band to jump to
-          it · Esc to clear
+          Drag or scroll to pan · pinch or ⌘/Ctrl + scroll to zoom · tap a period band to
+          jump to it · Esc to clear
         </p>
         <Credits />
       </footer>

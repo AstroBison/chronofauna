@@ -298,6 +298,42 @@ button {
   min-width: 0;
 }
 
+/*
+ * The "Filter" button and its dismiss backdrop exist only for narrow screens,
+ * where the chip row collapses behind them. Hidden on wide screens, where the
+ * chips show inline.
+ */
+.filter-toggle,
+.filter-backdrop {
+  display: none;
+}
+
+.filter-toggle {
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.filter-toggle-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--surface);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
 .chip {
   display: flex;
   align-items: center;
@@ -353,6 +389,14 @@ button {
   overflow: auto;
   overscroll-behavior-x: contain;
   background: var(--surface);
+  /*
+   * Let one finger pan in both directions but keep the two-finger gesture for
+   * our own pinch-zoom handler (useTimelineViewport) rather than the browser's
+   * page zoom. Without this the browser swallows the pinch and the chart's
+   * whole reason for existing — zooming a linear deep-time axis — is unusable
+   * on a phone.
+   */
+  touch-action: pan-x pan-y;
 }
 
 .canvas {
@@ -993,6 +1037,59 @@ button {
 
 /* ── Narrow screens ─────────────────────────────────────────────────────── */
 
+/*
+ * Collapse the ten-chip legend behind a "Filter" button before it would wrap to
+ * a second row. Opened, the chips drop down as a panel that *overlays* the
+ * chart rather than shoving it further down the screen — on a phone that row
+ * was eating almost a third of the viewport before any data appeared.
+ */
+@media (max-width: 900px) {
+  .filterbar {
+    position: relative;
+    gap: 12px;
+  }
+
+  .filter-toggle {
+    display: inline-flex;
+  }
+
+  .group-filters {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: none;
+    gap: 6px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 12px var(--gutter) 14px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule-strong);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 0.16);
+  }
+
+  .filterbar.is-open .group-filters {
+    display: flex;
+  }
+
+  /* Roomier chips for thumbs once they are in the dropdown. */
+  .filterbar.is-open .chip {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .filter-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 15;
+    border: none;
+    background: transparent;
+  }
+}
+
+/* Stage stacks: chart on top, detail as a bottom sheet. */
 @media (max-width: 860px) {
   .stage {
     flex-direction: column;
@@ -1000,7 +1097,7 @@ button {
 
   .detail {
     width: auto;
-    max-height: 45%;
+    max-height: 50%;
     border-left: none;
     border-top: 1px solid var(--rule-strong);
   }
@@ -1013,14 +1110,21 @@ button {
   }
 }
 
+/*
+ * Phone layout: the toolbar drops to its own full-width row and every control
+ * grows to a comfortable touch target. The 16px search font is deliberate — it
+ * is the threshold below which iOS Safari zooms the whole page in on focus.
+ */
 @media (max-width: 620px) {
   .topbar {
     flex-wrap: wrap;
     gap: 10px;
+    padding: 10px var(--gutter);
   }
 
   .toolbar {
     width: 100%;
+    gap: 8px;
   }
 
   .search {
@@ -1029,5 +1133,21 @@ button {
 
   .search input {
     width: 100%;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .zoom button,
+  .theme-toggle,
+  .filter-toggle {
+    height: 38px;
+  }
+
+  .zoom button {
+    min-width: 42px;
+  }
+
+  .theme-toggle {
+    width: 38px;
   }
 }

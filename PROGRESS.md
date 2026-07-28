@@ -89,13 +89,22 @@ Labels overhang the right-hand edge of the timeline and widen the canvas, so the
 one button whose job is to fit the chart does not quite. Either measure the
 overhang into the fit calculation or clamp the last label.
 
-### 3. Mobile is weak
+### ~~3. Mobile is weak~~ — fixed
 
-At 375px the filter chips wrap to five rows and consume ~250px — roughly 30% of
-the viewport before any data appears. Worse, **there is no touch pinch-zoom**:
-the wheel handler catches trackpad pinch (ctrl+wheel) but no touch gestures are
-bound, so on a phone only the +/− buttons zoom. Consider a collapsible filter
-row and a `touchstart`/`touchmove` pinch handler.
+At 375px the filter chips wrapped to five rows and ate ~29% of the viewport
+before any data appeared, and there was no touch pinch-zoom — the wheel handler
+caught trackpad pinch (ctrl+wheel) but no touch gestures were bound, so on a
+phone only the +/− buttons zoomed.
+
+Now the ten chips collapse behind a "Filter" button below 900px and drop down as
+a panel that overlays the chart rather than shoving it down (chrome before the
+chart fell from 233px to 153px at 375px, 29% → 19%). A `touchstart`/`touchmove`
+pinch handler on the viewport zooms with the same cursor-pinning maths the wheel
+uses; `touch-action: pan-x pan-y` hands it the two-finger gesture so the browser
+doesn't page-zoom instead. Touch targets on the toolbar grow to 38px on phones,
+and the search font is 16px there so iOS doesn't zoom on focus. Verified at 375,
+768 and 1280px with the chip dropdown, live filtering, a synthetic 2.5× pinch and
+the bottom-sheet detail panel.
 
 ### 4. No tests around the viewport hook
 

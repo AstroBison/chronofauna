@@ -172,6 +172,51 @@ export function useTimelineViewport() {
     return () => el.removeEventListener("wheel", onWheel);
   }, [zoomBy]);
 
+  // Touch pinch-to-zoom. One finger keeps panning for free — the viewport is a
+  // scroll container, so the browser handles drag-pan — while two fingers zoom,
+  // pinned to the midpoint between them with the same maths the wheel uses.
+  // `touch-action: pan-x pan-y` on the viewport (see styles.css) hands us the
+  // two-finger gesture instead of letting the browser page-zoom with it.
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+
+    let lastDistance: number | null = null;
+    const spread = (touches: TouchList) =>
+      Math.hypot(
+        touches[0].clientX - touches[1].clientX,
+        touches[0].clientY - touches[1].clientY,
+      );
+    const midpointX = (touches: TouchList) =>
+      (touches[0].clientX + touches[1].clientX) / 2;
+
+    const onTouchStart = (event: TouchEvent) => {
+      if (event.touches.length === 2) lastDistance = spread(event.touches);
+    };
+    const onTouchMove = (event: TouchEvent) => {
+      if (event.touches.length !== 2 || lastDistance === null) return;
+      event.preventDefault();
+      hasInteracted.current = true;
+      const distance = spread(event.touches);
+      zoomBy(distance / lastDistance, midpointX(event.touches));
+      lastDistance = distance;
+    };
+    const endPinch = (event: TouchEvent) => {
+      if (event.touches.length < 2) lastDistance = null;
+    };
+
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: false });
+    el.addEventListener("touchend", endPinch, { passive: true });
+    el.addEventListener("touchcancel", endPinch, { passive: true });
+    return () => {
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("touchend", endPinch);
+      el.removeEventListener("touchcancel", endPinch);
+    };
+  }, [zoomBy]);
+
   // Apply any scroll correction the moment the canvas has its new width.
   useLayoutEffect(() => {
     const el = viewportRef.current;
