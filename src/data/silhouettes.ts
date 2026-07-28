@@ -1206,5 +1206,266 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/d913b75d-3055-48e2-b597-78cfbceac165"
+  },
+  "helicoprion": {
+    "file": "/silhouettes/helicoprion.svg",
+    "taxon": "Helicoprion davisii",
+    "standIn": false,
+    "attribution": "Olof Moleman",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/2dc67937-9756-4639-91d1-77f5d748fe9e"
+  },
+  "proterosuchus": {
+    "file": "/silhouettes/proterosuchus.svg",
+    "taxon": "Proterosuchus fergusi",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/50514508-25e9-4f5b-9fc8-17994dff3edb"
+  },
+  "tanystropheus": {
+    "file": "/silhouettes/tanystropheus.svg",
+    "taxon": "Tanystropheus hydroides",
+    "standIn": false,
+    "attribution": "Amy Beauvois",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/9cee1c59-3334-47bd-bd14-6eeba624f211"
+  },
+  "cymbospondylus": {
+    "file": "/silhouettes/cymbospondylus.svg",
+    "taxon": "Cymbospondylus",
+    "standIn": false,
+    "attribution": "Gareth Monger",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/8162d84e-4578-4adf-98d5-2faad56bba19"
+  },
+  "desmatosuchus": {
+    "file": "/silhouettes/desmatosuchus.svg",
+    "taxon": "Desmatosuchus",
+    "standIn": false,
+    "attribution": "Steven Traver",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/77736ac8-c667-4649-b2a9-fa9e701cdafb"
+  },
+  "riojasaurus": {
+    "file": "/silhouettes/riojasaurus.svg",
+    "taxon": "Riojasaurus incertus",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/4ac3103b-2649-4a1d-b58f-260ac8884dcd"
+  },
+  "heterodontosaurus": {
+    "file": "/silhouettes/heterodontosaurus.svg",
+    "taxon": "Heterodontosaurus tucki",
+    "standIn": false,
+    "attribution": "TotalDino",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/dc418dda-1a53-4b32-b59b-cd543739afe6"
+  },
+  "cryolophosaurus": {
+    "file": "/silhouettes/cryolophosaurus.svg",
+    "taxon": "Cryolophosaurus ellioti",
+    "standIn": false,
+    "attribution": "Brad McFeeters (vectorized by T. Michael Keesey)",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/6655838b-ba6a-4889-92f4-879444d1b931"
+  },
+  "monolophosaurus": {
+    "file": "/silhouettes/monolophosaurus.svg",
+    "taxon": "Monolophosaurus jiangi",
+    "standIn": false,
+    "attribution": "Amy Beauvois",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/6f050414-39b9-4eee-80a2-3cdbe0140fb6"
+  },
+  "huayangosaurus": {
+    "file": "/silhouettes/huayangosaurus.svg",
+    "taxon": "Huayangosaurus taibaii",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/c24ebf93-5b97-4344-a8c5-d7db51323afa"
+  },
+  "ophthalmosaurus": {
+    "file": "/silhouettes/ophthalmosaurus.svg",
+    "taxon": "Ophthalmosaurus icenicus",
+    "standIn": false,
+    "attribution": "Russell Engelman (modified from McGowan and Motani 2003)",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/06970367-6deb-419d-a0b5-5a8c64527e68"
+  },
+  "leedsichthys": {
+    "file": "/silhouettes/leedsichthys.svg",
+    "taxon": "Leedsichthys problematicus",
+    "standIn": false,
+    "attribution": "Gareth Monger",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/d93f7982-53c6-4b4c-aa72-05418ba7fb57"
+  },
+  "tuojiangosaurus": {
+    "file": "/silhouettes/tuojiangosaurus.svg",
+    "taxon": "Tuojiangosaurus multispinus",
+    "standIn": false,
+    "attribution": "Connor Ashbridge",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/28639a85-48ee-4db9-9fed-67d2ff498e4f"
+  },
+  "anchiornis": {
+    "file": "/silhouettes/anchiornis.svg",
+    "taxon": "Anchiornis huxleyi",
+    "standIn": false,
+    "attribution": "TotalDino",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/f55638db-7db5-4214-b720-2766e76372fc"
+  },
+  "europasaurus": {
+    "file": "/silhouettes/europasaurus.svg",
+    "taxon": "Europasaurus holgeri",
+    "standIn": false,
+    "attribution": "Will Toosey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/8ae0090f-b2c8-4af9-ab86-c233fc40c11e"
+  },
+  "torvosaurus": {
+    "file": "/silhouettes/torvosaurus.svg",
+    "taxon": "Torvosaurus tanneri",
+    "standIn": false,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/13d6de32-507a-4d96-ba11-897f71cecad1"
+  },
+  "pterodactylus": {
+    "file": "/silhouettes/pterodactylus.svg",
+    "taxon": "Pterodactylus antiquus",
+    "standIn": false,
+    "attribution": "Julio Garza",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/97ce8bbd-68a1-4185-a23e-59dcad7d7f15"
+  },
+  "gastonia": {
+    "file": "/silhouettes/gastonia.svg",
+    "taxon": "Gastonia burgei",
+    "standIn": false,
+    "attribution": "Scott Hartman",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/90f82bde-e976-4acd-8f75-954d44f5e236"
+  },
+  "nigersaurus": {
+    "file": "/silhouettes/nigersaurus.svg",
+    "taxon": "Nigersaurus taqueti",
+    "standIn": false,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/fa7c1568-eadc-4b92-a281-1aee8a3e9b07"
+  },
+  "sauropelta": {
+    "file": "/silhouettes/sauropelta.svg",
+    "taxon": "Sauropelta edwardsorum",
+    "standIn": false,
+    "attribution": "Emily Willoughby",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/9dc23409-1e36-402d-8be5-6b939f7fb664"
+  },
+  "tenontosaurus": {
+    "file": "/silhouettes/tenontosaurus.svg",
+    "taxon": "Tenontosaurus tilletti",
+    "standIn": false,
+    "attribution": "Matt Dempsey",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5f4c760e-f6f7-4b9b-9199-db12bcfbf212"
+  },
+  "anhanguera": {
+    "file": "/silhouettes/anhanguera.svg",
+    "taxon": "Anhanguera santanae",
+    "standIn": false,
+    "attribution": "Leon P. A. M. Claessens, Patrick M. O'Connor, David M. Unwin",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/2388b73c-13cf-4fc8-b1c2-3ecf35cb0b69"
+  },
+  "cretoxyrhina": {
+    "file": "/silhouettes/cretoxyrhina.svg",
+    "taxon": "Cretoxyrhina mantelli",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov (vectorized by T. Michael Keesey)",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b65312ae-91b5-45b1-9553-c192f1000aba"
+  },
+  "gorgosaurus": {
+    "file": "/silhouettes/gorgosaurus.svg",
+    "taxon": "Albertosaurus libratus",
+    "standIn": true,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/ea905e0c-441e-4b40-92f8-131512b056a5"
+  },
+  "daspletosaurus": {
+    "file": "/silhouettes/daspletosaurus.svg",
+    "taxon": "Daspletosaurus torosus",
+    "standIn": false,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/10a92799-7fb6-44cb-aaca-7077382fa16c"
+  },
+  "centrosaurus": {
+    "file": "/silhouettes/centrosaurus.svg",
+    "taxon": "Centrosaurus apertus",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/141e2aa7-d6a2-4b28-a347-322f7fbe5f9c"
+  },
+  "kosmoceratops": {
+    "file": "/silhouettes/kosmoceratops.svg",
+    "taxon": "Kosmoceratops irvinensis",
+    "standIn": false,
+    "attribution": "Sampson SD, Loewen MA, Farke AA, Roberts EM, Forster CA, et al.",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/738bb8b2-8fbc-4b9b-82a4-cc67bbf69a57"
+  },
+  "lambeosaurus": {
+    "file": "/silhouettes/lambeosaurus.svg",
+    "taxon": "Lambeosaurus lambei",
+    "standIn": false,
+    "attribution": "Will Toosey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/3df190f3-72ef-4cc9-9321-973e63e9825f"
+  },
+  "tarbosaurus": {
+    "file": "/silhouettes/tarbosaurus.svg",
+    "taxon": "Tyrannosaurus",
+    "standIn": true,
+    "attribution": "Fred Wierum",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/832a47bd-0cd4-4b0e-af7b-db9d7ff81867"
   }
 };
