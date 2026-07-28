@@ -45,6 +45,14 @@ export type CreatureGroup =
   | "hominin"
   | "fish";
 
+/**
+ * Finer clade within the sauropodomorph group, for the sub-filter the chart
+ * offers on that one group. The levels nest — a titanosaur is a sauropod, a
+ * sauropod is a sauropodomorph — so `basal` means "a sauropodomorph that is not
+ * a sauropod" (the prosauropods).
+ */
+export type SauropodClade = "basal" | "sauropod" | "titanosaur";
+
 export interface Creature extends Interval {
   id: string;
   /** Genus as commonly written, e.g. "Tyrannosaurus". */
@@ -52,6 +60,8 @@ export interface Creature extends Interval {
   /** Everyday name where one exists, e.g. "Woolly mammoth". */
   commonName?: string;
   group: CreatureGroup;
+  /** Set only on sauropodomorphs, to drive their sub-filter. */
+  sauropodClade?: SauropodClade;
   /** Approximate body length in metres. Used for the size comparison. */
   lengthM?: number;
   diet: "carnivore" | "herbivore" | "omnivore" | "insectivore" | "filter-feeder";

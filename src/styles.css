@@ -283,32 +283,22 @@ button {
 /* ── Filter bar (doubles as the colour legend) ──────────────────────────── */
 
 .filterbar {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   padding: 7px var(--gutter);
   border-bottom: 1px solid var(--rule);
   background: var(--paper);
 }
 
-.group-filters {
-  display: flex;
-  gap: 3px;
-  flex-wrap: wrap;
-  min-width: 0;
-}
-
 /*
- * The "Filter" button and its dismiss backdrop exist only for narrow screens,
- * where the chip row collapses behind them. Hidden on wide screens, where the
- * chips show inline.
+ * The chips live behind the "Filter" button at every width, dropping down as a
+ * popover anchored under it rather than holding a strip of screen at all times.
+ * `.filterbar` is the positioning context; a full-screen backdrop closes it.
  */
-.filter-toggle,
-.filter-backdrop {
-  display: none;
-}
-
 .filter-toggle {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   height: 30px;
@@ -318,6 +308,12 @@ button {
   background: var(--surface);
   color: var(--ink-soft);
   font-size: 13px;
+  transition: background 0.12s, color 0.12s;
+}
+
+.filter-toggle:hover {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .filter-toggle-count {
@@ -332,6 +328,63 @@ button {
   color: var(--surface);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
+}
+
+.group-filters {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: var(--gutter);
+  z-index: 20;
+  display: none;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: max-content;
+  max-width: min(560px, calc(100vw - 2 * var(--gutter)));
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.16);
+}
+
+.filterbar.is-open .group-filters {
+  display: flex;
+}
+
+/* Non-layout wrapper: the chip becomes the flex item, the span vanishes. */
+.chip-wrap {
+  display: contents;
+}
+
+/* The sauropodomorph chip and its sub-clade dropdown wrap as one unit. */
+.chip-with-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.subfilter select {
+  height: 26px;
+  padding: 0 22px 0 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 12px;
+}
+
+.subfilter select:hover {
+  border-color: var(--ink-faint);
+  color: var(--ink);
+}
+
+.filter-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  border: none;
+  background: transparent;
 }
 
 .chip {
@@ -1038,54 +1091,32 @@ button {
 /* ── Narrow screens ─────────────────────────────────────────────────────── */
 
 /*
- * Collapse the ten-chip legend behind a "Filter" button before it would wrap to
- * a second row. Opened, the chips drop down as a panel that *overlays* the
- * chart rather than shoving it further down the screen — on a phone that row
- * was eating almost a third of the viewport before any data appeared.
+ * On a phone the popover spans the full width and its chips grow to comfortable
+ * touch targets, rather than sitting as a compact card anchored under the button.
  */
-@media (max-width: 900px) {
-  .filterbar {
-    position: relative;
-    gap: 12px;
-  }
-
-  .filter-toggle {
-    display: inline-flex;
-  }
-
+@media (max-width: 620px) {
   .group-filters {
-    position: absolute;
-    top: calc(100% + 1px);
     left: 0;
     right: 0;
-    z-index: 20;
-    display: none;
-    gap: 6px;
-    max-height: 60vh;
+    width: auto;
+    max-width: none;
+    max-height: 65vh;
     overflow-y: auto;
+    gap: 6px;
     padding: 12px var(--gutter) 14px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--rule-strong);
-    box-shadow: 0 10px 24px rgb(0 0 0 / 0.16);
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
   }
 
-  .filterbar.is-open .group-filters {
-    display: flex;
-  }
-
-  /* Roomier chips for thumbs once they are in the dropdown. */
   .filterbar.is-open .chip {
     padding: 8px 12px;
     font-size: 13px;
   }
 
-  .filter-backdrop {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 15;
-    border: none;
-    background: transparent;
+  .subfilter select {
+    height: 34px;
+    font-size: 13px;
   }
 }
 

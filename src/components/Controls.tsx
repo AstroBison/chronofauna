@@ -1,4 +1,9 @@
-import { GROUP_META, GROUP_ORDER } from "../lib/layout";
+import {
+  GROUP_META,
+  GROUP_ORDER,
+  SAUROPOD_FILTERS,
+  type SauropodFilter,
+} from "../lib/layout";
 import type { Theme } from "../hooks/useTheme";
 import type { CreatureGroup } from "../types";
 
@@ -105,10 +110,12 @@ interface GroupFilterBarProps {
   onToggleGroup: (group: CreatureGroup) => void;
   resultCount: number;
   totalCount: number;
-  /** Whether the chip panel is expanded. Only meaningful on narrow screens; on
-   *  wide ones the chips are always shown and the toggle is hidden. */
+  /** Whether the chip panel is expanded. */
   open: boolean;
   onToggleOpen: () => void;
+  /** Sub-clade the sauropodomorph group is narrowed to ("all" = not narrowed). */
+  sauropodFilter: SauropodFilter;
+  onSauropodFilterChange: (value: SauropodFilter) => void;
 }
 
 /**
@@ -119,10 +126,11 @@ interface GroupFilterBarProps {
  * rainbow band that competed with the chart for attention and, worse, implied
  * ten active selections when nothing was selected at all.
  *
- * On a phone the ten chips would wrap to five rows and eat a third of the
- * screen, so there they collapse behind a single "Filter" button and drop down
- * as a panel over the chart. Wide screens ignore all of that and show the row
- * inline (`.filter-toggle` is hidden by CSS, the panel is static).
+ * The ten chips live behind a single "Filter" button and drop down as a panel
+ * over the chart, at every width — the row is a legend the reader reaches for
+ * occasionally, not something that needs to hold a strip of screen at all times.
+ * The sauropodomorph chip carries an extra sub-filter, since "long-necked
+ * dinosaur" ranges from a two-metre prosauropod to the largest land animals ever.
  */
 export function GroupFilterBar({
   activeGroups,
@@ -131,9 +139,9 @@ export function GroupFilterBar({
   totalCount,
   open,
   onToggleOpen,
+  sauropodFilter,
+  onSauropodFilterChange,
 }: GroupFilterBarProps) {
-  const filtering = activeGroups.size > 0;
-
   return (
     <div className={`filterbar ${open ? "is-open" : ""}`}>
       <button
@@ -145,17 +153,18 @@ export function GroupFilterBar({
       >
         <FilterIcon />
         Filter
-        {filtering && <span className="filter-toggle-count">{activeGroups.size}</span>}
+        {activeGroups.size > 0 && (
+          <span className="filter-toggle-count">{activeGroups.size}</span>
+        )}
       </button>
 
       <div className="group-filters" id="group-filters">
         {GROUP_ORDER.map((group) => {
-          const active = filtering && activeGroups.has(group);
-          return (
+          const active = activeGroups.size > 0 && activeGroups.has(group);
+          const chip = (
             <button
-              key={group}
               className={`chip ${active ? "is-active" : ""} ${
-                filtering && !active ? "is-dimmed" : ""
+                activeGroups.size > 0 && !active ? "is-dimmed" : ""
               }`}
               style={{ "--chip-color": GROUP_META[group].color } as React.CSSProperties}
               onClick={() => onToggleGroup(group)}
@@ -164,6 +173,37 @@ export function GroupFilterBar({
               <span className="chip-dot" />
               {GROUP_META[group].label}
             </button>
+          );
+
+          // The sauropodomorph chip travels with its sub-clade dropdown so the
+          // two stay together when the panel wraps.
+          if (group === "sauropodomorph") {
+            return (
+              <span key={group} className="chip-with-sub">
+                {chip}
+                <label className="subfilter">
+                  <span className="visually-hidden">Narrow sauropodomorphs</span>
+                  <select
+                    value={sauropodFilter}
+                    onChange={(event) =>
+                      onSauropodFilterChange(event.target.value as SauropodFilter)
+                    }
+                  >
+                    {SAUROPOD_FILTERS.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </span>
+            );
+          }
+
+          return (
+            <span key={group} className="chip-wrap">
+              {chip}
+            </span>
           );
         })}
       </div>
@@ -174,8 +214,7 @@ export function GroupFilterBar({
           : `${resultCount} of ${totalCount}`}
       </span>
 
-      {/* Tap-anywhere-else to dismiss the dropdown; only present while open, and
-          only visible on narrow screens where the panel actually overlays. */}
+      {/* Tap anywhere else to dismiss the dropdown. */}
       {open && (
         <button
           type="button"

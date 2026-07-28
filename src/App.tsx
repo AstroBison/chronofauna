@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { CREATURES } from "./data/creatures";
-import { packByFamily, contemporariesOf } from "./lib/layout";
+import {
+  packByFamily,
+  contemporariesOf,
+  matchesSauropodFilter,
+  type SauropodFilter,
+} from "./lib/layout";
 import { useTimelineViewport } from "./hooks/useTimelineViewport";
 import { useTheme } from "./hooks/useTheme";
 import { TimelineChart } from "./components/TimelineChart";
@@ -16,8 +21,10 @@ export default function App() {
   const [query, setQuery] = useState("");
   /** Empty set means "no filter applied", i.e. show every group. */
   const [activeGroups, setActiveGroups] = useState<Set<CreatureGroup>>(new Set());
-  /** Whether the collapsible filter panel is open (only affects narrow screens). */
+  /** Whether the collapsible filter panel is open. */
   const [filtersOpen, setFiltersOpen] = useState(false);
+  /** Narrows the sauropodomorph group to a sub-clade; "all" leaves it untouched. */
+  const [sauropodFilter, setSauropodFilter] = useState<SauropodFilter>("all");
 
   const { theme, toggleTheme } = useTheme();
 
@@ -41,20 +48,26 @@ export default function App() {
 
   const matchedIds = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    const filtering = needle.length > 0 || activeGroups.size > 0;
+    const filtering =
+      needle.length > 0 || activeGroups.size > 0 || sauropodFilter !== "all";
     if (!filtering) return null;
 
     return new Set(
       CREATURES.filter((creature) => {
         const groupOk = activeGroups.size === 0 || activeGroups.has(creature.group);
+        // The sauropod sub-filter only ever narrows sauropodomorphs; everything
+        // else passes it untouched.
+        const cladeOk =
+          creature.group !== "sauropodomorph" ||
+          matchesSauropodFilter(creature.sauropodClade, sauropodFilter);
         const textOk =
           needle.length === 0 ||
           creature.name.toLowerCase().includes(needle) ||
           (creature.commonName?.toLowerCase().includes(needle) ?? false);
-        return groupOk && textOk;
+        return groupOk && cladeOk && textOk;
       }).map((creature) => creature.id),
     );
-  }, [query, activeGroups]);
+  }, [query, activeGroups, sauropodFilter]);
 
   const contemporaries = useMemo(
     () => (selected ? contemporariesOf(selected, CREATURES) : []),
@@ -139,6 +152,8 @@ export default function App() {
         totalCount={CREATURES.length}
         open={filtersOpen}
         onToggleOpen={() => setFiltersOpen((v) => !v)}
+        sauropodFilter={sauropodFilter}
+        onSauropodFilterChange={setSauropodFilter}
       />
 
       <div className="stage">

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { packLanes, contemporariesOf } from "./layout";
+import { packLanes, contemporariesOf, matchesSauropodFilter } from "./layout";
+import { CREATURES } from "../data/creatures";
 import {
   overlaps,
   intervalToRect,
@@ -111,6 +112,27 @@ describe("contemporariesOf", () => {
     const trex = make("trex", 68, 66);
     const all = [trex, make("triceratops", 68, 66), make("stegosaurus", 155, 145)];
     expect(contemporariesOf(trex, all).map((c) => c.id)).toEqual(["triceratops"]);
+  });
+});
+
+describe("sauropod sub-filter", () => {
+  it("tags every sauropodomorph with a clade so the filter can place it", () => {
+    const untagged = CREATURES.filter(
+      (c) => c.group === "sauropodomorph" && !c.sauropodClade,
+    ).map((c) => c.name);
+    expect(untagged).toEqual([]);
+  });
+
+  it("nests the levels: titanosaurs are sauropods, sauropods are sauropodomorphs", () => {
+    // "all" admits everything, including a prosauropod.
+    expect(matchesSauropodFilter("basal", "all")).toBe(true);
+    // "sauropod" admits sauropods and the titanosaurs within them, not basals.
+    expect(matchesSauropodFilter("basal", "sauropod")).toBe(false);
+    expect(matchesSauropodFilter("sauropod", "sauropod")).toBe(true);
+    expect(matchesSauropodFilter("titanosaur", "sauropod")).toBe(true);
+    // "titanosaur" admits only titanosaurs.
+    expect(matchesSauropodFilter("sauropod", "titanosaur")).toBe(false);
+    expect(matchesSauropodFilter("titanosaur", "titanosaur")).toBe(true);
   });
 });
 

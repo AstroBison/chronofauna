@@ -1,5 +1,29 @@
-import type { Creature, CreatureGroup, PackedCreature } from "../types";
+import type { Creature, CreatureGroup, PackedCreature, SauropodClade } from "../types";
 import { overlaps } from "./scale";
+
+/**
+ * The sauropodomorph group carries a sub-filter, because "long-necked dinosaur"
+ * spans everything from a two-metre prosauropod to the largest animals ever to
+ * walk. The levels nest — every titanosaur is a sauropod, every sauropod a
+ * sauropodomorph — so picking a level shows that clade and everything inside it.
+ */
+export type SauropodFilter = "all" | "sauropod" | "titanosaur";
+
+export const SAUROPOD_FILTERS: { value: SauropodFilter; label: string }[] = [
+  { value: "all", label: "All sauropodomorphs" },
+  { value: "sauropod", label: "Sauropods only" },
+  { value: "titanosaur", label: "Titanosaurs only" },
+];
+
+/** Whether a creature's clade falls within the chosen sub-filter level. */
+export function matchesSauropodFilter(
+  clade: SauropodClade | undefined,
+  filter: SauropodFilter,
+): boolean {
+  if (filter === "all") return true;
+  if (filter === "sauropod") return clade === "sauropod" || clade === "titanosaur";
+  return clade === "titanosaur";
+}
 
 /**
  * Greedy interval packing: walk the creatures oldest-first and drop each into
