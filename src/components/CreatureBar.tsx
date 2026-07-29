@@ -5,7 +5,13 @@ import {
   LANE_HEIGHT,
   MIN_RULE_WIDTH,
 } from "../lib/dimensions";
-import { formatDuration, formatMya, durationMy, intervalToRect } from "../lib/scale";
+import {
+  formatDuration,
+  formatMya,
+  durationMy,
+  intervalToRect,
+  totalWidth,
+} from "../lib/scale";
 import { measureLabelWidth } from "../lib/text";
 import { Silhouette } from "./Silhouette";
 import type { PackedCreature } from "../types";
@@ -51,6 +57,14 @@ export function CreatureBar({ packed, pxPerMy, color, state, onSelect }: Creatur
   const showLabel = labelWidth <= roomForLabel;
   const showThumbnail = showLabel && labelWidth + BAR_THUMBNAIL_EXTRA <= roomForLabel;
 
+  // A label normally overhangs to the right, into the empty time after its bar.
+  // But the youngest bars have no chart to their right — the present day is the
+  // canvas edge — so a right-overhanging label falls off it and forces a
+  // horizontal scroll to read. When the label would cross the right edge, anchor
+  // it to the bar's right side and let it run left instead, keeping it on-screen.
+  const annotationWidth = labelWidth + (showThumbnail ? BAR_THUMBNAIL_EXTRA : 0);
+  const flipLabel = showLabel && left + annotationWidth > totalWidth(pxPerMy);
+
   const lifespan = `${formatMya(creature.start)} to ${formatMya(creature.end)}`;
   const duration = formatDuration(durationMy(creature));
 
@@ -75,7 +89,7 @@ export function CreatureBar({ packed, pxPerMy, color, state, onSelect }: Creatur
 
   return (
     <button
-      className={`bar bar--${state}`}
+      className={`bar bar--${state}${flipLabel ? " bar--flip-label" : ""}`}
       /* Lets the viewport find this bar to scroll it into view; see
          `revealCreature` in useTimelineViewport. */
       data-creature-id={creature.id}

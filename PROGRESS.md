@@ -83,11 +83,17 @@ blurbs are readable as text rather than hover-only.
 - No arrow-key movement between bars.
 - Focus is not moved into the detail panel when it opens, nor restored on close.
 
-### 2. "Fit" leaves 120px of horizontal scroll
+### ~~2. "Fit" leaves 120px of horizontal scroll~~ — fixed
 
-Labels overhang the right-hand edge of the timeline and widen the canvas, so the
-one button whose job is to fit the chart does not quite. Either measure the
-overhang into the fit calculation or clamp the last label.
+Labels on the youngest bars overhang the right-hand (present-day) edge of the
+canvas, widening it so the one button whose job is to fit the chart didn't quite,
+and forcing a scroll to read the last names. A bar whose label would cross the
+right edge now flips it: the annotation anchors to the bar's right side and runs
+left over the chart instead (`bar--flip-label` in CreatureBar / styles.css). The
+overhang scroll dropped from ~120px to ~4px, and names like "Humans" and "Woolly
+mammoth" are readable at fit-all without scrolling. One residual cosmetic quirk:
+a flipped label can overlap a neighbour's right-running label at full zoom-out
+(e.g. American mastodon over Hyaenodon); zooming in separates them.
 
 ### ~~3. Mobile is weak~~ — fixed
 

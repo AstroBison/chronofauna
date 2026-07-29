@@ -703,6 +703,24 @@ button {
   pointer-events: none;
 }
 
+/*
+ * Youngest bars: a right-overhanging label would fall off the present-day edge
+ * of the canvas. Anchor the annotation to the bar's right instead, so its name
+ * runs left over the chart and stays readable without scrolling. Dropping the
+ * left-sticky is fine here — these bars sit against the right edge, not partway
+ * through a long span that needs the name pinned as it scrolls by.
+ */
+.bar--flip-label {
+  align-items: flex-end;
+}
+
+.bar--flip-label .bar-annotation {
+  position: static;
+  /* Hold the name a few px in from the bar's right edge so a bar ending at the
+     present (right at the canvas edge) doesn't clip its last character. */
+  margin-right: 6px;
+}
+
 .bar:hover {
   z-index: 2;
   color: var(--ink);
