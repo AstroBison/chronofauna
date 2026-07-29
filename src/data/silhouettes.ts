@@ -1467,5 +1467,383 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/832a47bd-0cd4-4b0e-af7b-db9d7ff81867"
+  },
+  "proceratosaurus": {
+    "file": "/silhouettes/proceratosaurus.svg",
+    "taxon": "Proceratosaurus bradleyi",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/df44e440-ac0d-451b-b913-56a913a02faa"
+  },
+  "eustreptospondylus": {
+    "file": "/silhouettes/eustreptospondylus.svg",
+    "taxon": "Eustreptospondylus oxoniensis",
+    "standIn": false,
+    "attribution": "Jaime Headden",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/e46c71d9-d38c-4539-9f95-b1a26167d5d0"
+  },
+  "elaphrosaurus": {
+    "file": "/silhouettes/elaphrosaurus.svg",
+    "taxon": "Elaphrosaurus bambergi",
+    "standIn": false,
+    "attribution": "FunkMonk",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/585a10c9-41ee-4c65-9c55-894c8fbe57f1"
+  },
+  "concavenator": {
+    "file": "/silhouettes/concavenator.svg",
+    "taxon": "Concavenator corcovatus",
+    "standIn": false,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/f314bf9e-2bb8-4edc-afb9-aa382b024496"
+  },
+  "neovenator": {
+    "file": "/silhouettes/neovenator.svg",
+    "taxon": "Neovenator salerii",
+    "standIn": false,
+    "attribution": "FunkMonk",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/c4927904-010c-4c48-b1b6-a85669e043d7"
+  },
+  "irritator": {
+    "file": "/silhouettes/irritator.svg",
+    "taxon": "Irritator challengeri",
+    "standIn": false,
+    "attribution": "Connor Ashbridge",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/27a5d428-6513-481a-96d3-b895228eb04b"
+  },
+  "tyrannotitan": {
+    "file": "/silhouettes/tyrannotitan.svg",
+    "taxon": "Tyrannotitan chubutensis",
+    "standIn": false,
+    "attribution": "Michael P. Taylor",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/4bf61905-5424-4d54-b4fd-477a62907eae"
+  },
+  "abelisaurus": {
+    "file": "/silhouettes/abelisaurus.svg",
+    "taxon": "Abelisaurus comahuensis",
+    "standIn": false,
+    "attribution": "Alessio Ciaffi",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/8fdd2b1b-15ec-4248-864d-f6c78f153e81"
+  },
+  "gigantoraptor": {
+    "file": "/silhouettes/gigantoraptor.svg",
+    "taxon": "Gigantoraptor erlianensis",
+    "standIn": false,
+    "attribution": "Cy Marchant",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/6ba48f04-d4b7-4f97-a0d2-17fb2bf5473e"
+  },
+  "citipati": {
+    "file": "/silhouettes/citipati.svg",
+    "taxon": "Citipati osmolskae",
+    "standIn": false,
+    "attribution": "Emily Willoughby",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b82711c1-4c4c-4fdd-b9ff-2bcd48aa4cd1"
+  },
+  "alioramus": {
+    "file": "/silhouettes/alioramus.svg",
+    "taxon": "Alioramus remotus",
+    "standIn": false,
+    "attribution": "Will Toosey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/499fe1d6-a3c5-4219-a60e-d5ae93031bda"
+  },
+  "ornithomimus": {
+    "file": "/silhouettes/ornithomimus.svg",
+    "taxon": "Ornithomimus",
+    "standIn": false,
+    "attribution": "Christiana Garros",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b778f21e-0415-4990-b7be-27dc3ce21405"
+  },
+  "dryosaurus": {
+    "file": "/silhouettes/dryosaurus.svg",
+    "taxon": "Dryosaurus altus",
+    "standIn": false,
+    "attribution": "Gareth Monger",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/14184e4e-0777-4d0b-8cb4-00dedd216af4"
+  },
+  "camptosaurus": {
+    "file": "/silhouettes/camptosaurus.svg",
+    "taxon": "Camptosaurus dispar",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/26a45f4d-f777-4e9c-9289-4620c6aeca0a"
+  },
+  "miragaia": {
+    "file": "/silhouettes/miragaia.svg",
+    "taxon": "Dacentrurus armatus",
+    "standIn": true,
+    "attribution": "Jaime Headden",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/0b56513a-bcc2-4f96-bf8b-92ac61d3c51e"
+  },
+  "dacentrurus": {
+    "file": "/silhouettes/dacentrurus.svg",
+    "taxon": "Dacentrurus armatus",
+    "standIn": false,
+    "attribution": "Jaime Headden",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/0b56513a-bcc2-4f96-bf8b-92ac61d3c51e"
+  },
+  "borealopelta": {
+    "file": "/silhouettes/borealopelta.svg",
+    "taxon": "Borealopelta markmitchelli",
+    "standIn": false,
+    "attribution": "Marie Aimée ALLARD",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/80592c68-b4ff-4909-b1b4-a9831303232b"
+  },
+  "edmontonia": {
+    "file": "/silhouettes/edmontonia.svg",
+    "taxon": "Liaoningosaurus paradoxus",
+    "standIn": true,
+    "attribution": "Brad McFeeters (vectorized by T. Michael Keesey)",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/294aa46e-d5a8-4c48-b3ba-f1f3f4fd0c1e"
+  },
+  "chasmosaurus": {
+    "file": "/silhouettes/chasmosaurus.svg",
+    "taxon": "Chasmosaurus belli",
+    "standIn": false,
+    "attribution": "Matt Dempsey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/9738fe4f-f60b-4f76-a014-f0cf4478d368"
+  },
+  "pachyrhinosaurus": {
+    "file": "/silhouettes/pachyrhinosaurus.svg",
+    "taxon": "Pachyrhinosaurus",
+    "standIn": false,
+    "attribution": "Amy Beauvois",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/da8f7c54-89aa-4c97-87eb-e6ea778ebd6e"
+  },
+  "stegoceras": {
+    "file": "/silhouettes/stegoceras.svg",
+    "taxon": "Stegoceras validum",
+    "standIn": false,
+    "attribution": "Caleb M. Brown",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/4d160c01-0026-4176-9471-4e79771c8c91"
+  },
+  "thescelosaurus": {
+    "file": "/silhouettes/thescelosaurus.svg",
+    "taxon": "Thescelosaurus neglectus",
+    "standIn": false,
+    "attribution": "Caleb M. Brown",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b7879e57-baca-4cd2-83c5-e85e8971a85f"
+  },
+  "cetiosaurus": {
+    "file": "/silhouettes/cetiosaurus.svg",
+    "taxon": "Cetiosaurus oxoniensis",
+    "standIn": false,
+    "attribution": "Michael P. Taylor",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/2aef7918-8f7a-4b62-82e3-e88b8969d4a5"
+  },
+  "patagosaurus": {
+    "file": "/silhouettes/patagosaurus.svg",
+    "taxon": "Patagosaurus fariasi",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b94be3d0-8014-4e9d-8117-cf833a13cc79"
+  },
+  "giraffatitan": {
+    "file": "/silhouettes/giraffatitan.svg",
+    "taxon": "Giraffatitan brancai",
+    "standIn": false,
+    "attribution": "Amy Beauvois",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/1e6b0240-6249-4149-8499-5f1c08079bcc"
+  },
+  "lufengosaurus": {
+    "file": "/silhouettes/lufengosaurus.svg",
+    "taxon": "Lufengosaurus",
+    "standIn": false,
+    "attribution": "Tasman Dixon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/9651a015-2e4e-4433-91e5-0b3f4121e859"
+  },
+  "rapetosaurus": {
+    "file": "/silhouettes/rapetosaurus.svg",
+    "taxon": "Rapetosaurus krausei",
+    "standIn": false,
+    "attribution": "Will Toosey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5ef8943e-15d4-4c30-9cfc-9c59c6e1b83f"
+  },
+  "pterodaustro": {
+    "file": "/silhouettes/pterodaustro.svg",
+    "taxon": "Pterodaustro guinazui",
+    "standIn": false,
+    "attribution": "Cy Marchant",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5fb7ce9e-dd3c-4af6-8d29-39a9a80c4947"
+  },
+  "tupuxuara": {
+    "file": "/silhouettes/tupuxuara.svg",
+    "taxon": "Tupuxuara longicristatus",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov (modified by T. Michael Keesey)",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/082285d7-e74c-4c1b-ab59-360be865c1aa"
+  },
+  "nyctosaurus": {
+    "file": "/silhouettes/nyctosaurus.svg",
+    "taxon": "Nyctosaurus gracilis",
+    "standIn": false,
+    "attribution": "Gareth Monger",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/0223839a-3c09-4a33-8369-e1ae92a16571"
+  },
+  "stenopterygius": {
+    "file": "/silhouettes/stenopterygius.svg",
+    "taxon": "Stenopterygius quadriscissus",
+    "standIn": false,
+    "attribution": "Neil Kelley",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/4f9d0c44-1495-4d09-a3b2-39f8f2ca5522"
+  },
+  "rhomaleosaurus": {
+    "file": "/silhouettes/rhomaleosaurus.svg",
+    "taxon": "Rhomaleosaurus cramptoni",
+    "standIn": false,
+    "attribution": "Scott Hartman",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/40db43fb-581f-4743-8c79-bec7ff2ced43"
+  },
+  "platecarpus": {
+    "file": "/silhouettes/platecarpus.svg",
+    "taxon": "Platecarpus",
+    "standIn": false,
+    "attribution": "Matt Crook",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5253b3b3-a1f8-4839-a67b-10f6606ffc0b"
+  },
+  "scutosaurus": {
+    "file": "/silhouettes/scutosaurus.svg",
+    "taxon": "Scutosaurus karpinskii",
+    "standIn": false,
+    "attribution": "Chris Jennings (vectorized by A. Verrière)",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/c5a448bf-0119-4735-8366-c237d855a1a0"
+  },
+  "enchodus": {
+    "file": "/silhouettes/enchodus.svg",
+    "taxon": "Enchodus",
+    "standIn": false,
+    "attribution": "Craig Dylke",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/00ae8a88-2582-4fef-918b-22edaf5dc178"
+  },
+  "moschops": {
+    "file": "/silhouettes/moschops.svg",
+    "taxon": "Moschops capensis",
+    "standIn": false,
+    "attribution": "Ryan Santos Soledade",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b5f52159-e0a7-4054-88a7-3836ace24f49"
+  },
+  "diictodon": {
+    "file": "/silhouettes/diictodon.svg",
+    "taxon": "Diictodon feliceps",
+    "standIn": false,
+    "attribution": "Smokeybjb",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/4ce2a8f1-342a-4124-b018-af7e5dae4130"
+  },
+  "cotylorhynchus": {
+    "file": "/silhouettes/cotylorhynchus.svg",
+    "taxon": "Cotylorhynchus",
+    "standIn": false,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/9af05b6c-81f5-499a-8dfc-13e4221dc10e"
+  },
+  "thrinaxodon": {
+    "file": "/silhouettes/thrinaxodon.svg",
+    "taxon": "Thrinaxodon liorhinus",
+    "standIn": false,
+    "attribution": "Christine Axon",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/94fda119-5435-4246-ad23-20b15f3bcb8d"
+  },
+  "majungasaurus": {
+    "file": "/silhouettes/majungasaurus.svg",
+    "taxon": "Majungasaurus crenatissimus",
+    "standIn": false,
+    "attribution": "Jaime Headden",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/16326846-ecd5-49a9-b450-176d3f63703e"
+  },
+  "gryposaurus": {
+    "file": "/silhouettes/gryposaurus.svg",
+    "taxon": "Laiyangosaurus youngi",
+    "standIn": true,
+    "attribution": "Olof Moleman",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/f704bcd3-09c1-433f-8ce7-ec0c98fe0a3b"
+  },
+  "saurichthys": {
+    "file": "/silhouettes/saurichthys.svg",
+    "taxon": "Saurichthys curionii",
+    "standIn": false,
+    "attribution": "Jonathan Pople",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/e8a9d578-7f94-4e87-b548-4e834ca8f27f"
   }
 };

@@ -84,6 +84,11 @@ const QUERY_CHAINS = {
   // Alvarezsaurus.
   metriacanthosaurus: ["metriacanthosaurus", "metriacanthosauridae"],
   mononykus: ["mononykus", "alvarezsauridae"],
+
+  // PhyloPic's only images for these are NonCommercial; fall back to a non-NC
+  // relative not otherwise on the chart to keep the set 100% NC-free.
+  edmontonia: ["edmontonia", "ankylosauridae"],
+  gryposaurus: ["gryposaurus", "saurolophinae", "hadrosauridae"],
 };
 
 const licenceRank = (href = "") => {
