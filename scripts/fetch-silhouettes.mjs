@@ -89,6 +89,9 @@ const QUERY_CHAINS = {
   // relative not otherwise on the chart to keep the set 100% NC-free.
   edmontonia: ["edmontonia", "ankylosauridae"],
   gryposaurus: ["gryposaurus", "saurolophinae", "hadrosauridae"],
+  // No PhyloPic image; the living coelacanth Latimeria is a near-identical
+  // stand-in for its Cretaceous relative.
+  macropoma: ["macropoma", "latimeria"],
 };
 
 const licenceRank = (href = "") => {

@@ -37,14 +37,14 @@ Quaternary band in the axis to zoom down to it.
 
 ## What's included
 
-232 species from the Permian through today, arranged into five families — mammal
+233 species from the Permian through today, arranged into five families — mammal
 line, other reptiles, dinosaurs, pterosaurs and sea creatures — with colour
 marking the finer grouping within each (theropods, sauropodomorphs,
 ornithischians, and so on). The geologic time scale uses official ICS chart
 colours, so it matches the charts in textbooks and museums. The two mass
 extinctions that bracket the age of dinosaurs are marked.
 
-To keep the default chart legible, the best-known 132 species show on landing;
+To keep the default chart legible, the best-known 133 species show on landing;
 the rest — a long tail of lesser-known genera — are held back until you press
 **Show all**, which packs the timeline with the full set.
 
@@ -92,7 +92,7 @@ licences**, so the site stays free to use in any context. Artists are credited
 in the detail panel and in the "Artwork credits" list in the footer; both are
 required by the CC-BY terms, so please keep them.
 
-Twenty-five genera have no silhouette of their own, so they use one of a close
+Twenty-six genera have no silhouette of their own, so they use one of a close
 relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid pterosaur;
 Lycaenops and Rubidgea borrow *Dinogorgon*, a fellow gorgonopsian; Moropus
 borrows *Chalicotherium*, a fellow chalicothere. The site says so on each

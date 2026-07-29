@@ -613,6 +613,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/f7d45ad0-0d64-4871-a59b-1414a41487dd"
   },
+  "macropoma": {
+    "file": "/silhouettes/macropoma.svg",
+    "taxon": "Latimeria chalumnae",
+    "standIn": true,
+    "attribution": "Unknown artist",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/9785c4ca-e881-4e42-b359-212dd9c38aee"
+  },
   "pteranodon": {
     "file": "/silhouettes/pteranodon.svg",
     "taxon": "Pteranodon longiceps",

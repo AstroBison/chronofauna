@@ -4156,6 +4156,36 @@ export const OCCURRENCES: Record<string, Occurrence> = {
     ],
     "siteCount": 1
   },
+  "macropoma": {
+    "points": [
+      [
+        17,
+        47
+      ],
+      [
+        13,
+        45
+      ],
+      [
+        24,
+        32
+      ],
+      [
+        17,
+        33
+      ],
+      [
+        17,
+        37
+      ]
+    ],
+    "mapAge": 100,
+    "countries": [
+      "DE",
+      "UK"
+    ],
+    "siteCount": 6
+  },
   "pteranodon": {
     "points": [
       [
@@ -13585,7 +13615,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         -5
       ]
     ],
-    "mapAge": 100,
+    "mapAge": 120,
     "countries": [
       "BR"
     ],
@@ -13598,7 +13628,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         -40
       ]
     ],
-    "mapAge": 120,
+    "mapAge": 100,
     "countries": [
       "AR"
     ],
@@ -13641,7 +13671,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         38
       ]
     ],
-    "mapAge": 66,
+    "mapAge": 80,
     "countries": [
       "MN"
     ],
@@ -14652,7 +14682,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         -5
       ]
     ],
-    "mapAge": 100,
+    "mapAge": 120,
     "countries": [
       "BR"
     ],

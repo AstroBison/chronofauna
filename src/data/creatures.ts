@@ -755,6 +755,18 @@ export const CREATURES: Creature[] = [
       "Among the largest land animals ever — plausibly 65–75 tonnes, known from a handful of colossal vertebrae.",
   },
   {
+    id: "macropoma",
+    name: "Macropoma",
+    commonName: "Coelacanth",
+    group: "fish",
+    start: 100,
+    end: 89,
+    lengthM: 1,
+    diet: "carnivore",
+    blurb:
+      "A Cretaceous coelacanth almost identical to the living one. Coelacanths vanished from the fossil record around the time the dinosaurs died — so they were assumed long extinct, until a living one was netted off South Africa in 1938.",
+  },
+  {
     id: "pteranodon",
     name: "Pteranodon",
     group: "pterosaur",
