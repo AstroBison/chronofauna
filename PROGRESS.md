@@ -112,21 +112,30 @@ and the search font is 16px there so iOS doesn't zoom on focus. Verified at 375,
 768 and 1280px with the chip dropdown, live filtering, a synthetic 2.5× pinch and
 the bottom-sheet detail panel.
 
-### 4. Mass extinctions need a dedicated line at the top of the chart
+### 4. Mass extinctions need a single clickable line at the top of the chart
 
 The two events in `MASS_EXTINCTIONS` (`src/data/geoSpans.ts`) currently render as
 a dashed vertical rule through the lanes with a small sticky caption. The caption
 sits in the `LANES_TOP_INSET` strip above the first family block, so it competes
 with the bars for the reader's attention and is easy to miss entirely when
-scrolled down — the rule is visible but its name is not.
+scrolled down — the rule is visible but its name is not, and there is no click
+target at all today (the existing `blurb` field only surfaces as a `title`
+tooltip).
 
-Give them their own band directly under the time axis: a slim, always-visible row
-where each event is a marker at its age, so the two great resets of life on Earth
-read as chart furniture on par with the periods rather than as an annotation
-someone might scroll past. Worth considering while doing it: the band should stay
-sticky like the axis, and adding the other three of the "Big Five" (end-Ordovician,
-late Devonian, end-Triassic) only makes sense once the chart reaches back past 299
-Ma, which it currently does not.
+Decided direction (not yet built): one horizontal line, sticky under the time
+axis like a slim extra row, running the full width of the timeline. Each event
+is a marker at its age on that single line; clicking a marker surfaces its
+`blurb` — most likely reusing the `DetailPanel` pattern already used for
+creatures, rather than a tooltip, so it's reachable by keyboard and touch, not
+just hover. This replaces the per-lane dashed rule + sticky caption entirely,
+so it should probably be removed rather than kept alongside the new line.
+
+Worth deciding when this is picked up: whether the vertical dashed guide through
+the lanes stays (useful for reading "what died at this instant" against the
+bars) or goes now that the event has its own dedicated, clickable home. Adding
+the other three of the "Big Five" (end-Ordovician, late Devonian, end-Triassic)
+only makes sense once the chart reaches back past 299 Ma, which it currently
+does not.
 
 ### 5. No tests around the viewport hook
 
