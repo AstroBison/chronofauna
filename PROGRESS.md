@@ -112,7 +112,23 @@ and the search font is 16px there so iOS doesn't zoom on focus. Verified at 375,
 768 and 1280px with the chip dropdown, live filtering, a synthetic 2.5× pinch and
 the bottom-sheet detail panel.
 
-### 4. No tests around the viewport hook
+### 4. Mass extinctions need a dedicated line at the top of the chart
+
+The two events in `MASS_EXTINCTIONS` (`src/data/geoSpans.ts`) currently render as
+a dashed vertical rule through the lanes with a small sticky caption. The caption
+sits in the `LANES_TOP_INSET` strip above the first family block, so it competes
+with the bars for the reader's attention and is easy to miss entirely when
+scrolled down — the rule is visible but its name is not.
+
+Give them their own band directly under the time axis: a slim, always-visible row
+where each event is a marker at its age, so the two great resets of life on Earth
+read as chart furniture on par with the periods rather than as an annotation
+someone might scroll past. Worth considering while doing it: the band should stay
+sticky like the axis, and adding the other three of the "Big Five" (end-Ordovician,
+late Devonian, end-Triassic) only makes sense once the chart reaches back past 299
+Ma, which it currently does not.
+
+### 5. No tests around the viewport hook
 
 `useTimelineViewport` has produced three real bugs (a `pxPerMy` dependency that
 reset zoom on every change, absolute positioning ignoring container padding, and
