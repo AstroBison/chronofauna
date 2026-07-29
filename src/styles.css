@@ -193,6 +193,19 @@ button {
   margin: 0;
 }
 
+.source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+.source-link:hover {
+  color: var(--ink);
+}
+
 /* ── Toolbar ────────────────────────────────────────────────────────────── */
 
 .toolbar {
