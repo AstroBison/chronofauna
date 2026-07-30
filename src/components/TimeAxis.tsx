@@ -9,6 +9,7 @@ import {
 import { formatMya, intervalToRect, myaToX, niceTickStep, ticksInRange } from "../lib/scale";
 import { measureLabelWidth } from "../lib/text";
 import { readableInk } from "../lib/color";
+import { ExtinctionLine } from "./ExtinctionLine";
 import type { GeoSpan } from "../types";
 import type { VisibleRange } from "../hooks/useTimelineViewport";
 
@@ -53,15 +54,28 @@ interface TimeAxisProps {
   pxPerMy: number;
   range: VisibleRange;
   onSelectSpan: (span: GeoSpan) => void;
+  selectedExtinctionId: string | null;
+  onSelectExtinction: (id: string) => void;
 }
 
 /**
- * The sticky header: eras, periods, epochs and a numeric age scale.
+ * The sticky header: eras, periods, epochs, a numeric age scale, and the
+ * mass-extinction line.
+ *
+ * The extinction line lives inside this container so it inherits the header's
+ * stickiness — the events stay reachable however far down the chart the reader
+ * has scrolled, which was the whole problem with the old in-lane caption.
  *
  * Ticks are windowed to the visible range — at high zoom the full chart would
  * otherwise need tens of thousands of them.
  */
-export function TimeAxis({ pxPerMy, range, onSelectSpan }: TimeAxisProps) {
+export function TimeAxis({
+  pxPerMy,
+  range,
+  onSelectSpan,
+  selectedExtinctionId,
+  onSelectExtinction,
+}: TimeAxisProps) {
   const step = niceTickStep(pxPerMy);
   // Pad by one step on each side so labels do not pop in at the edges.
   const ticks = ticksInRange(range.oldest + step, range.youngest - step, step);
@@ -89,6 +103,12 @@ export function TimeAxis({ pxPerMy, range, onSelectSpan }: TimeAxisProps) {
           </div>
         ))}
       </div>
+
+      <ExtinctionLine
+        pxPerMy={pxPerMy}
+        selectedId={selectedExtinctionId}
+        onSelect={onSelectExtinction}
+      />
     </div>
   );
 }

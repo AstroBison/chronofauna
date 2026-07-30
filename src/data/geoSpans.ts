@@ -60,31 +60,53 @@ export const EPOCHS: GeoSpan[] = [
 export const TIMELINE_START = 298.9;
 export const TIMELINE_END = 0;
 
+/**
+ * What drove an extinction, which is also what its marker icon depicts. Kept as
+ * a small union rather than free text so the icon lookup is exhaustive: adding a
+ * cause without drawing it fails to compile.
+ */
+export type ExtinctionCause = "asteroid" | "volcanism";
+
 export interface MassExtinction {
   id: string;
   name: string;
+  /** Short form for the marker when the full name will not fit. */
+  shortName: string;
   /** Age of the event in Mya. */
   at: number;
+  cause: ExtinctionCause;
+  /** Human label for the cause, named down to the specific culprit. */
+  causeLabel: string;
+  /** One-line summary of the losses, for the panel's facts list. */
+  losses: string;
   blurb: string;
 }
 
 /**
- * The two events that bracket the age of dinosaurs. Drawn as vertical markers
- * because they explain most of the abrupt starts and stops on the chart.
+ * The two events that bracket the age of dinosaurs. They explain most of the
+ * abrupt starts and stops on the chart, so they get their own line above it.
  */
 export const MASS_EXTINCTIONS: MassExtinction[] = [
   {
     id: "p-tr",
     name: "Permian–Triassic extinction",
+    shortName: "P–Tr",
     at: 251.902,
+    cause: "volcanism",
+    causeLabel: "Volcanism — the Siberian Traps",
+    losses: "~81% of marine species",
     blurb:
-      "“The Great Dying” — the most severe extinction event known, wiping out roughly 80–90% of marine species and clearing the way for the first dinosaurs.",
+      "“The Great Dying” — the most severe extinction event known, wiping out roughly 80–90% of marine species and clearing the way for the first dinosaurs. A million-year eruption in Siberia flooded the air with carbon dioxide, cooking and acidifying the oceans.",
   },
   {
     id: "k-pg",
     name: "Cretaceous–Paleogene extinction",
+    shortName: "K–Pg",
     at: 66.0,
+    cause: "asteroid",
+    causeLabel: "Asteroid impact — Chicxulub",
+    losses: "~75% of all species",
     blurb:
-      "An asteroid impact at Chicxulub ended the non-avian dinosaurs, along with the pterosaurs and the great marine reptiles. Birds and mammals survived.",
+      "An asteroid impact at Chicxulub ended the non-avian dinosaurs, along with the pterosaurs and the great marine reptiles. Debris thrown into the sky blocked sunlight for years, collapsing the food chain from the plants upward. Birds and mammals survived.",
   },
 ];

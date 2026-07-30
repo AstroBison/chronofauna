@@ -14,16 +14,6 @@ export const BAR_HEIGHT = 22;
 /** Breathing room below the last row. */
 export const LANES_PADDING_BOTTOM = 14;
 
-/**
- * Clear strip above the first family block, reserved for the extinction-event
- * captions, which are sticky to the top of the chart.
- *
- * Family blocks sit in normal flow, so plain `padding-top` on `.lanes` does move
- * them. Bars inside a block are absolutely positioned against their own block,
- * which is why they need no inset of their own.
- */
-export const LANES_TOP_INSET = 28;
-
 /** Heading strip above each family block. */
 export const FAMILY_HEADER_HEIGHT = 19;
 
@@ -38,8 +28,25 @@ export const ERA_ROW_HEIGHT = 20;
 export const PERIOD_ROW_HEIGHT = 24;
 export const EPOCH_ROW_HEIGHT = 18;
 export const TICK_ROW_HEIGHT = 22;
+
+/**
+ * The mass-extinction line, the last row of the sticky header.
+ *
+ * It counts toward `AXIS_HEIGHT` because that constant is what `revealCreature`
+ * uses to clear the sticky header when scrolling a bar into view — leave it out
+ * and a revealed bar hides under this row.
+ */
+export const EXTINCTION_ROW_HEIGHT = 24;
+
+/** Diameter of an extinction marker's dot, plus the gap before its label. */
+export const EXTINCTION_MARKER_WIDTH = 24;
+
 export const AXIS_HEIGHT =
-  ERA_ROW_HEIGHT + PERIOD_ROW_HEIGHT + EPOCH_ROW_HEIGHT + TICK_ROW_HEIGHT;
+  ERA_ROW_HEIGHT +
+  PERIOD_ROW_HEIGHT +
+  EPOCH_ROW_HEIGHT +
+  TICK_ROW_HEIGHT +
+  EXTINCTION_ROW_HEIGHT;
 
 /**
  * Rendered size of the silhouette thumbnail beside a label, plus its gap. A bar

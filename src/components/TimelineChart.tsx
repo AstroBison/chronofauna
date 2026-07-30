@@ -23,6 +23,8 @@ interface TimelineChartProps {
   onScroll: () => void;
   onSelectCreature: (id: string) => void;
   onSelectSpan: (span: GeoSpan) => void;
+  selectedExtinctionId: string | null;
+  onSelectExtinction: (id: string) => void;
 }
 
 export function TimelineChart({
@@ -36,6 +38,8 @@ export function TimelineChart({
   onScroll,
   onSelectCreature,
   onSelectSpan,
+  selectedExtinctionId,
+  onSelectExtinction,
 }: TimelineChartProps) {
   const width = totalWidth(pxPerMy);
 
@@ -67,30 +71,36 @@ export function TimelineChart({
         grouped into {blocks.length} families: {blocks.map((b) => b.label).join(", ")}. Each
         species is a button giving its name, when it lived and for how long; choosing one
         lists every species alive at the same time. Above the chart, each geological era,
-        period and epoch is a button that zooms to it.
+        period and epoch is a button that zooms to it, and a line of mass-extinction
+        markers gives each event's cause when chosen.
       </p>
 
       <div className="canvas" style={{ width }}>
-        <TimeAxis pxPerMy={pxPerMy} range={range} onSelectSpan={onSelectSpan} />
+        <TimeAxis
+          pxPerMy={pxPerMy}
+          range={range}
+          onSelectSpan={onSelectSpan}
+          selectedExtinctionId={selectedExtinctionId}
+          onSelectExtinction={onSelectExtinction}
+        />
 
         {/* Blocks sit in normal flow, so this box sizes itself. */}
         <div className="lanes">
-          {/* Extinction markers sit behind the bars and span every block. */}
+          {/*
+            A guide dropped from each marker on the extinction line, so the event
+            can be read against the bars that stop at it. Purely decorative now:
+            the name, the explanation and the click target all live on the line
+            itself, which is sticky and therefore always reachable.
+          */}
           {MASS_EXTINCTIONS.map((event) => (
             <div
               key={event.id}
-              className="extinction-line"
+              className={`extinction-line${
+                selectedExtinctionId === event.id ? " is-selected" : ""
+              }`}
               style={{ left: myaToX(event.at, pxPerMy) }}
-              title={`${event.name} — ${event.blurb}`}
-            >
-              <span className="extinction-label">
-                {event.name}
-                {/* The explanation was reachable only by hovering for a
-                    tooltip. Carrying it as text makes it available to anyone
-                    not using a mouse. */}
-                <span className="visually-hidden">. {event.blurb}</span>
-              </span>
-            </div>
+              aria-hidden="true"
+            />
           ))}
 
           {blocks.map((block) => (

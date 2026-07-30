@@ -592,12 +592,13 @@ button {
  */
 /*
  * Family blocks are in normal flow, so this box sizes itself and the padding
- * genuinely moves them — reserving the strip the sticky extinction captions
- * need above the first block.
+ * genuinely moves them. It used to reserve a 28px strip for the extinction
+ * captions; those now live on their own line in the sticky header, so this is
+ * just breathing room under it.
  */
 .lanes {
   position: relative;
-  padding-top: 28px;
+  padding-top: 12px;
 }
 
 .family {
@@ -826,11 +827,92 @@ button {
   height: 92px;
 }
 
-/* ── Extinction markers ─────────────────────────────────────────────────── */
+/* ── Extinction line ────────────────────────────────────────────────────── */
 
 /*
- * Extinction markers are context, not data. They were competing with the bars
- * in heavy red caps; now they are a quiet hairline with a small caption.
+ * The mass extinctions get one horizontal line of their own, the last row of the
+ * sticky header. Previously they were only a dashed rule with a caption tucked
+ * above the first family block, which scrolled out of reach and offered no click
+ * target at all.
+ */
+.extinction-row {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+/* The line itself: quiet, full-width, and behind the markers. */
+.extinction-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--extinction);
+  opacity: 0.5;
+}
+
+.extinction-marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* Anchored so the dot's centre sits exactly on the event's age. */
+  transform: translateX(-9px);
+  padding: 0 4px 0 0;
+  border: none;
+  background: none;
+  color: var(--extinction-text);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.extinction-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--extinction);
+  background: var(--surface);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.extinction-marker:hover {
+  color: var(--ink);
+}
+
+.extinction-marker:hover .extinction-dot {
+  border-color: var(--extinction-text);
+}
+
+.extinction-marker.is-selected {
+  color: var(--ink);
+}
+
+/* Selection fills the dot rather than boxing the marker, matching how a
+   selected bar thickens instead of gaining a border. */
+.extinction-marker.is-selected .extinction-dot {
+  background: var(--extinction-text);
+  border-color: var(--extinction-text);
+  color: var(--surface);
+}
+
+.extinction-marker:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/*
+ * A guide dropped from each marker through the lanes, so an event can be read
+ * against the bars that stop at it. Decorative only — the line above carries the
+ * name, the explanation and the click target.
  */
 .extinction-line {
   position: absolute;
@@ -842,16 +924,41 @@ button {
   pointer-events: none;
 }
 
-.extinction-label {
-  position: sticky;
-  top: 0;
-  display: block;
-  margin-left: 5px;
+.extinction-line.is-selected {
+  border-left-color: var(--extinction-text);
+}
+
+/* Hero icon in the panel, sized up from the 13px marker glyph. */
+.extinction-figure {
+  text-align: center;
+}
+
+.extinction-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  height: 92px;
   color: var(--extinction-text);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
+}
+
+.extinction-hero svg {
+  width: 62px;
+  height: 62px;
+}
+
+/* The creature panel colours its rule by group; an event has no group. */
+.detail-header--extinction {
+  border-bottom-color: var(--extinction);
+}
+
+/* Event names are not taxa, so they take the UI face rather than the italic
+   serif a genus gets. Selector carries the tag to outrank `.detail-header h2`. */
+.detail-header h2.detail-title--plain {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.3;
 }
 
 /* ── Detail panel ───────────────────────────────────────────────────────── */

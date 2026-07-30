@@ -224,8 +224,28 @@ the page feel amateurish. Guard this when adding UI:
 
 Rows, guides and bars inside `.lanes` are absolutely positioned, so they resolve
 against the *padding box*: `padding-top` on `.lanes` does not move them and will
-not create a gap. The clear strip for the extinction captions is
-`LANES_TOP_INSET`, added to each row's computed `top`. This bit me once already.
+not create a gap. Family blocks themselves *are* in normal flow, so the padding
+does move those. This bit me once already.
+
+### The mass-extinction line
+
+The two events live on their own row, the last one inside `.axis` — which is
+what makes them sticky for free, and is the entire point: the old design put
+their captions in a strip above the first family block, where they scrolled out
+of reach and offered no click target at all.
+
+Two things follow from that placement:
+
+- **`EXTINCTION_ROW_HEIGHT` must stay inside `AXIS_HEIGHT`.** That constant is
+  what `revealCreature` subtracts to clear the sticky header; leave the row out
+  and a revealed bar lands underneath it.
+- **The dashed vertical guide through the lanes is now decorative** and marked
+  `aria-hidden`. The name, the explanation and the button all live on the line
+  above, so the guide exists only to read an event against the bars that stop at
+  it. Don't re-add a label to it.
+
+`ExtinctionIcon` maps `cause` to a pictogram, and the union is deliberately
+closed: adding a cause without drawing it fails to compile.
 
 ## Accessibility of the chart
 

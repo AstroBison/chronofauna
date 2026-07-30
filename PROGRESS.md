@@ -112,30 +112,30 @@ and the search font is 16px there so iOS doesn't zoom on focus. Verified at 375,
 768 and 1280px with the chip dropdown, live filtering, a synthetic 2.5× pinch and
 the bottom-sheet detail panel.
 
-### 4. Mass extinctions need a single clickable line at the top of the chart
+### ~~4. Mass extinctions need a single clickable line at the top of the chart~~ — done
 
-The two events in `MASS_EXTINCTIONS` (`src/data/geoSpans.ts`) currently render as
-a dashed vertical rule through the lanes with a small sticky caption. The caption
-sits in the `LANES_TOP_INSET` strip above the first family block, so it competes
-with the bars for the reader's attention and is easy to miss entirely when
-scrolled down — the rule is visible but its name is not, and there is no click
-target at all today (the existing `blurb` field only surfaces as a `title`
-tooltip).
+The events used to render as a dashed rule through the lanes with a caption in
+the strip above the first family block, where it competed with the bars, scrolled
+out of reach, and offered no click target — the `blurb` surfaced only as a
+`title` tooltip.
 
-Decided direction (not yet built): one horizontal line, sticky under the time
-axis like a slim extra row, running the full width of the timeline. Each event
-is a marker at its age on that single line; clicking a marker surfaces its
-`blurb` — most likely reusing the `DetailPanel` pattern already used for
-creatures, rather than a tooltip, so it's reachable by keyboard and touch, not
-just hover. This replaces the per-lane dashed rule + sticky caption entirely,
-so it should probably be removed rather than kept alongside the new line.
+They now have one horizontal line of their own, the last row inside `.axis` and
+therefore sticky with it. Each event is a marker at its age carrying a pictogram
+of its cause (`ExtinctionIcon`: an impactor for Chicxulub, an erupting vent for
+the Siberian Traps), and each marker is a real button that opens an
+`ExtinctionPanel` in the same slot the creature panel uses — so the explanation
+is reachable by keyboard and touch, not hover. The panel adds the cause, the
+losses and the boundary it separates. Marker labels fall back full name → short
+form → icon only as the room between markers shrinks, so the line survives a
+375px viewport.
 
-Worth deciding when this is picked up: whether the vertical dashed guide through
-the lanes stays (useful for reading "what died at this instant" against the
-bars) or goes now that the event has its own dedicated, clickable home. Adding
-the other three of the "Big Five" (end-Ordovician, late Devonian, end-Triassic)
-only makes sense once the chart reaches back past 299 Ma, which it currently
-does not.
+The dashed vertical guide was **kept**, stripped of its caption and marked
+`aria-hidden`: it is still the only way to read an event against the bars that
+stop at it, but everything interactive now lives on the line above.
+
+Still open: adding the other three of the "Big Five" (end-Ordovician, late
+Devonian, end-Triassic) only makes sense once the chart reaches back past 299 Ma,
+which it does not — end-Triassic at ~201 Ma is the one genuinely addable today.
 
 ### 5. No tests around the viewport hook
 

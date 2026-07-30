@@ -11,13 +11,18 @@ import { useTheme } from "./hooks/useTheme";
 import { TimelineChart } from "./components/TimelineChart";
 import { Toolbar, GroupFilterBar } from "./components/Controls";
 import { DetailPanel } from "./components/DetailPanel";
+import { ExtinctionPanel } from "./components/ExtinctionPanel";
 import { Credits } from "./components/Credits";
+import { MASS_EXTINCTIONS } from "./data/geoSpans";
 import type { CreatureGroup, GeoSpan } from "./types";
 
 const CREATURES_BY_ID = new Map(CREATURES.map((c) => [c.id, c]));
 
 export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  /** Selected mass extinction. Shares the panel slot with `selectedId`, so at
+   *  most one of the two is ever set. */
+  const [selectedExtinctionId, setSelectedExtinctionId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   /** Empty set means "no filter applied", i.e. show every group. */
   const [activeGroups, setActiveGroups] = useState<Set<CreatureGroup>>(new Set());
@@ -44,6 +49,9 @@ export default function App() {
   } = useTimelineViewport();
 
   const selected = selectedId ? CREATURES_BY_ID.get(selectedId) ?? null : null;
+  const selectedExtinction = selectedExtinctionId
+    ? MASS_EXTINCTIONS.find((e) => e.id === selectedExtinctionId) ?? null
+    : null;
 
   // The count of well-known species is fixed; only the tail is toggled in.
   const notableCount = useMemo(() => CREATURES.filter((c) => !c.minor).length, []);
@@ -95,7 +103,13 @@ export default function App() {
   );
 
   const selectCreature = useCallback((id: string) => {
+    setSelectedExtinctionId(null);
     setSelectedId((current) => (current === id ? null : id));
+  }, []);
+
+  const selectExtinction = useCallback((id: string) => {
+    setSelectedId(null);
+    setSelectedExtinctionId((current) => (current === id ? null : id));
   }, []);
 
   // Bring a newly selected creature into view — important when the selection
@@ -134,14 +148,16 @@ export default function App() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelectedId(null);
+      if (event.key !== "Escape") return;
+      setSelectedId(null);
+      setSelectedExtinctionId(null);
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
   return (
-    <div className={`app ${selected ? "app--with-detail" : ""}`}>
+    <div className="app">
       <header className="topbar">
         <div className="brand">
           <h1>Chronofauna</h1>
@@ -188,6 +204,8 @@ export default function App() {
           onScroll={onScroll}
           onSelectCreature={selectCreature}
           onSelectSpan={handleJump}
+          selectedExtinctionId={selectedExtinctionId}
+          onSelectExtinction={selectExtinction}
         />
 
         {selected && (
@@ -196,6 +214,13 @@ export default function App() {
             contemporaries={contemporaries}
             onSelect={selectCreature}
             onClose={() => setSelectedId(null)}
+          />
+        )}
+
+        {selectedExtinction && (
+          <ExtinctionPanel
+            event={selectedExtinction}
+            onClose={() => setSelectedExtinctionId(null)}
           />
         )}
       </div>
