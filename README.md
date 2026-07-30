@@ -37,14 +37,14 @@ Quaternary band in the axis to zoom down to it.
 
 ## What's included
 
-233 species from the Permian through today, arranged into five families — mammal
+261 species from the Permian through today, arranged into five families — mammal
 line, other reptiles, dinosaurs, pterosaurs and sea creatures — with colour
 marking the finer grouping within each (theropods, sauropodomorphs,
 ornithischians, and so on). The geologic time scale uses official ICS chart
 colours, so it matches the charts in textbooks and museums. The two mass
 extinctions that bracket the age of dinosaurs are marked.
 
-To keep the default chart legible, the best-known 133 species show on landing;
+To keep the default chart legible, the best-known 145 species show on landing;
 the rest — a long tail of lesser-known genera — are held back until you press
 **Show all**, which packs the timeline with the full set.
 
@@ -97,7 +97,7 @@ relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid pterosaur;
 Lycaenops and Rubidgea borrow *Dinogorgon*, a fellow gorgonopsian; Moropus
 borrows *Chalicotherium*, a fellow chalicothere. The site says so on each
 affected animal rather than passing the artwork off as the real thing. A further
-29 lesser-known genera have no silhouette at all yet and render as a plain bar.
+41 lesser-known genera have no silhouette at all yet and render as a plain bar.
 
 ## Adding animals
 
@@ -144,7 +144,10 @@ Three rules are easy to get wrong:
   `"Mammuthus"` therefore pulls in every mammoth species, and `"Homo"` pulls in
   two million years of hominins — dots for animals that are not the one on
   screen. Use the full binomial for any genus whose relatives you don't want on
-  the map.
+  the map. Watch for **homonyms** too: a bare `"Dvinia"` matched both the Permian
+  cynodont and an unrelated Precambrian taxon, scattering Ediacaran dots across a
+  Permian animal's map. Nothing errors when this happens — `check-dates` flagging
+  a wildly impossible envelope is usually the first sign.
 - **`group` drives layout, not just colour.** A value outside the ten above
   won't type-check; a genuinely new group needs three more edits (below).
 

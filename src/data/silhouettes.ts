@@ -19,6 +19,33 @@ export interface Silhouette {
 }
 
 export const SILHOUETTES: Record<string, Silhouette> = {
+  "edaphosaurus": {
+    "file": "/silhouettes/edaphosaurus.svg",
+    "taxon": "Edaphosaurus pogonias",
+    "standIn": false,
+    "attribution": "Matt Celeskey",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/495a81b7-ccf4-4342-ab9f-2302303893df"
+  },
+  "orthacanthus": {
+    "file": "/silhouettes/orthacanthus.svg",
+    "taxon": "Orthacanthus senckenbergianus",
+    "standIn": false,
+    "attribution": "Will Toosey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/38895f8b-2c90-40ac-b091-26f83ac92bc7"
+  },
+  "ophiacodon": {
+    "file": "/silhouettes/ophiacodon.svg",
+    "taxon": "Ophiacodon",
+    "standIn": false,
+    "attribution": "Unknown artist",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5a55459a-d80a-4a1e-a3de-2fa26f39dfbf"
+  },
   "dimetrodon": {
     "file": "/silhouettes/dimetrodon.svg",
     "taxon": "Dimetrodon giganhomogenes",
@@ -27,6 +54,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/c5dbbce1-9b2b-4236-a6e3-0d9cd9ab0ff6"
+  },
+  "estemmenosuchus": {
+    "file": "/silhouettes/estemmenosuchus.svg",
+    "taxon": "Estemmenosuchus uralensis",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov (vectorized by T. Michael Keesey)",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/f480b74f-3f03-4e3a-a7ae-0cf5b524f05d"
+  },
+  "anteosaurus": {
+    "file": "/silhouettes/anteosaurus.svg",
+    "taxon": "Anteosaurus magnificus",
+    "standIn": false,
+    "attribution": "Ornithopsis",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/8a71db75-2215-4190-b11b-b1ad97b7289a"
   },
   "sauroctonus": {
     "file": "/silhouettes/sauroctonus.svg",
@@ -54,6 +99,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "Public Domain Mark 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/ddbd5048-3148-4088-9ab1-97becdcb7ae3"
+  },
+  "procynosuchus": {
+    "file": "/silhouettes/procynosuchus.svg",
+    "taxon": "Procynosuchus delaharpeae",
+    "standIn": false,
+    "attribution": "Nobu Tamura",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/c466a71f-90b9-4ea7-b6ba-56cb37d47f22"
   },
   "rubidgea": {
     "file": "/silhouettes/rubidgea.svg",
@@ -1216,6 +1270,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/d913b75d-3055-48e2-b597-78cfbceac165"
   },
+  "sphenacodon": {
+    "file": "/silhouettes/sphenacodon.svg",
+    "taxon": "Sphenacodon ferocior",
+    "standIn": false,
+    "attribution": "ДиБгд",
+    "licenceName": "Public Domain Mark 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/fdd69b5f-4651-4bc1-bea7-0fe8155f8057"
+  },
+  "acanthodes": {
+    "file": "/silhouettes/acanthodes.svg",
+    "taxon": "Acanthodes bronni",
+    "standIn": false,
+    "attribution": "Nobu Tamura",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/efd34171-3ad3-4de4-a044-490ae3904266"
+  },
   "helicoprion": {
     "file": "/silhouettes/helicoprion.svg",
     "taxon": "Helicoprion davisii",
@@ -1224,6 +1296,78 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/2dc67937-9756-4639-91d1-77f5d748fe9e"
+  },
+  "eothyris": {
+    "file": "/silhouettes/eothyris.svg",
+    "taxon": "Eothyris parkeyi",
+    "standIn": false,
+    "attribution": "Nobu Tamura",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/cdda7e7e-1ebd-449f-b6bf-fe7e5b786168"
+  },
+  "secodontosaurus": {
+    "file": "/silhouettes/secodontosaurus.svg",
+    "taxon": "Secodontosaurus obtusidens",
+    "standIn": false,
+    "attribution": "Unknown artist",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/76f62786-a7bc-4473-8f5d-dc39b51912be"
+  },
+  "ulemosaurus": {
+    "file": "/silhouettes/ulemosaurus.svg",
+    "taxon": "Ulemosaurus svijagensis",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov (vectorized by T. Michael Keesey)",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/06926881-2fed-49ee-92b9-384010988825"
+  },
+  "bradysaurus": {
+    "file": "/silhouettes/bradysaurus.svg",
+    "taxon": "Bradysaurus seeleyi",
+    "standIn": false,
+    "attribution": "Karkemish (vectorized by T. Michael Keesey)",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/993f5179-fff4-4c90-bbd1-deca577e562f"
+  },
+  "endothiodon": {
+    "file": "/silhouettes/endothiodon.svg",
+    "taxon": "Endothiodon bathystoma",
+    "standIn": false,
+    "attribution": "Zak Lewis",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/92f13824-1cb8-4c46-9781-69134beb10f2"
+  },
+  "suminia": {
+    "file": "/silhouettes/suminia.svg",
+    "taxon": "Suminia getmanovi",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81dd6d73-4009-4c15-b7bc-dbb67f677538"
+  },
+  "youngina": {
+    "file": "/silhouettes/youngina.svg",
+    "taxon": "Youngina capensis",
+    "standIn": false,
+    "attribution": "Brad McFeeters (vectorized by T. Michael Keesey)",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/7dee5849-e764-4694-abf7-d0ae4cc8cabe"
+  },
+  "dvinia": {
+    "file": "/silhouettes/dvinia.svg",
+    "taxon": "Dvinia prima",
+    "standIn": false,
+    "attribution": "Jacob Schick",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/29d73593-a318-4cbf-a575-d2b8201d3211"
   },
   "proterosuchus": {
     "file": "/silhouettes/proterosuchus.svg",

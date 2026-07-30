@@ -16,6 +16,50 @@ export const CREATURES: Creature[] = [
 
   // ── Paleozoic: before the dinosaurs ─────────────────────────────────────
   {
+    id: "edaphosaurus",
+    name: "Edaphosaurus",
+    group: "synapsid",
+    start: 298,
+    end: 276,
+    lengthM: 3.2,
+    diet: "herbivore",
+    blurb:
+      "A sail-backed synapsid like Dimetrodon, but a plant-eater — and its sail carries short crossbars bristling sideways, which its famous neighbour's lacks.",
+  },
+  {
+    id: "mesosaurus",
+    name: "Mesosaurus",
+    group: "other-reptile",
+    start: 290,
+    end: 283,
+    lengthM: 1,
+    diet: "carnivore",
+    blurb:
+      "One of the first reptiles to return to the water. Its fossils sit on both sides of the South Atlantic in rocks that were one lake before the ocean opened — early, decisive evidence for continental drift.",
+  },
+  {
+    id: "orthacanthus",
+    name: "Orthacanthus",
+    group: "fish",
+    start: 298,
+    end: 275,
+    lengthM: 3,
+    diet: "carnivore",
+    blurb:
+      "An eel-shaped freshwater shark with a spine jutting from the back of its skull and teeth shaped like tuning forks, hunting the coal swamps of the early Permian.",
+  },
+  {
+    id: "ophiacodon",
+    name: "Ophiacodon",
+    group: "synapsid",
+    start: 296,
+    end: 280,
+    lengthM: 3,
+    diet: "carnivore",
+    blurb:
+      "A long-jawed, semi-aquatic early synapsid that fished the water margins — sailless, and sitting nearer the base of the branch that leads to mammals.",
+  },
+  {
     id: "dimetrodon",
     name: "Dimetrodon",
     group: "synapsid",
@@ -25,6 +69,50 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "Not a dinosaur, and closer to you than to any dinosaur. Dimetrodon was an early synapsid — the branch that leads to mammals — and it died out some 40 million years before the first dinosaur appeared.",
+  },
+  {
+    id: "captorhinus",
+    name: "Captorhinus",
+    group: "other-reptile",
+    start: 288,
+    end: 276,
+    lengthM: 0.4,
+    diet: "omnivore",
+    blurb:
+      "A small, abundant early reptile carrying several rows of teeth in each jaw — a lizard-shaped generalist from a world before lizards existed.",
+  },
+  {
+    id: "titanophoneus",
+    name: "Titanophoneus",
+    group: "synapsid",
+    start: 267,
+    end: 260,
+    lengthM: 3,
+    diet: "carnivore",
+    blurb:
+      "A heavy-skulled Russian dinocephalian whose name means “titanic murderer”. It hunted the river floodplains of the middle Permian.",
+  },
+  {
+    id: "estemmenosuchus",
+    name: "Estemmenosuchus",
+    group: "synapsid",
+    start: 272,
+    end: 265,
+    lengthM: 4,
+    diet: "herbivore",
+    blurb:
+      "A rhino-sized dinocephalian wearing a crown of bony horns that jut sideways from its cheeks and forehead — one of the strangest heads of the Permian.",
+  },
+  {
+    id: "anteosaurus",
+    name: "Anteosaurus",
+    group: "synapsid",
+    start: 266,
+    end: 260,
+    lengthM: 5,
+    diet: "carnivore",
+    blurb:
+      "The largest predator of the middle Permian, with a thickened skull roof suggesting it settled disputes by ramming heads.",
   },
   {
     id: "sauroctonus",
@@ -58,6 +146,50 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "“Wolf face” — slender and long-legged, it carried its limbs tucked under the body rather than sprawled out sideways, an early step toward the way mammals walk.",
+  },
+  {
+    id: "coelurosauravus",
+    name: "Coelurosauravus",
+    group: "other-reptile",
+    start: 258,
+    end: 252,
+    lengthM: 0.4,
+    diet: "insectivore",
+    blurb:
+      "The first vertebrate known to glide. Its wings were not modified limbs but a fan of hollow bony rods grown fresh from the body wall — an experiment nothing since has repeated.",
+  },
+  {
+    id: "dicynodon",
+    name: "Dicynodon",
+    group: "synapsid",
+    start: 257,
+    end: 252,
+    lengthM: 1.2,
+    diet: "herbivore",
+    blurb:
+      "A tusked, beaked herbivore that named the dicynodonts, the most abundant land plant-eaters of the late Permian. Almost all of them died in the Great Dying.",
+  },
+  {
+    id: "pareiasaurus",
+    name: "Pareiasaurus",
+    group: "other-reptile",
+    start: 256,
+    end: 252,
+    lengthM: 2.5,
+    diet: "herbivore",
+    blurb:
+      "A barrel-bodied, warty-skinned reptile the size of an ox, studded with bony armour. Pareiasaurs were the great land herbivores of the late Permian and vanished with it.",
+  },
+  {
+    id: "procynosuchus",
+    name: "Procynosuchus",
+    group: "synapsid",
+    start: 256,
+    end: 252,
+    lengthM: 0.6,
+    diet: "carnivore",
+    blurb:
+      "One of the earliest cynodonts — the branch that eventually produced mammals. Its broad tail and flexible spine suggest it swam otter-like through late Permian rivers.",
   },
   {
     id: "rubidgea",
@@ -1519,6 +1651,30 @@ export const CREATURES: Creature[] = [
   // "Show all". Kept in their own block and sorted oldest-first within it,
   // rather than merged into the curated list above.
   {
+    id: "sphenacodon",
+    name: "Sphenacodon",
+    group: "synapsid",
+    start: 298,
+    end: 285,
+    lengthM: 3,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A close relative of Dimetrodon with the same build but only a low ridge along its back where its cousin grew a sail.",
+  },
+  {
+    id: "acanthodes",
+    name: "Acanthodes",
+    group: "fish",
+    start: 290,
+    end: 276,
+    lengthM: 0.3,
+    diet: "filter-feeder",
+    minor: true,
+    blurb:
+      "The last of the “spiny sharks” — a toothless filter-feeder whose every fin was braced by a stout forward spine.",
+  },
+  {
     id: "helicoprion",
     name: "Helicoprion",
     group: "fish",
@@ -1529,6 +1685,174 @@ export const CREATURES: Creature[] = [
     minor: true,
     blurb:
       "A Permian relative of sharks whose lower jaw held a bizarre spiral 'tooth-whorl' of ever-growing teeth, coiled like a circular saw.",
+  },
+  {
+    id: "eothyris",
+    name: "Eothyris",
+    group: "synapsid",
+    start: 288,
+    end: 283,
+    lengthM: 0.3,
+    diet: "insectivore",
+    minor: true,
+    blurb:
+      "A small early synapsid known from a single skull, its jaws set with a pair of oversized fangs.",
+  },
+  {
+    id: "secodontosaurus",
+    name: "Secodontosaurus",
+    group: "synapsid",
+    start: 288,
+    end: 279,
+    lengthM: 2.7,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A sail-backed relative of Dimetrodon with a long, narrow, crocodile-like snout — probably a specialist at pulling prey from burrows or water.",
+  },
+  {
+    id: "araeoscelis",
+    name: "Araeoscelis",
+    group: "other-reptile",
+    start: 285,
+    end: 275,
+    lengthM: 0.6,
+    diet: "insectivore",
+    minor: true,
+    blurb:
+      "A slender, long-limbed early diapsid — part of the reptile branch that would eventually lead to lizards, dinosaurs and birds.",
+  },
+  {
+    id: "varanops",
+    name: "Varanops",
+    group: "synapsid",
+    start: 285,
+    end: 275,
+    lengthM: 1.2,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A lean, monitor-lizard-shaped synapsid built for speed, from the drier uplands of the early Permian.",
+  },
+  {
+    id: "casea",
+    name: "Casea",
+    group: "synapsid",
+    start: 283,
+    end: 275,
+    lengthM: 1.2,
+    diet: "herbivore",
+    minor: true,
+    blurb:
+      "A pot-bellied plant-eating synapsid with a comically small head, built around a fermentation vat of a gut.",
+  },
+  {
+    id: "ulemosaurus",
+    name: "Ulemosaurus",
+    group: "synapsid",
+    start: 267,
+    end: 260,
+    lengthM: 4,
+    diet: "herbivore",
+    minor: true,
+    blurb:
+      "A Russian dinocephalian whose skull roof thickened to ten centimetres of solid bone — a head built for butting.",
+  },
+  {
+    id: "bradysaurus",
+    name: "Bradysaurus",
+    group: "other-reptile",
+    start: 265,
+    end: 259,
+    lengthM: 2.5,
+    diet: "herbivore",
+    minor: true,
+    blurb:
+      "One of the earliest and most abundant pareiasaurs, a slow, heavily built browser of the middle Permian.",
+  },
+  {
+    id: "endothiodon",
+    name: "Endothiodon",
+    group: "synapsid",
+    start: 262,
+    end: 252,
+    lengthM: 2,
+    diet: "herbivore",
+    minor: true,
+    blurb:
+      "A large tuskless dicynodont with an upturned beak, cropping vegetation across what was then Gondwana.",
+  },
+  {
+    id: "pristerognathus",
+    name: "Pristerognathus",
+    group: "synapsid",
+    start: 263,
+    end: 260,
+    lengthM: 1.5,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A dog-sized therocephalian — a branch of sabre-toothed mammal relatives that ran in parallel with the gorgonopsians.",
+  },
+  {
+    id: "suminia",
+    name: "Suminia",
+    group: "synapsid",
+    start: 263,
+    end: 260,
+    lengthM: 0.5,
+    diet: "herbivore",
+    minor: true,
+    blurb:
+      "A small anomodont with long grasping fingers and an opposable thumb — quite possibly the first vertebrate to climb and feed up in the trees.",
+  },
+  {
+    id: "youngina",
+    name: "Youngina",
+    group: "other-reptile",
+    start: 258,
+    end: 252,
+    lengthM: 0.45,
+    diet: "insectivore",
+    minor: true,
+    blurb:
+      "A lizard-shaped diapsid from South Africa, close to the ancestry of every later reptile; several were found curled together inside one burrow.",
+  },
+  {
+    id: "dvinia",
+    name: "Dvinia prima",
+    group: "synapsid",
+    start: 259,
+    end: 257,
+    lengthM: 0.5,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A small late Permian cynodont with unusually complex cheek teeth — chewing, a thoroughly mammalian habit, beginning to appear.",
+  },
+  {
+    id: "elginia",
+    name: "Elginia",
+    group: "other-reptile",
+    start: 254,
+    end: 252,
+    lengthM: 0.6,
+    diet: "herbivore",
+    minor: true,
+    blurb:
+      "A small Scottish pareiasaur whose skull bristled with spikes and horns, the largest pair sweeping back from its cheeks.",
+  },
+  {
+    id: "hovasaurus",
+    name: "Hovasaurus",
+    group: "other-reptile",
+    start: 254,
+    end: 251,
+    lengthM: 0.9,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "An aquatic reptile from Madagascar with a deep, paddle-like tail; many died with swallowed ballast pebbles still in their bellies.",
   },
   {
     id: "proterosuchus",
