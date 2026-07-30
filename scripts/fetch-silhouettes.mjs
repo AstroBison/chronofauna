@@ -92,6 +92,12 @@ const QUERY_CHAINS = {
   // No PhyloPic image; the living coelacanth Latimeria is a near-identical
   // stand-in for its Cretaceous relative.
   macropoma: ["macropoma", "latimeria"],
+
+  // Two giant temnospondyls with no art of their own, pointed at *different*
+  // relatives on purpose: sharing one outline would make the two most prominent
+  // amphibians on the chart look like the same animal.
+  mastodonsaurus: ["mastodonsaurus", "capitosauria"],
+  koolasuchus: ["koolasuchus", "chigutisauridae", "temnospondyli"],
 };
 
 const licenceRank = (href = "") => {

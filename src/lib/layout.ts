@@ -72,6 +72,7 @@ export function packLanes(creatures: Creature[]): PackedCreature[] {
  */
 export type CreatureFamily =
   | "mammal-line"
+  | "amphibians"
   | "other-reptiles"
   | "dinosaurs"
   | "pterosaurs"
@@ -81,6 +82,7 @@ export const FAMILY_OF: Record<CreatureGroup, CreatureFamily> = {
   synapsid: "mammal-line",
   mammal: "mammal-line",
   hominin: "mammal-line",
+  amphibian: "amphibians",
   "other-reptile": "other-reptiles",
   theropod: "dinosaurs",
   sauropodomorph: "dinosaurs",
@@ -92,15 +94,25 @@ export const FAMILY_OF: Record<CreatureGroup, CreatureFamily> = {
 
 export const FAMILY_LABEL: Record<CreatureFamily, string> = {
   "mammal-line": "Mammal line",
+  amphibians: "Amphibians",
   "other-reptiles": "Other reptiles",
   dinosaurs: "Dinosaurs",
   pterosaurs: "Pterosaurs",
   sea: "Sea creatures",
 };
 
-/** Land, then air, then sea — the arrangement most textbooks use. */
+/**
+ * Land, then air, then sea — the arrangement most textbooks use.
+ *
+ * Amphibians sit second rather than folded into "Other reptiles", which would be
+ * plainly wrong: a temnospondyl is not a reptile. They earn a block of their own
+ * because the alternative label ("Other tetrapods") is jargon for a general
+ * reader, and the block costs few rows — they are concentrated in the Permian
+ * and Triassic, right where the reader starts.
+ */
 export const FAMILY_ORDER: CreatureFamily[] = [
   "mammal-line",
+  "amphibians",
   "other-reptiles",
   "dinosaurs",
   "pterosaurs",
@@ -133,6 +145,7 @@ export const GROUP_META: Record<CreatureGroup, { label: string; color: string }>
   pterosaur: { label: "Pterosaurs", color: "var(--group-pterosaur)" },
   "other-reptile": { label: "Other reptiles", color: "var(--group-other-reptile)" },
   synapsid: { label: "Synapsids", color: "var(--group-synapsid)" },
+  amphibian: { label: "Amphibians", color: "var(--group-amphibian)" },
   mammal: { label: "Mammals", color: "var(--group-mammal)" },
   hominin: { label: "Hominins", color: "var(--group-hominin)" },
   fish: { label: "Fish", color: "var(--group-fish)" },
@@ -144,6 +157,7 @@ export const GROUP_META: Record<CreatureGroup, { label: string; color: string }>
  * that there are no per-group band headings.
  */
 export const GROUP_ORDER: CreatureGroup[] = [
+  "amphibian",
   "synapsid",
   "other-reptile",
   "theropod",

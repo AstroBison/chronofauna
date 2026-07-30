@@ -19,6 +19,24 @@ export interface Silhouette {
 }
 
 export const SILHOUETTES: Record<string, Silhouette> = {
+  "diplocaulus": {
+    "file": "/silhouettes/diplocaulus.svg",
+    "taxon": "Diplocaulus",
+    "standIn": false,
+    "attribution": "Gareth Monger",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/b4e724c7-45c0-4c61-ba71-0ead12e51298"
+  },
+  "eryops": {
+    "file": "/silhouettes/eryops.svg",
+    "taxon": "Eryops megacephalus",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/cc47c5a8-70ae-4b65-93ab-24a29e72805e"
+  },
   "edaphosaurus": {
     "file": "/silhouettes/edaphosaurus.svg",
     "taxon": "Edaphosaurus pogonias",
@@ -54,6 +72,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/c5dbbce1-9b2b-4236-a6e3-0d9cd9ab0ff6"
+  },
+  "prionosuchus": {
+    "file": "/silhouettes/prionosuchus.svg",
+    "taxon": "Prionosuchus plummeri",
+    "standIn": false,
+    "attribution": "Jagged Fang Designs",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/6eda8542-dca2-4d2f-a168-758808b37194"
   },
   "estemmenosuchus": {
     "file": "/silhouettes/estemmenosuchus.svg",
@@ -144,6 +171,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 4.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
     "sourceUrl": "https://www.phylopic.org/images/9d9ebf4b-a970-471b-b796-e6911070812e"
+  },
+  "mastodonsaurus": {
+    "file": "/silhouettes/mastodonsaurus.svg",
+    "taxon": "Edingerella madagascariensis",
+    "standIn": true,
+    "attribution": "Jacob Schick",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/f56c2437-3c53-4411-9d10-9c05cee2da9f"
   },
   "nothosaurus": {
     "file": "/silhouettes/nothosaurus.svg",
@@ -522,6 +558,15 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/5770eb59-b382-4867-bdcc-f304eb4f0020"
+  },
+  "koolasuchus": {
+    "file": "/silhouettes/koolasuchus.svg",
+    "taxon": "Cochleosaurus bohemicus",
+    "standIn": true,
+    "attribution": "Dmitry Bogdanov",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/06ff467f-591f-4dd0-abbe-b08265fd4f8d"
   },
   "microraptor": {
     "file": "/silhouettes/microraptor.svg",
@@ -1234,6 +1279,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/6ab0dfd7-2baf-4d08-b437-738c779ee28d"
   },
+  "homo-habilis": {
+    "file": "/silhouettes/homo-habilis.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
+  },
+  "homo-erectus": {
+    "file": "/silhouettes/homo-erectus.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
+  },
   "arctodus": {
     "file": "/silhouettes/arctodus.svg",
     "taxon": "Arctodus simus",
@@ -1242,6 +1305,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/8d4b7834-9dd3-4f5a-84a7-99fa159a112a"
+  },
+  "homo-heidelbergensis": {
+    "file": "/silhouettes/homo-heidelbergensis.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
+  },
+  "homo-neanderthalensis": {
+    "file": "/silhouettes/homo-neanderthalensis.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
   },
   "mammuthus-primigenius": {
     "file": "/silhouettes/mammuthus-primigenius.svg",
@@ -1269,6 +1350,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/d913b75d-3055-48e2-b597-78cfbceac165"
+  },
+  "homo-floresiensis": {
+    "file": "/silhouettes/homo-floresiensis.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
+  },
+  "platyhystrix": {
+    "file": "/silhouettes/platyhystrix.svg",
+    "taxon": "Platyhystrix rugosus",
+    "standIn": false,
+    "attribution": "Darren Naish (vectorized by T. Michael Keesey)",
+    "licenceName": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/618f8a5e-df37-4947-8224-bec3c81f72ad"
   },
   "sphenacodon": {
     "file": "/silhouettes/sphenacodon.svg",
@@ -1395,6 +1494,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC BY 3.0",
     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
     "sourceUrl": "https://www.phylopic.org/images/8162d84e-4578-4adf-98d5-2faad56bba19"
+  },
+  "metoposaurus": {
+    "file": "/silhouettes/metoposaurus.svg",
+    "taxon": "Metoposaurus diagnosticus",
+    "standIn": false,
+    "attribution": "Will Toosey",
+    "licenceName": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.phylopic.org/images/5b83679d-f4ae-4ed1-a395-390b1483a481"
+  },
+  "gerrothorax": {
+    "file": "/silhouettes/gerrothorax.svg",
+    "taxon": "Gerrothorax pulcherrimus",
+    "standIn": false,
+    "attribution": "Dmitry Bogdanov",
+    "licenceName": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://www.phylopic.org/images/a1fc80d4-b2a0-4d16-9c7b-9c1f9633bfba"
   },
   "desmatosuchus": {
     "file": "/silhouettes/desmatosuchus.svg",
@@ -1989,6 +2106,24 @@ export const SILHOUETTES: Record<string, Silhouette> = {
     "licenceName": "CC0 1.0",
     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "sourceUrl": "https://www.phylopic.org/images/f704bcd3-09c1-433f-8ce7-ec0c98fe0a3b"
+  },
+  "homo-rudolfensis": {
+    "file": "/silhouettes/homo-rudolfensis.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
+  },
+  "homo-antecessor": {
+    "file": "/silhouettes/homo-antecessor.svg",
+    "taxon": "Homo rudolfensis",
+    "standIn": false,
+    "attribution": "T. Michael Keesey",
+    "licenceName": "CC0 1.0",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.phylopic.org/images/81926549-6d46-4b14-9e7d-bab0a0521716"
   },
   "saurichthys": {
     "file": "/silhouettes/saurichthys.svg",

@@ -41,6 +41,7 @@ export type CreatureGroup =
   | "marine-reptile"
   | "pterosaur"
   | "synapsid"
+  | "amphibian"
   | "mammal"
   | "hominin"
   | "fish";

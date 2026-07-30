@@ -30,6 +30,9 @@
   --group-pterosaur: #7867a3;
   --group-other-reptile: #6d8747;
   --group-synapsid: #9b6044;
+  /* Plum, at the widest gap left in the wheel (between the pterosaur violet and
+     the mammal rose) — the ten existing hues leave no room in the greens. */
+  --group-amphibian: #965298;
   --group-mammal: #a55670;
   --group-hominin: #6b4d38;
   --group-fish: #3e7d7d;
@@ -73,6 +76,7 @@
   --group-pterosaur: #a99ad4;
   --group-other-reptile: #9fba78;
   --group-synapsid: #cb9276;
+  --group-amphibian: #d19cd3;
   --group-mammal: #d68ca3;
   --group-hominin: #b7906f;
   --group-fish: #72b3b3;

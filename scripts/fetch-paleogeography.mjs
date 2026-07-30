@@ -177,6 +177,23 @@ for (const creature of CREATURES) {
   // Use the binomial when we have one, the genus otherwise.
   const records = await fetchOccurrences(creature.name);
 
+  const midpoint = (creature.start + creature.end) / 2;
+  const mapAge = nearestAge(midpoint);
+
+  /*
+   * PBDB does not compute palaeo-coordinates for the youngest fossils — it has
+   * modern coordinates for every Neanderthal site and no `pln`/`pla` for any of
+   * them, because over that span the plates have not measurably moved.
+   *
+   * So for anything drawn on the present-day reconstruction, fall back to the
+   * modern coordinates. This is not an approximation that survives to the
+   * screen: the map is ~300px for 360° and points are rounded to whole degrees
+   * (~111km), while a plate travels tens of km in a million years. Refusing the
+   * fallback would instead drop humans, Neanderthals and the other recent
+   * hominins from the map entirely.
+   */
+  const useModernCoords = mapAge === 0;
+
   // Collapse to whole degrees: occurrences cluster tightly at a single dig
   // site, and forty dots on one pixel is just a slower way to draw one dot.
   const seen = new Set();
@@ -185,11 +202,13 @@ for (const creature of CREATURES) {
 
   for (const record of records) {
     if (record.cc2) countries.add(record.cc2);
-    if (record.pln == null || record.pla == null) continue;
-    const key = `${Math.round(record.pln)},${Math.round(record.pla)}`;
+    const lng = record.pln ?? (useModernCoords ? record.lng : null);
+    const lat = record.pla ?? (useModernCoords ? record.lat : null);
+    if (lng == null || lat == null) continue;
+    const key = `${Math.round(lng)},${Math.round(lat)}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    points.push([Math.round(record.pln), Math.round(record.pla)]);
+    points.push([Math.round(lng), Math.round(lat)]);
   }
 
   if (!points.length) {
@@ -197,10 +216,9 @@ for (const creature of CREATURES) {
     continue;
   }
 
-  const midpoint = (creature.start + creature.end) / 2;
   entries[creature.id] = {
     points,
-    mapAge: nearestAge(midpoint),
+    mapAge,
     countries: [...countries].sort(),
     siteCount: records.length,
   };

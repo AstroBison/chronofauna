@@ -37,14 +37,14 @@ Quaternary band in the axis to zoom down to it.
 
 ## What's included
 
-261 species from the Permian through today, arranged into five families — mammal
-line, other reptiles, dinosaurs, pterosaurs and sea creatures — with colour
-marking the finer grouping within each (theropods, sauropodomorphs,
+278 species from the Permian through today, arranged into six families — mammal
+line, amphibians, other reptiles, dinosaurs, pterosaurs and sea creatures — with
+colour marking the finer grouping within each (theropods, sauropodomorphs,
 ornithischians, and so on). The geologic time scale uses official ICS chart
 colours, so it matches the charts in textbooks and museums. The two mass
 extinctions that bracket the age of dinosaurs are marked.
 
-To keep the default chart legible, the best-known 145 species show on landing;
+To keep the default chart legible, the best-known 155 species show on landing;
 the rest — a long tail of lesser-known genera — are held back until you press
 **Show all**, which packs the timeline with the full set.
 
@@ -66,6 +66,13 @@ are real catalogued occurrences from the
 [Paleobiology Database](https://paleobiodb.org), plotted at their
 palaeo-coordinates. Unlike the dates, nothing on this map is an estimate —
 every dot is a specimen someone dug up and recorded.
+
+One exception, and it costs nothing: PBDB does not compute palaeo-coordinates
+for the very youngest fossils — there is not a Neanderthal site among them with
+one — because the plates have not measurably moved since. For anything drawn on
+the present-day reconstruction the script falls back to modern coordinates,
+which at whole-degree precision are the same numbers. Without it, humans and
+every other recent hominin would have no map at all.
 
 ```bash
 npm run paleogeography    # re-fetch maps and fossil sites (~33MB of downloads)
@@ -92,12 +99,12 @@ licences**, so the site stays free to use in any context. Artists are credited
 in the detail panel and in the "Artwork credits" list in the footer; both are
 required by the CC-BY terms, so please keep them.
 
-Twenty-six genera have no silhouette of their own, so they use one of a close
+Twenty-eight genera have no silhouette of their own, so they use one of a close
 relative — Quetzalcoatlus borrows *Azhdarcho*, a fellow azhdarchid pterosaur;
 Lycaenops and Rubidgea borrow *Dinogorgon*, a fellow gorgonopsian; Moropus
 borrows *Chalicotherium*, a fellow chalicothere. The site says so on each
 affected animal rather than passing the artwork off as the real thing. A further
-41 lesser-known genera have no silhouette at all yet and render as a plain bar.
+43 lesser-known genera have no silhouette at all yet and render as a plain bar.
 
 ## Adding animals
 
@@ -126,7 +133,7 @@ then pick it up with no other code changes.
 | `id` | yes | Unique across the list, and `kebab-case` — it becomes the silhouette filename (`public/silhouettes/<id>.svg`) and the key for map data, so it has to be filename-safe. |
 | `name` | yes | The genus (`"Triceratops"`), **or the full binomial** (`"Mammuthus primigenius"`) — see the note below, it decides what the fossil map shows. |
 | `commonName` | no | Everyday name if one exists (`"Woolly mammoth"`). Shown in the panel and the "lived alongside" list. |
-| `group` | yes | One of the ten: `theropod`, `sauropodomorph`, `ornithischian`, `other-reptile`, `marine-reptile`, `pterosaur`, `synapsid`, `mammal`, `hominin`, `fish`. Sets the colour and which of the five family blocks it lands in. |
+| `group` | yes | One of the eleven: `theropod`, `sauropodomorph`, `ornithischian`, `other-reptile`, `marine-reptile`, `pterosaur`, `synapsid`, `amphibian`, `mammal`, `hominin`, `fish`. Sets the colour and which of the six family blocks it lands in. |
 | `start` | yes | Mya it first appears. **Larger** than `end` (see below). |
 | `end` | yes | Mya it disappears; `0` means still alive. **Smaller** than `start`. |
 | `lengthM` | no | Approximate body length in metres, for the size comparison. |
@@ -148,7 +155,7 @@ Three rules are easy to get wrong:
   cynodont and an unrelated Precambrian taxon, scattering Ediacaran dots across a
   Permian animal's map. Nothing errors when this happens — `check-dates` flagging
   a wildly impossible envelope is usually the first sign.
-- **`group` drives layout, not just colour.** A value outside the ten above
+- **`group` drives layout, not just colour.** A value outside the eleven above
   won't type-check; a genuinely new group needs three more edits (below).
 
 ### After you add one
@@ -179,11 +186,17 @@ npm run check-dates                                       # sanity-check the ran
 
 ### Adding a whole new group
 
-If the animal doesn't fit any of the ten groups, add the new `CreatureGroup` in
-`src/types.ts`, then give it an entry in all three of `GROUP_META`,
+If the animal doesn't fit any of the eleven groups, add the new `CreatureGroup`
+in `src/types.ts`, then give it an entry in all three of `GROUP_META`,
 `GROUP_ORDER` and `FAMILY_OF` in `src/lib/layout.ts` (colour, chip order, and
 which family block it belongs to). A new group colour also needs its
 `--group-…` custom property in both themes in `src/styles.css`.
+
+If it needs a family block of its own too — as amphibians did, since no existing
+block could honestly hold them — also extend `CreatureFamily`, `FAMILY_LABEL`
+and `FAMILY_ORDER` in the same file. Be warned that the group palette is now
+full: eleven hues held to one lightness leaves no comfortable gap, so a twelfth
+means re-tuning the set rather than appending to it.
 
 ## A note on the dates
 

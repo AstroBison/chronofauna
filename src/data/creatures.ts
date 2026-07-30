@@ -16,6 +16,28 @@ export const CREATURES: Creature[] = [
 
   // ── Paleozoic: before the dinosaurs ─────────────────────────────────────
   {
+    id: "diplocaulus",
+    name: "Diplocaulus",
+    group: "amphibian",
+    start: 298,
+    end: 255,
+    lengthM: 1,
+    diet: "carnivore",
+    blurb:
+      "An amphibian whose skull grew sideways into a wide boomerang, most likely a hydrofoil that let it steer upward in a current — or simply a shape too awkward for a predator to swallow.",
+  },
+  {
+    id: "eryops",
+    name: "Eryops",
+    group: "amphibian",
+    start: 298,
+    end: 272,
+    lengthM: 2,
+    diet: "carnivore",
+    blurb:
+      "A heavy, crocodile-shaped amphibian of the early Permian swamps, and the animal most textbooks reach for to show what the first big land vertebrates looked like.",
+  },
+  {
     id: "edaphosaurus",
     name: "Edaphosaurus",
     group: "synapsid",
@@ -80,6 +102,17 @@ export const CREATURES: Creature[] = [
     diet: "omnivore",
     blurb:
       "A small, abundant early reptile carrying several rows of teeth in each jaw — a lizard-shaped generalist from a world before lizards existed.",
+  },
+  {
+    id: "prionosuchus",
+    name: "Prionosuchus",
+    group: "amphibian",
+    start: 282,
+    end: 276,
+    lengthM: 9,
+    diet: "carnivore",
+    blurb:
+      "The largest amphibian ever known — a nine-metre, gharial-snouted ambush hunter from the Permian of Brazil, longer than a saltwater crocodile.",
   },
   {
     id: "titanophoneus",
@@ -236,6 +269,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "A dog-jawed cynodont with differentiated teeth and probably fur — one of the closest things to a mammal that wasn't one yet.",
+  },
+  {
+    id: "mastodonsaurus",
+    name: "Mastodonsaurus",
+    group: "amphibian",
+    start: 247,
+    end: 235,
+    lengthM: 5,
+    diet: "carnivore",
+    blurb:
+      "A giant Triassic amphibian with a flat, metre-long head and two tusks that pushed up through holes in its own snout. It lay in shallow water like a living bear trap.",
   },
   {
     id: "nothosaurus",
@@ -707,6 +751,17 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     blurb:
       "A nine-metre tyrannosaur covered in shaggy filaments — the largest animal ever found with direct evidence of feathers.",
+  },
+  {
+    id: "koolasuchus",
+    name: "Koolasuchus",
+    group: "amphibian",
+    start: 120,
+    end: 113,
+    lengthM: 4,
+    diet: "carnivore",
+    blurb:
+      "The last of the giant amphibians, holding on in the cold rift valleys of southern Australia some 40 million years after its kind had died out everywhere else.",
   },
   {
     id: "microraptor",
@@ -1597,6 +1652,29 @@ export const CREATURES: Creature[] = [
       "Heavily built, with 18-centimetre canines used for a precise killing bite. Thousands were trapped in the La Brea asphalt seeps.",
   },
   {
+    id: "homo-habilis",
+    name: "Homo habilis",
+    commonName: "Handy man",
+    group: "hominin",
+    start: 2.4,
+    end: 1.65,
+    lengthM: 1.2,
+    diet: "omnivore",
+    blurb:
+      "The earliest widely accepted member of our own genus, named “handy man” for the stone tools found beside it. Its brain was half the size of ours and its arms still long enough for climbing.",
+  },
+  {
+    id: "homo-erectus",
+    name: "Homo erectus",
+    group: "hominin",
+    start: 2,
+    end: 0.11,
+    lengthM: 1.7,
+    diet: "omnivore",
+    blurb:
+      "The great survivor: nearly two million years, the first hominin to leave Africa, to have body proportions like ours, and probably the first to control fire.",
+  },
+  {
     id: "arctodus",
     name: "Arctodus",
     commonName: "Short-faced bear",
@@ -1607,6 +1685,29 @@ export const CREATURES: Creature[] = [
     diet: "omnivore",
     blurb:
       "The giant short-faced bear, which reared onto its hind legs could look a standing person in the eye from well over three metres up. Long-legged and far-ranging, it was among the largest land carnivores of ice-age North America.",
+  },
+  {
+    id: "homo-heidelbergensis",
+    name: "Homo heidelbergensis",
+    group: "hominin",
+    start: 0.7,
+    end: 0.2,
+    lengthM: 1.75,
+    diet: "omnivore",
+    blurb:
+      "A tall, heavily built hominin that hunted big game with wooden spears. It is the best candidate for the common ancestor of both Neanderthals and ourselves.",
+  },
+  {
+    id: "homo-neanderthalensis",
+    name: "Homo neanderthalensis",
+    commonName: "Neanderthal",
+    group: "hominin",
+    start: 0.43,
+    end: 0.04,
+    lengthM: 1.65,
+    diet: "omnivore",
+    blurb:
+      "Cold-adapted, barrel-chested and bigger-brained than us. They buried their dead and made pigments and ornaments — and most people alive outside Africa carry a little of their DNA.",
   },
   {
     id: "mammuthus-primigenius",
@@ -1645,11 +1746,60 @@ export const CREATURES: Creature[] = [
       "Heavier and stronger-jawed than a grey wolf, and abundant at the La Brea tar pits. DNA has since shown it was only a distant relative of true wolves, not the close cousin it looks like.",
   },
 
+  {
+    id: "homo-floresiensis",
+    name: "Homo floresiensis",
+    commonName: "Hobbit",
+    group: "hominin",
+    start: 0.1,
+    end: 0.05,
+    lengthM: 1.06,
+    diet: "omnivore",
+    blurb:
+      "A metre-tall hominin that shrank to island size on Flores in Indonesia, hunting dwarf elephants there while our own species was already spreading across the world.",
+  },
+
   // ── Extended set ────────────────────────────────────────────────────────
   // The long tail of lesser-known genera, all flagged `minor` so they stay out
   // of the default view (see the detail-level toggle) and only appear under
   // "Show all". Kept in their own block and sorted oldest-first within it,
   // rather than merged into the curated list above.
+  {
+    id: "platyhystrix",
+    name: "Platyhystrix",
+    group: "amphibian",
+    start: 298,
+    end: 287,
+    lengthM: 1,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "An amphibian that grew a tall spiny sail down its back, converging on the same silhouette as Dimetrodon while being no relation whatsoever.",
+  },
+  {
+    id: "sclerocephalus",
+    name: "Sclerocephalus",
+    group: "amphibian",
+    start: 298,
+    end: 290,
+    lengthM: 1.5,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A stout-headed amphibian known from hundreds of German specimens, many preserving gut contents — whole fish and smaller amphibians swallowed head-first.",
+  },
+  {
+    id: "cacops",
+    name: "Cacops",
+    group: "amphibian",
+    start: 285,
+    end: 275,
+    lengthM: 0.4,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A short, sturdy amphibian with a row of bony armour plates down its spine and huge ear notches, built for life on land rather than in water.",
+  },
   {
     id: "sphenacodon",
     name: "Sphenacodon",
@@ -1889,6 +2039,30 @@ export const CREATURES: Creature[] = [
     minor: true,
     blurb:
       "An early ichthyosaur shaped more like a giant eel than a dolphin, from the Triassic seas that refilled after the great extinction.",
+  },
+  {
+    id: "metoposaurus",
+    name: "Metoposaurus",
+    group: "amphibian",
+    start: 230,
+    end: 220,
+    lengthM: 3,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A flat-headed Triassic amphibian found in mass graveyards of dozens at a time, apparently stranded together as their lakes dried out.",
+  },
+  {
+    id: "gerrothorax",
+    name: "Gerrothorax",
+    group: "amphibian",
+    start: 230,
+    end: 201,
+    lengthM: 1,
+    diet: "carnivore",
+    minor: true,
+    blurb:
+      "A permanently larval amphibian that kept its external gills for life, lying flattened on the lake bed and snapping upward — it opened its mouth by lifting the skull, not dropping the jaw.",
   },
   {
     id: "desmatosuchus",
@@ -3042,6 +3216,30 @@ export const CREATURES: Creature[] = [
     minor: true,
     blurb:
       "A short-necked plesiosaur that flew through the water on four flippers, chasing fish through the Western Interior Sea.",
+  },
+  {
+    id: "homo-rudolfensis",
+    name: "Homo rudolfensis",
+    group: "hominin",
+    start: 2.4,
+    end: 1.8,
+    lengthM: 1.5,
+    diet: "omnivore",
+    minor: true,
+    blurb:
+      "A flat-faced, larger-brained contemporary of Homo habilis from around Lake Turkana. Whether it is a separate species — or even belongs in Homo — is still contested.",
+  },
+  {
+    id: "homo-antecessor",
+    name: "Homo antecessor",
+    group: "hominin",
+    start: 1.2,
+    end: 0.8,
+    lengthM: 1.7,
+    diet: "omnivore",
+    minor: true,
+    blurb:
+      "The earliest known hominin in western Europe, from Atapuerca in Spain. Cut marks on its bones are among the oldest evidence of cannibalism anywhere.",
   },
   {
     id: "saurichthys",

@@ -88,30 +88,39 @@ otherwise cover a bar scrolled flush to the top of the viewport.
 
 ### Blocked by family; rows within a block are collision avoidance
 
-Species are grouped into **five coarse families** (`FAMILY_OF` in `layout.ts`),
-each packed independently: Mammal line, Other reptiles, Dinosaurs, Pterosaurs,
-Sea creatures — land, then air, then sea. Within a block a species sits one row
-down only because something already occupies that stretch of time, so a vertical
-slice through one family still reads as "these lived at the same time".
+Species are grouped into **six coarse families** (`FAMILY_OF` in `layout.ts`),
+each packed independently: Mammal line, Amphibians, Other reptiles, Dinosaurs,
+Pterosaurs, Sea creatures — land, then air, then sea. Within a block a species
+sits one row down only because something already occupies that stretch of time,
+so a vertical slice through one family still reads as "these lived at the same
+time".
 
-**Five is a deliberate point on a measured trade-off, not an arbitrary
-grouping.** Clustering by type and staying compact are genuinely opposed:
-animals alive simultaneously cannot share a row, so any grouping pushes
-contemporaries apart vertically. Measured on the current data:
+**The family count is a deliberate point on a measured trade-off, not an
+arbitrary grouping.** Clustering by type and staying compact are genuinely
+opposed: animals alive simultaneously cannot share a row, so any grouping pushes
+contemporaries apart vertically. Measured when the choice was made:
 
 | Layout | Rows | Notes |
 | --- | --- | --- |
 | One shared block | 12 | Most compact; rows mix many groups, looks like confetti |
-| **Five families** | **20** | Current choice |
-| All ten groups | 32 | Effectively the old banded layout |
+| **Family blocks** | **20** | Current choice |
+| Every group its own block | 32 | Effectively the old banded layout |
+
+Amphibians were added as a sixth family rather than folded into an existing one
+because no existing one is honest: a temnospondyl is not a reptile, and the
+label that would cover both ("Other tetrapods") is jargon for a general reader.
+The block is cheap — they are concentrated in the Permian and Triassic — and it
+is the only family whose members all died out, which is itself worth seeing.
 
 Affinity packing — first-fit that prefers a row already holding the same group —
 was tried and is not worth it: mixing only improved from 8,5,5,4,2,1 to
 6,5,4,5,3,1 groups per row, because the timeline is the constraint, not the
 algorithm. Don't re-attempt it expecting a better result.
 
-Colour still carries the finer ten-group distinction inside each block, and the
-filter chips remain per-group and double as the legend.
+Colour still carries the finer per-group distinction inside each block, and the
+filter chips remain per-group and double as the legend. The group palette is
+full: eleven hues held to a common lightness leaves no comfortable gap, so a
+twelfth group would mean re-tuning the set rather than appending to it.
 
 An incidental win: family blocks have sparser rows than one shared block, so
 more labels fit — measurably more at zoom-out than one shared block managed.
@@ -336,7 +345,15 @@ Two sources, both fetched by `scripts/fetch-paleogeography.mjs`:
 Unlike the dates in `creatures.ts`, **every dot on this map is a catalogued
 fossil**, not an estimate.
 
-Four things that will bite:
+Five things that will bite:
+
+- **The youngest fossils have no `pln`/`pla` at all**, because over that span the
+  plates have not measurably moved — not one Neanderthal site carries them. The
+  script falls back to modern `lng`/`lat` for creatures whose `mapAge` is 0, and
+  only those: they are drawn on the present-day reconstruction, where the modern
+  coordinates *are* the right ones. At whole-degree rounding the two are the same
+  numbers anyway. Without the fallback, humans and every recent hominin drop off
+  the map and fail the coverage test.
 
 - **Query PBDB with the full binomial where a creature has one.** `base_name`
   is inclusive of everything below it, so `Mammuthus` returns every mammoth
@@ -361,7 +378,9 @@ that the file it points at actually exists.
 
 Append to `CREATURES` in `src/data/creatures.ts`; the packer picks it up with no
 other changes. A new `CreatureGroup` also needs an entry in `GROUP_META`,
-`GROUP_ORDER` and `FAMILY_OF` in `src/lib/layout.ts`.
+`GROUP_ORDER` and `FAMILY_OF` in `src/lib/layout.ts`, plus a `--group-…` custom
+property in **both** themes; if it needs its own block, extend `CreatureFamily`,
+`FAMILY_LABEL` and `FAMILY_ORDER` as well.
 
 Then run both fetch scripts:
 
