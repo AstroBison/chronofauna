@@ -136,7 +136,7 @@ then pick it up with no other code changes.
 | `group` | yes | One of the eleven: `theropod`, `sauropodomorph`, `ornithischian`, `other-reptile`, `marine-reptile`, `pterosaur`, `synapsid`, `amphibian`, `mammal`, `hominin`, `fish`. Sets the colour and which of the six family blocks it lands in. |
 | `start` | yes | Mya it first appears. **Larger** than `end` (see below). |
 | `end` | yes | Mya it disappears; `0` means still alive. **Smaller** than `start`. |
-| `lengthM` | no | Approximate body length in metres, for the size comparison. |
+| `lengthM` | no | Approximate body length in metres. **Pterosaurs are the exception** — theirs holds wingspan, which is the figure every source quotes, and the panel labels it accordingly. |
 | `diet` | yes | One of: `carnivore`, `herbivore`, `omnivore`, `insectivore`, `filter-feeder`. |
 | `blurb` | yes | One or two sentences for a general audience. |
 

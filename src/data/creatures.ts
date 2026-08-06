@@ -49,15 +49,19 @@ export const CREATURES: Creature[] = [
       "A sail-backed synapsid like Dimetrodon, but a plant-eater — and its sail carries short crossbars bristling sideways, which its famous neighbour's lacks.",
   },
   {
+    // check-dates flags this against PBDB's Artinskian binning (290.1–283.3).
+    // Deliberate: the Irati Formation that yields it has a high-precision U-Pb
+    // zircon age of 275.75 ± 0.29 Ma (Rocha-Campos et al. 2022), i.e. Kungurian.
+    // PBDB's bin reflects an older correlation. Don't "fix" this backwards.
     id: "mesosaurus",
     name: "Mesosaurus",
     group: "other-reptile",
-    start: 290,
-    end: 283,
+    start: 279,
+    end: 274,
     lengthM: 1,
     diet: "carnivore",
     blurb:
-      "One of the first reptiles to return to the water. Its fossils sit on both sides of the South Atlantic in rocks that were one lake before the ocean opened — early, decisive evidence for continental drift.",
+      "One of the first reptiles to return to the water. Its fossils sit on both sides of the South Atlantic in rocks that were one inland sea before the ocean opened — early, decisive evidence for continental drift.",
   },
   {
     id: "orthacanthus",
@@ -79,7 +83,7 @@ export const CREATURES: Creature[] = [
     lengthM: 3,
     diet: "carnivore",
     blurb:
-      "A long-jawed, semi-aquatic early synapsid that fished the water margins — sailless, and sitting nearer the base of the branch that leads to mammals.",
+      "A long-jawed early synapsid, long reconstructed as a fisher of the water margins though recent work favours a land animal — sailless, and sitting nearer the base of the branch that leads to mammals.",
   },
   {
     id: "dimetrodon",
@@ -109,10 +113,10 @@ export const CREATURES: Creature[] = [
     group: "amphibian",
     start: 282,
     end: 276,
-    lengthM: 9,
+    lengthM: 5.5,
     diet: "carnivore",
     blurb:
-      "The largest amphibian ever known — a nine-metre, gharial-snouted ambush hunter from the Permian of Brazil, longer than a saltwater crocodile.",
+      "Perhaps the largest amphibian ever known — a gharial-snouted ambush hunter from the Permian of Brazil. Its size rests on one fragmentary skull, and estimates have fallen from nine metres to nearer five.",
   },
   {
     id: "titanophoneus",
@@ -167,7 +171,7 @@ export const CREATURES: Creature[] = [
     lengthM: 2.1,
     diet: "carnivore",
     blurb:
-      "The genus that names the whole group. Sabre teeth set in a skull built for a deep slashing bite, some 30 million years before the first dinosaur appeared.",
+      "The genus that names the whole group. Sabre teeth set in a skull built for a deep slashing bite, some 20 million years before the first dinosaur appeared.",
   },
   {
     id: "lycaenops",
@@ -178,7 +182,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.2,
     diet: "carnivore",
     blurb:
-      "“Wolf face” — slender and long-legged, it carried its limbs tucked under the body rather than sprawled out sideways, an early step toward the way mammals walk.",
+      "“Wolf face” — slender and long-legged, it carried its hind limbs tucked under the body rather than sprawled out sideways, an early step toward the way mammals walk.",
   },
   {
     id: "coelurosauravus",
@@ -340,8 +344,8 @@ export const CREATURES: Creature[] = [
     id: "coelophysis",
     name: "Coelophysis",
     group: "theropod",
-    start: 216,
-    end: 196,
+    start: 215,
+    end: 201,
     lengthM: 3,
     diet: "carnivore",
     blurb:
@@ -368,7 +372,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1,
     diet: "carnivore",
     blurb:
-      "One of the oldest known pterosaurs, already fully capable of powered flight — vertebrates got airborne here, some 70 million years before birds.",
+      "One of the oldest known pterosaurs, already fully capable of powered flight — vertebrates got airborne here, some 60 million years before birds.",
   },
   {
     id: "morganucodon",
@@ -413,14 +417,14 @@ export const CREATURES: Creature[] = [
     lengthM: 9,
     diet: "carnivore",
     blurb:
-      "A large ichthyosaur with eyes 20 centimetres across — the biggest of any known animal — suited to hunting in dim, deep water.",
+      "A large ichthyosaur with eyes 25 centimetres across — the biggest of any known animal — suited to hunting in dim, deep water.",
   },
   {
     id: "plesiosaurus",
     name: "Plesiosaurus",
     group: "marine-reptile",
     start: 199,
-    end: 175,
+    end: 190,
     lengthM: 3.5,
     diet: "carnivore",
     blurb:
@@ -514,7 +518,7 @@ export const CREATURES: Creature[] = [
     lengthM: 25,
     diet: "herbivore",
     blurb:
-      "Half of it was neck. At up to 12 metres, its neck is the longest of any animal known, held out almost horizontally like a crane jib.",
+      "Half of it was neck. At around 15 metres, its neck is the longest of any animal known, held out almost horizontally like a crane jib.",
   },
   {
     id: "kentrosaurus",
@@ -583,7 +587,7 @@ export const CREATURES: Creature[] = [
     lengthM: 26,
     diet: "herbivore",
     blurb:
-      "Enormously long but comparatively light, with a whip tail that may have cracked above the speed of sound.",
+      "Enormously long but comparatively light, with a whip tail once thought to crack above the speed of sound — modelling its soft tissue has since ruled that out.",
   },
   {
     id: "ceratosaurus",
@@ -661,7 +665,7 @@ export const CREATURES: Creature[] = [
     lengthM: 11,
     diet: "carnivore",
     blurb:
-      "“SuperCroc” — a twelve-metre relative of crocodiles that ambushed dinosaurs at the water's edge in what is now the Sahara.",
+      "“SuperCroc” — a nine-metre relative of crocodiles that ambushed dinosaurs at the water's edge in what is now the Sahara.",
   },
   {
     id: "baryonyx",
@@ -758,7 +762,7 @@ export const CREATURES: Creature[] = [
     group: "amphibian",
     start: 120,
     end: 113,
-    lengthM: 4,
+    lengthM: 3,
     diet: "carnivore",
     blurb:
       "The last of the giant amphibians, holding on in the cold rift valleys of southern Australia some 40 million years after its kind had died out everywhere else.",
@@ -778,8 +782,8 @@ export const CREATURES: Creature[] = [
     id: "dsungaripterus",
     name: "Dsungaripterus",
     group: "pterosaur",
-    start: 125,
-    end: 113,
+    start: 137,
+    end: 132,
     lengthM: 3,
     diet: "carnivore",
     blurb:
@@ -849,7 +853,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.5,
     diet: "herbivore",
     blurb:
-      "Carried an enormous sail-like head crest, far larger than the skull beneath it, almost certainly for display.",
+      "Carried a modest bony head crest — the towering sail usually drawn on it belongs to its relative Tupandactylus, long confused with this genus.",
   },
   {
     id: "tropeognathus",
@@ -913,10 +917,10 @@ export const CREATURES: Creature[] = [
     group: "theropod",
     start: 98,
     end: 96,
-    lengthM: 1.2,
+    lengthM: 3,
     diet: "carnivore",
     blurb:
-      "A house-cat-sized ancestor of the tyrant dinosaurs, from Cretaceous Utah. Tens of millions of years before T. rex, tyrannosaurs were still small, fleet-footed hunters like this one.",
+      "A deer-sized ancestor of the tyrant dinosaurs, from Cretaceous Utah. Tens of millions of years before T. rex, tyrannosaurs were still small, fleet-footed hunters like this one.",
   },
   {
     id: "mapusaurus",
@@ -948,7 +952,7 @@ export const CREATURES: Creature[] = [
     group: "fish",
     start: 100,
     end: 89,
-    lengthM: 1,
+    lengthM: 0.55,
     diet: "carnivore",
     blurb:
       "A Cretaceous coelacanth almost identical to the living one. Coelacanths vanished from the fossil record around the time the dinosaurs died — so they were assumed long extinct, until a living one was netted off South Africa in 1938.",
@@ -980,12 +984,12 @@ export const CREATURES: Creature[] = [
     name: "Dreadnoughtus",
     group: "sauropodomorph",
     sauropodClade: "titanosaur",
-    start: 84,
-    end: 76,
+    start: 78,
+    end: 73,
     lengthM: 26,
     diet: "herbivore",
     blurb:
-      "One of the most complete giant titanosaurs, and still growing when it died — the largest land animal whose mass can be calculated with confidence.",
+      "One of the most complete giant titanosaurs, and still growing when it died — one of the most completely known of all the giants, though estimates of its mass have since been halved.",
   },
   {
     id: "deinosuchus",
@@ -996,7 +1000,7 @@ export const CREATURES: Creature[] = [
     lengthM: 11,
     diet: "carnivore",
     blurb:
-      "An alligator relative the length of a bus. Hadrosaur bones bearing its bite marks show it took dinosaurs at the shoreline.",
+      "A giant crocodilian the length of a bus. Hadrosaur bones bearing its bite marks show it took dinosaurs at the shoreline.",
   },
   {
     id: "mosasaurus",
@@ -1018,7 +1022,7 @@ export const CREATURES: Creature[] = [
     lengthM: 10.3,
     diet: "carnivore",
     blurb:
-      "Over half its length was neck, holding 72 vertebrae — more than any other animal known.",
+      "Over half its length was neck, holding 72 vertebrae, beaten only by its relative Albertonectes.",
   },
   {
     id: "maiasaura",
@@ -1117,7 +1121,7 @@ export const CREATURES: Creature[] = [
     lengthM: 6,
     diet: "herbivore",
     blurb:
-      "Its skull is among the largest of any land animal ever, approaching three metres from beak to the top of the frill.",
+      "Its skull is among the largest of any land animal ever, approaching two and a half metres from beak to the top of the frill.",
   },
   {
     id: "struthiomimus",
@@ -1167,7 +1171,7 @@ export const CREATURES: Creature[] = [
     id: "gallimimus",
     name: "Gallimimus",
     group: "theropod",
-    start: 74,
+    start: 72,
     end: 70,
     lengthM: 6,
     diet: "omnivore",
@@ -1216,7 +1220,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.5,
     diet: "carnivore",
     blurb:
-      "A small feathered raptor from southern France and Spain, named 'fire thief' for the red sandstone that yielded its first bones. It hunted the Late Cretaceous islands of ancient Europe.",
+      "A small feathered raptor from southern France and Spain, named 'fire thief' for the forest fire that laid bare its first bones. It hunted the Late Cretaceous islands of ancient Europe.",
   },
   {
     id: "carnotaurus",
@@ -1280,7 +1284,7 @@ export const CREATURES: Creature[] = [
     sauropodClade: "titanosaur",
     start: 70,
     end: 66,
-    lengthM: 12.8,
+    lengthM: 8.5,
     diet: "herbivore",
     blurb:
       "A small titanosaur whose skin was studded with bony plates — the discovery that showed sauropods could be armoured.",
@@ -1386,7 +1390,7 @@ export const CREATURES: Creature[] = [
     lengthM: 0.6,
     diet: "herbivore",
     blurb:
-      "The earliest horse: a dog-sized forest browser with four toes on each front foot, from the Eocene of North America. Every thoroughbred alive descends from something like it.",
+      "One of the earliest horses: a dog-sized forest browser with four toes on each front foot, from the Eocene of North America. Every thoroughbred alive descends from something like it.",
   },
   {
     id: "uintatherium",
@@ -1419,7 +1423,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.5,
     diet: "carnivore",
     blurb:
-      "A powerful hunter unrelated to any cat, dog or hyena alive today. It was a creodont — a group that held the top-predator role for tens of millions of years before modern carnivores displaced them.",
+      "A powerful hunter unrelated to any cat, dog or hyena alive today. It was a hyaenodont — a group that held the top-predator role for tens of millions of years before modern carnivores displaced them.",
   },
   {
     id: "basilosaurus",
@@ -1430,7 +1434,7 @@ export const CREATURES: Creature[] = [
     lengthM: 18,
     diet: "carnivore",
     blurb:
-      "A fully aquatic early whale that kept small, useless hind legs — a transitional form caught in the act.",
+      "A fully aquatic early whale that kept small, vestigial hind legs — a transitional form caught in the act.",
   },
   {
     id: "megacerops",
@@ -1442,7 +1446,7 @@ export const CREATURES: Creature[] = [
     lengthM: 5,
     diet: "herbivore",
     blurb:
-      "A brontothere as large as a big elephant, carrying a blunt Y-shaped horn of bone on its nose. Herds roamed the North American plains until volcanic upheaval ended them.",
+      "A brontothere as large as a big elephant, carrying a blunt Y-shaped horn of bone on its nose. Herds roamed the North American plains until the cooling and forest loss at the end of the Eocene ended them.",
   },
   {
     id: "mesohippus",
@@ -1487,7 +1491,7 @@ export const CREATURES: Creature[] = [
     lengthM: 8,
     diet: "herbivore",
     blurb:
-      "A hornless rhino relative standing five metres at the shoulder — the largest land mammal known.",
+      "A hornless rhino relative standing five metres at the shoulder — among the largest land mammals ever known.",
   },
   {
     id: "daeodon",
@@ -1521,7 +1525,7 @@ export const CREATURES: Creature[] = [
     lengthM: 18,
     diet: "carnivore",
     blurb:
-      "A shark with teeth the size of a hand. It went extinct several million years before any human existed.",
+      "A shark with teeth the size of a hand. It died out roughly a million years before the first members of our own genus appeared.",
   },
   {
     id: "aepycamelus",
@@ -1599,10 +1603,10 @@ export const CREATURES: Creature[] = [
     group: "theropod",
     start: 5,
     end: 1.8,
-    lengthM: 2.5,
+    lengthM: 1.8,
     diet: "carnivore",
     blurb:
-      "A flightless 'terror bird' two and a half metres tall that hunted on foot in Florida and Texas. Birds are dinosaurs — so a dinosaur was still stalking North America barely two million years ago.",
+      "A flightless 'terror bird' up to two metres tall that hunted on foot in Florida and Texas. Birds are dinosaurs — so a dinosaur was still stalking North America barely two million years ago.",
   },
   {
     id: "australopithecus",
@@ -1637,7 +1641,7 @@ export const CREATURES: Creature[] = [
     lengthM: 2,
     diet: "herbivore",
     blurb:
-      "A beaver the size of a black bear and nearly two and a half metres long. Despite the bulk, its teeth suggest it grazed aquatic plants rather than felling trees like its modern relatives.",
+      "A beaver the size of a black bear and close to two metres long. Despite the bulk, its teeth suggest it grazed aquatic plants rather than felling trees like its modern relatives.",
   },
   {
     id: "smilodon",
@@ -1661,7 +1665,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.2,
     diet: "omnivore",
     blurb:
-      "The earliest widely accepted member of our own genus, named “handy man” for the stone tools found beside it. Its brain was half the size of ours and its arms still long enough for climbing.",
+      "One of the earliest named species in our own genus, named “handy man” for the stone tools found beside it. Its brain was half the size of ours and its arms still long enough for climbing.",
   },
   {
     id: "homo-erectus",
@@ -1695,7 +1699,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.75,
     diet: "omnivore",
     blurb:
-      "A tall, heavily built hominin that hunted big game with wooden spears. It is the best candidate for the common ancestor of both Neanderthals and ourselves.",
+      "A tall, heavily built hominin that hunted big game with wooden spears. It was long taken for the common ancestor of both Neanderthals and ourselves, though that is now disputed.",
   },
   {
     id: "homo-neanderthalensis",
@@ -1707,7 +1711,7 @@ export const CREATURES: Creature[] = [
     lengthM: 1.65,
     diet: "omnivore",
     blurb:
-      "Cold-adapted, barrel-chested and bigger-brained than us. They buried their dead and made pigments and ornaments — and most people alive outside Africa carry a little of their DNA.",
+      "Cold-adapted, barrel-chested and bigger-brained than us. They buried their dead and made pigments and ornaments — and everyone alive outside Africa carries a little of their DNA.",
   },
   {
     id: "mammuthus-primigenius",
@@ -1969,11 +1973,15 @@ export const CREATURES: Creature[] = [
       "A lizard-shaped diapsid from South Africa, close to the ancestry of every later reptile; several were found curled together inside one burrow.",
   },
   {
+    // check-dates flags this against PBDB (264.28–256.8). Deliberate: it is
+    // known only from Sokolki, whose fauna — Inostrancevia, Scutosaurus — this
+    // file already dates to 255–252. Matching PBDB would put it 5 My away from
+    // the animals it was buried with.
     id: "dvinia",
     name: "Dvinia prima",
     group: "synapsid",
-    start: 259,
-    end: 257,
+    start: 254,
+    end: 252,
     lengthM: 0.5,
     diet: "carnivore",
     minor: true,
@@ -2026,7 +2034,7 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     minor: true,
     blurb:
-      "A Triassic reptile whose stiff neck was longer than its body and tail combined, probably used to snatch fish from the water's edge.",
+      "A Triassic reptile whose stiff neck was longer than its body and tail combined, and it hunted in the water rather than dipping in from the shore, as older reconstructions had it.",
   },
   {
     id: "cymbospondylus",
@@ -2083,7 +2091,7 @@ export const CREATURES: Creature[] = [
     sauropodClade: "basal",
     start: 215,
     end: 205,
-    lengthM: 10,
+    lengthM: 6.6,
     diet: "herbivore",
     minor: true,
     blurb:
@@ -2250,8 +2258,8 @@ export const CREATURES: Creature[] = [
     id: "gastonia",
     name: "Gastonia",
     group: "ornithischian",
-    start: 126,
-    end: 122,
+    start: 139,
+    end: 135,
     lengthM: 5,
     diet: "herbivore",
     minor: true,
@@ -2293,7 +2301,7 @@ export const CREATURES: Creature[] = [
     diet: "herbivore",
     minor: true,
     blurb:
-      "A medium-sized ornithopod best known as the likely prey of packs of Deinonychus, whose teeth litter its bone sites.",
+      "A medium-sized ornithopod best known as the likely prey of Deinonychus, whose teeth litter its bone sites.",
   },
   {
     id: "anhanguera",
@@ -2342,7 +2350,7 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     minor: true,
     blurb:
-      "A long-necked elasmosaur whose neck alone held more than forty vertebrae, trailing behind it like a living fishing line.",
+      "A long-necked elasmosaur whose neck alone held more than sixty vertebrae, trailing behind it like a living fishing line.",
   },
   {
     id: "gorgosaurus",
@@ -2463,7 +2471,7 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     minor: true,
     blurb:
-      "The earliest known tyrannosauroid, a small crested Jurassic predator from England — the tyrant lineage began at house-cat scale.",
+      "One of the earliest known tyrannosauroids, a crested Jurassic predator from England — the tyrant lineage began at roughly the size of a wolf.",
   },
   {
     id: "afrovenator",
@@ -2496,7 +2504,7 @@ export const CREATURES: Creature[] = [
     start: 154,
     end: 150,
     lengthM: 6,
-    diet: "carnivore",
+    diet: "omnivore",
     minor: true,
     blurb:
       "A slender, long-legged Late Jurassic ceratosaur from Tanzania, built for speed rather than raw power.",
@@ -2583,7 +2591,7 @@ export const CREATURES: Creature[] = [
     diet: "omnivore",
     minor: true,
     blurb:
-      "A giant feathered oviraptorosaur from Mongolia, as tall as a giraffe yet built like an enormous beaked bird.",
+      "A giant feathered oviraptorosaur from Inner Mongolia, China, as tall as a giraffe yet built like an enormous beaked bird.",
   },
   {
     id: "citipati",
@@ -2783,13 +2791,13 @@ export const CREATURES: Creature[] = [
     name: "Patagosaurus",
     group: "sauropodomorph",
     sauropodClade: "sauropod",
-    start: 170,
-    end: 165,
+    start: 179,
+    end: 178,
     lengthM: 15,
     diet: "herbivore",
     minor: true,
     blurb:
-      "A Middle Jurassic sauropod from Argentina, one of the oldest well-known members of the group in the southern continents.",
+      "An Early Jurassic sauropod from Argentina, one of the oldest well-known members of the group in the southern continents.",
   },
   {
     id: "giraffatitan",
@@ -2835,13 +2843,13 @@ export const CREATURES: Creature[] = [
     name: "Jobaria",
     group: "sauropodomorph",
     sauropodClade: "sauropod",
-    start: 135,
-    end: 130,
+    start: 167,
+    end: 161,
     lengthM: 18,
     diet: "herbivore",
     minor: true,
     blurb:
-      "A stocky Saharan sauropod with a surprisingly simple, primitive build for its relatively late Cretaceous age.",
+      "A stocky Saharan sauropod, long thought oddly primitive for its age until the rocks that yielded it were redated from the Cretaceous back into the Middle Jurassic.",
   },
   {
     id: "rapetosaurus",
@@ -3095,7 +3103,7 @@ export const CREATURES: Creature[] = [
     diet: "carnivore",
     minor: true,
     blurb:
-      "A crow-sized Cretaceous shark and habitual scavenger; its teeth turn up bitten into almost everything, dinosaurs included.",
+      "A five-metre Cretaceous shark and habitual scavenger; its teeth turn up bitten into almost everything, dinosaurs included.",
   },
   {
     id: "ptychodus",
@@ -3139,7 +3147,7 @@ export const CREATURES: Creature[] = [
     group: "synapsid",
     start: 279,
     end: 272,
-    lengthM: 6,
+    lengthM: 4,
     diet: "herbivore",
     minor: true,
     blurb:
@@ -3185,8 +3193,8 @@ export const CREATURES: Creature[] = [
     id: "pinacosaurus",
     name: "Pinacosaurus",
     group: "ornithischian",
-    start: 80,
-    end: 75,
+    start: 75,
+    end: 71,
     lengthM: 5,
     diet: "herbivore",
     minor: true,
@@ -3233,13 +3241,13 @@ export const CREATURES: Creature[] = [
     id: "homo-antecessor",
     name: "Homo antecessor",
     group: "hominin",
-    start: 1.2,
-    end: 0.8,
+    start: 0.86,
+    end: 0.77,
     lengthM: 1.7,
     diet: "omnivore",
     minor: true,
     blurb:
-      "The earliest known hominin in western Europe, from Atapuerca in Spain. Cut marks on its bones are among the oldest evidence of cannibalism anywhere.",
+      "One of the earliest known Europeans, from Atapuerca in Spain — older fossils from the same hills have since been assigned to a more primitive wave of arrivals. Cut marks on its bones are among the oldest evidence of cannibalism anywhere.",
   },
   {
     id: "saurichthys",

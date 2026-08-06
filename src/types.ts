@@ -69,7 +69,12 @@ export interface Creature extends Interval {
    * without the default landing chart becoming an unreadable wall of bars.
    */
   minor?: boolean;
-  /** Approximate body length in metres. Used for the size comparison. */
+  /**
+   * Approximate body length in metres — except for pterosaurs, where it is the
+   * WINGSPAN. That is the measure every museum and source quotes for them, and
+   * the only one that conveys anything about Quetzalcoatlus; `DetailPanel`
+   * labels the field accordingly rather than claiming an 11-metre-long animal.
+   */
   lengthM?: number;
   diet: "carnivore" | "herbivore" | "omnivore" | "insectivore" | "filter-feeder";
   /** One or two sentences pitched at a general audience. */

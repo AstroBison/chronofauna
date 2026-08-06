@@ -4628,7 +4628,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         39
       ]
     ],
-    "mapAge": 120,
+    "mapAge": 145,
     "countries": [
       "CN",
       "MN"
@@ -13623,6 +13623,10 @@ export const OCCURRENCES: Record<string, Occurrence> = {
       [
         6,
         52
+      ],
+      [
+        10,
+        45
       ]
     ],
     "mapAge": 0,
@@ -13634,6 +13638,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
       "ES",
       "GR",
       "HU",
+      "IT",
       "KZ",
       "MX",
       "NL",
@@ -13642,7 +13647,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
       "UK",
       "US"
     ],
-    "siteCount": 76
+    "siteCount": 77
   },
   "homo-sapiens": {
     "points": [
@@ -15918,7 +15923,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         46
       ]
     ],
-    "mapAge": 120,
+    "mapAge": 145,
     "countries": [
       "US"
     ],
@@ -18104,7 +18109,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         -2
       ]
     ],
-    "mapAge": 120,
+    "mapAge": 170,
     "countries": [
       "NE"
     ],
@@ -21512,7 +21517,7 @@ export const OCCURRENCES: Record<string, Occurrence> = {
         38
       ]
     ],
-    "mapAge": 80,
+    "mapAge": 66,
     "countries": [
       "CN",
       "MN"

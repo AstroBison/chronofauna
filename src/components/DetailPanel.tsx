@@ -96,7 +96,13 @@ export function DetailPanel({
         </div>
         {creature.lengthM !== undefined && (
           <div>
-            <dt>Length</dt>
+            {/*
+              Pterosaurs are measured across the wings, not nose to tail. That is
+              the figure every museum and source quotes, and the only one that
+              makes Quetzalcoatlus mean anything — but labelling it "Length" was
+              claiming an 11-metre-long animal, which it was not.
+            */}
+            <dt>{creature.group === "pterosaur" ? "Wingspan" : "Length"}</dt>
             <dd>{creature.lengthM} m</dd>
           </div>
         )}
