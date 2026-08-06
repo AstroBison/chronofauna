@@ -1,19 +1,23 @@
 # Progress & open work
 
-Snapshot at the end of the first build session. Everything below was verified in
-a browser against the running app, not inferred — figures are measured.
+Figures here are measured against the running app, not inferred. The per-issue
+sections below are dated by their content; this header is current.
 
-**State: working and green.** `npm run typecheck`, `npm test` (33 tests) and
+**State: working and green.** `npm run typecheck`, `npm test` (35 tests) and
 `npm run build` all pass; no console errors on a clean load in either theme.
 
 ## Where things got to
 
-An interactive deep-time chart, Permian → today, 104 species. Each animal is a
-hairline rule spanning its lifespan, with its name above it. Species are blocked
-into five families (mammal line, other reptiles, dinosaurs, pterosaurs, sea
-creatures); colour carries the finer ten-group distinction. Clicking an animal
-highlights everything that overlapped it. Silhouettes throughout, from PhyloPic.
-Light and dark themes.
+An interactive deep-time chart, Permian → today, **278 species** — 155 shown by
+default, the rest behind a "Show all" toggle so the landing chart stays legible.
+Each animal is a hairline rule spanning its lifespan, with its name above it.
+Species are blocked into **six families** (mammal line, amphibians, other
+reptiles, dinosaurs, pterosaurs, sea creatures); colour carries the finer
+eleven-group distinction. Clicking an animal highlights everything that
+overlapped it, and shows its real fossil sites on a reconstruction of the world
+as it was. The two mass extinctions have their own clickable line under the
+axis. Silhouettes throughout, from PhyloPic. Light and dark themes, and the
+chart pans and pinch-zooms on touch.
 
 See [CLAUDE.md](CLAUDE.md) for architecture and the constraints worth not
 breaking — particularly the reversed-time convention, the layout trade-offs that
@@ -22,8 +26,8 @@ were measured rather than guessed, and the ICS colour rules.
 ## Added since: palaeogeography map
 
 Clicking an animal now shows its fossil sites on a reconstruction of the world
-as it was — GPlates coastlines plus real Paleobiology Database occurrences, all
-104 species covered. See CLAUDE.md for the constraints. Follow-ups not done:
+as it was — GPlates coastlines plus real Paleobiology Database occurrences, with
+every species covered (a test enforces it). See CLAUDE.md for the constraints. Follow-ups not done:
 
 - The map has no zoom or hover detail; a dot cluster is one blob with no way to
   ask what it is.
@@ -78,8 +82,9 @@ blurbs are readable as text rather than hover-only.
 
 ### 1. Remaining accessibility gaps
 
-- **43 tab stops before the chart**, 28 of them axis period bands. Consider
-  making the axis a single focus group, or adding a skip link.
+- **49 tab stops before the first animal**, 28 of them axis period bands
+  (re-measured; it was 43 before the species count grew). Consider making the
+  axis a single focus group, or adding a skip link.
 - No arrow-key movement between bars.
 - Focus is not moved into the detail panel when it opens, nor restored on close.
 
@@ -146,9 +151,10 @@ data. It is the riskiest untested code in the project.
 
 ### Lower priority
 
-- 41 of 104 species are unlabelled at default zoom. The staggered-label idea
-  (alternating above/below the rule) roughly doubles the horizontal budget and
-  was never built.
+- **88 of 155 species are unlabelled at default zoom** (measured at ~850px; it
+  was 41 of 104 before the data grew, so this has got worse as species were
+  added). The staggered-label idea — alternating above/below the rule — roughly
+  doubles the horizontal budget and was never built.
 - No error boundary.
 - No URL state — a species or zoom level cannot be linked to or shared.
 - Search matches genus and common name only, not group or description.
@@ -158,25 +164,37 @@ data. It is the riskiest untested code in the project.
 
 ## The one thing that is not a code problem
 
-**The dates have never been checked by anyone who knows the subject.** They are
-rounded consensus estimates drawn from the assistant's own knowledge, and while
-the site discloses this in its "About the data & artwork" panel, that disclosure
-is not a substitute for review. For anything going in front of students this is
-the highest risk item in the project, and no amount of UI work reduces it.
+**The data has been checked once by literature review, never by an expert.**
 
-Seventeen silhouettes are stand-ins showing a close relative rather than the
-named genus (Quetzalcoatlus → *Azhdarcho*, and sixteen others). Those are
+Two automated guards exist. `npm run check-dates` cross-checks every range
+against the Paleobiology Database's occurrence record; 15 ranges are currently
+flagged, each recorded with a reason, and two of those deliberately disagree
+with PBDB and carry comments in `creatures.ts` saying why. That guard only
+checks ranges — it cannot tell you a blurb is true, a length is right, or a
+genus is validly named.
+
+A four-pass literature fact-check covered all 278 species on five axes
+(taxonomic validity, dates, size, group, and the factual claims in each blurb)
+and produced **61 corrections**. What it caught is the useful measure of how
+much risk was sitting there unexamined:
+
+- A **systematic** error across all 16 pterosaurs — `lengthM` held wingspan
+  while the panel labelled it "Length", so Quetzalcoatlus claimed to be an
+  11-metre-long animal.
+- Four places the file **contradicted itself**: Jobaria dated 30 My from
+  Afrovenator of the same formation, Gastonia 13 My from Utahraptor of the same
+  member, and two blurbs asserting sizes their own `lengthM` denied.
+- **Refuted claims presented as fact** — Diplodocus' supersonic tail, Deinonychus
+  pack-hunting, Elasmosaurus' vertebra record, Pyroraptor's etymology.
+- Body sizes off by large factors, including one that was the animal's **leg
+  length** transcribed as its body length.
+
+What that does *not* establish is that the remaining data is right. The review
+was one pass, and its dinosaur leg explicitly listed ~30 rows it judged from its
+own knowledge without external confirmation. Expert review is still the only
+thing that covers blurb truth, size accuracy and taxonomic validity — this pass
+makes that review cheaper, not unnecessary.
+
+Twenty-eight silhouettes are stand-ins showing a close relative rather than the
+named genus (Quetzalcoatlus → *Azhdarcho*, and twenty-seven others). Those are
 taxonomically sound and disclosed per-animal in the detail panel.
-
-The 51 Mesozoic species added later carry the same caveat, and multiply it.
-
-Partly mitigated since: `npm run check-dates` cross-checks every range against
-the Paleobiology Database. It found 18 ranges outside the fossil record's
-envelope, of which eight had clear enough evidence to correct — Microraptor,
-Amargasaurus, Utahraptor, Kronosaurus, Patagotitan, Andrewsarchus, Tapejara and
-Tropeognathus, the worst 5.5 My out. Five remain flagged and are recorded there
-with reasons; the rest were rounding noise under 1 My.
-
-This checks ranges against occurrence records. It does not check that a blurb is
-true, that a length is right, or that a genus is validly named. Expert review is
-still the only thing that covers those.
